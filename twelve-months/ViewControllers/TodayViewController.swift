@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TodayViewController.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 15.12.19.
@@ -8,16 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TodayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let plants = Bundle.main.decode([Plant].self, from: "plants.json")
-        print(plants)
-        print(Month.allCases)
-        print(Month.current)
-        
+        let countries = Bundle.main.decode([Country].self, from: "countries.json")
     }
 
 }

@@ -4,9 +4,7 @@
         "name": "Apple",
         "availability": [
             {
-                "regions": [
-                    "Central Europe"
-                ],
+                "region": "Western Europe",
                 "stored": [
                     "January",
                     "February",
@@ -27,9 +25,7 @@
         "name": "Tomato",
         "availability": [
             {
-                "regions": [
-                    "Central Europe"
-                ],
+                "region": "Western Europe",
                 "fresh": [
                     "August",
                     "October",

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Availability: Decodable {
-    var regions: [Region]
+    var region: Region
     var stored: [Month]?
     var fresh: [Month]?
 }
