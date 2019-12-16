@@ -13,3 +13,4 @@ struct Availability: Decodable {
     var storage: [Month]?
     var fresh: [Month]?
 }
+

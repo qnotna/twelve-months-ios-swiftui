@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let plants = Bundle.main.decode(file: "plants.json")
+        let plants = Bundle.main.decode([Plant].self, from: "plants.json")
         print(plants)
     }
     
