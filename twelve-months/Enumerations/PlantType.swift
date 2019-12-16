@@ -9,6 +9,8 @@
 import Foundation
 
 enum PlantType: String, Decodable {
+    
     case fruit = "Fruit"
     case vegetable = "Vegetable"
+    
 }

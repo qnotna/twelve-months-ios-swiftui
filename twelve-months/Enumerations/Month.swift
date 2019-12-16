@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum Month: String, Decodable {
+enum Month: String, Decodable, CaseIterable {
+    
     case january = "January"
     case february = "February"
     case march = "March"
@@ -21,4 +22,13 @@ enum Month: String, Decodable {
     case october = "October"
     case november = "November"
     case december = "December"
+    
+    static var current: Month = {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let month = dateFormatter.string(from: now)
+        return Month(rawValue: month)!
+    }()
+    
 }

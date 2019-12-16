@@ -7,7 +7,7 @@
                 "regions": [
                     "Central Europe"
                 ],
-                "storage": [
+                "stored": [
                     "January",
                     "February",
                     "March",
@@ -32,7 +32,8 @@
                 ],
                 "fresh": [
                     "August",
-                    "October"
+                    "October",
+                    "December"
                 ]
             }
         ]
