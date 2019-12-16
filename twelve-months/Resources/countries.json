@@ -1,0 +1,998 @@
+[
+  {
+    "region": "Northern Africa",
+    "name": "Algeria"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Egypt"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Libya"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Morocco"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Sudan"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Tunisia"
+  },
+  {
+    "region": "Northern Africa",
+    "name": "Western Sahara"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "British Indian Ocean Territory"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Burundi"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Comoros"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Djibouti"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Eritrea"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Ethiopia"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "French Southern Territories"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Kenya"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Madagascar"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Malawi"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Mauritius"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Mayotte"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Mozambique"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Réunion"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Rwanda"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Seychelles"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Somalia"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "South Sudan"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Uganda"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "United Republic of Tanzania"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Zambia"
+  },
+  {
+    "region": "Eastern Africa",
+    "name": "Zimbabwe"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Angola"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Cameroon"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Central African Republic"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Chad"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Congo"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Democratic Republic of the Congo"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Equatorial Guinea"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Gabon"
+  },
+  {
+    "region": "Middle Africa",
+    "name": "Sao Tome & Principe"
+  },
+  {
+    "region": "Southern Africa",
+    "name": "Botswana"
+  },
+  {
+    "region": "Southern Africa",
+    "name": "Eswatini"
+  },
+  {
+    "region": "Southern Africa",
+    "name": "Lesotho"
+  },
+  {
+    "region": "Southern Africa",
+    "name": "Namibia"
+  },
+  {
+    "region": "Southern Africa",
+    "name": "South Africa"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Benin"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Burkina Faso"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Cabo Verde"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Côte d’Ivoire"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Gambia"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Ghana"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Guinea"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Guinea-Bissau"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Liberia"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Mali"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Mauritania"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Niger"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Nigeria"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Saint Helena"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Senegal"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Sierra Leone"
+  },
+  {
+    "region": "Western Africa",
+    "name": "Togo"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Anguilla"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Antigua & Barbuda"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Aruba"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Bahamas"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Barbados"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Bonaire"
+  },
+  {
+    "region": "Caribbean",
+    "name": "British Virgin Islands"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Cayman Islands"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Cuba"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Curaçao"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Dominica"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Dominican Republic"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Grenada"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Guadeloupe"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Haiti"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Jamaica"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Martinique"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Montserrat"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Puerto Rico"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Saint Barthélemy"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Saint Kitts & Nevis"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Saint Lucia"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Saint Martin (French Part)"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Saint Vincent & the Grenadines"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Sint Maarten (Dutch part)"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Trinidad & Tobago"
+  },
+  {
+    "region": "Caribbean",
+    "name": "Turks & Caicos Islands"
+  },
+  {
+    "region": "Caribbean",
+    "name": "United States Virgin Islands"
+  },
+  {
+    "region": "Central America",
+    "name": "Belize"
+  },
+  {
+    "region": "Central America",
+    "name": "Costa Rica"
+  },
+  {
+    "region": "Central America",
+    "name": "El Salvador"
+  },
+  {
+    "region": "Central America",
+    "name": "Guatemala"
+  },
+  {
+    "region": "Central America",
+    "name": "Honduras"
+  },
+  {
+    "region": "Central America",
+    "name": "Mexico"
+  },
+  {
+    "region": "Central America",
+    "name": "Nicaragua"
+  },
+  {
+    "region": "Central America",
+    "name": "Panama"
+  },
+  {
+    "region": "South America",
+    "name": "Argentina"
+  },
+  {
+    "region": "South America",
+    "name": "Bolivia (Plurinational State of)"
+  },
+  {
+    "region": "South America",
+    "name": "Bouvet Island"
+  },
+  {
+    "region": "South America",
+    "name": "Brazil"
+  },
+  {
+    "region": "South America",
+    "name": "Chile"
+  },
+  {
+    "region": "South America",
+    "name": "Colombia"
+  },
+  {
+    "region": "South America",
+    "name": "Ecuador"
+  },
+  {
+    "region": "South America",
+    "name": "Falkland Islands (Malvinas)"
+  },
+  {
+    "region": "South America",
+    "name": "French Guiana"
+  },
+  {
+    "region": "South America",
+    "name": "Guyana"
+  },
+  {
+    "region": "South America",
+    "name": "Paraguay"
+  },
+  {
+    "region": "South America",
+    "name": "Peru"
+  },
+  {
+    "region": "South America",
+    "name": "South Georgia & the South Sandwich Islands"
+  },
+  {
+    "region": "South America",
+    "name": "Suriname"
+  },
+  {
+    "region": "South America",
+    "name": "Uruguay"
+  },
+  {
+    "region": "South America",
+    "name": "Venezuela (Bolivarian Republic of)"
+  },
+  {
+    "region": "Northern America",
+    "name": "Bermuda"
+  },
+  {
+    "region": "Northern America",
+    "name": "Canada"
+  },
+  {
+    "region": "Northern America",
+    "name": "Greenland"
+  },
+  {
+    "region": "Northern America",
+    "name": "Saint Pierre & Miquelon"
+  },
+  {
+    "region": "Northern America",
+    "name": "United States of America"
+  },
+  {
+    "region": "Antarctica",
+    "name": "Antarctica"
+  },
+  {
+    "region": "Central Asia",
+    "name": "Kazakhstan"
+  },
+  {
+    "region": "Central Asia",
+    "name": "Kyrgyzstan"
+  },
+  {
+    "region": "Central Asia",
+    "name": "Tajikistan"
+  },
+  {
+    "region": "Central Asia",
+    "name": "Turkmenistan"
+  },
+  {
+    "region": "Central Asia",
+    "name": "Uzbekistan"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "China"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "China"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "China"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "Democratic People's Republic of Korea"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "Japan"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "Mongolia"
+  },
+  {
+    "region": "Eastern Asia",
+    "name": "Republic of Korea"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Brunei Darussalam"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Cambodia"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Indonesia"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Lao People's Democratic Republic"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Malaysia"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Myanmar"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Philippines"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Singapore"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Thailand"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Timor-Leste"
+  },
+  {
+    "region": "South-eastern Asia",
+    "name": "Viet Nam"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Afghanistan"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Bangladesh"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Bhutan"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "India"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Iran (Islamic Republic of)"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Maldives"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Nepal"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Pakistan"
+  },
+  {
+    "region": "Southern Asia",
+    "name": "Sri Lanka"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Armenia"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Azerbaijan"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Bahrain"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Cyprus"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Georgia"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Iraq"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Israel"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Jordan"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Kuwait"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Lebanon"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Oman"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Qatar"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Saudi Arabia"
+  },
+  {
+    "region": "Western Asia",
+    "name": "State of Palestine"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Syrian Arab Republic"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Turkey"
+  },
+  {
+    "region": "Western Asia",
+    "name": "United Arab Emirates"
+  },
+  {
+    "region": "Western Asia",
+    "name": "Yemen"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Belarus"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Bulgaria"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Czechia"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Hungary"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Poland"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Republic of Moldova"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Romania"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Russian Federation"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Slovakia"
+  },
+  {
+    "region": "Eastern Europe",
+    "name": "Ukraine"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Åland Islands"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Guernsey"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Jersey"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Sark"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Denmark"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Estonia"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Faroe Islands"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Finland"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Iceland"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Ireland"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Isle of Man"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Latvia"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Lithuania"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Norway"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Svalbard & Jan Mayen Islands"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "Sweden"
+  },
+  {
+    "region": "Northern Europe",
+    "name": "United Kingdom of Great Britain & Northern Ireland"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Albania"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Andorra"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Bosnia & Herzegovina"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Croatia"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Gibraltar"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Greece"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Holy See"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Italy"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Malta"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Montenegro"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "North Macedonia"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Portugal"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "San Marino"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Serbia"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Slovenia"
+  },
+  {
+    "region": "Southern Europe",
+    "name": "Spain"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Austria"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Belgium"
+  },
+  {
+    "region": "Western Europe",
+    "name": "France"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Germany"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Liechtenstein"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Luxembourg"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Monaco"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Netherlands"
+  },
+  {
+    "region": "Western Europe",
+    "name": "Switzerland"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "Australia"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "Christmas Island"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "Cocos (Keeling) Islands"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "Heard Island & McDonald Islands"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "New Zealand"
+  },
+  {
+    "region": "Australia & New Zealand",
+    "name": "Norfolk Island"
+  },
+  {
+    "region": "Melanesia",
+    "name": "Fiji"
+  },
+  {
+    "region": "Melanesia",
+    "name": "New Caledonia"
+  },
+  {
+    "region": "Melanesia",
+    "name": "Papua New Guinea"
+  },
+  {
+    "region": "Melanesia",
+    "name": "Solomon Islands"
+  },
+  {
+    "region": "Melanesia",
+    "name": "Vanuatu"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Guam"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Kiribati"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Marshall Islands"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Micronesia (Federated States of)"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Nauru"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Northern Mariana Islands"
+  },
+  {
+    "region": "Micronesia",
+    "name": "Palau"
+  },
+  {
+    "region": "Micronesia",
+    "name": "United States Minor Outlying Islands"
+  },
+  {
+    "region": "Polynesia",
+    "name": "American Samoa"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Cook Islands"
+  },
+  {
+    "region": "Polynesia",
+    "name": "French Polynesia"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Niue"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Pitcairn"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Samoa"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Tokelau"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Tonga"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Tuvalu"
+  },
+  {
+    "region": "Polynesia",
+    "name": "Wallis & Futuna Islands"
+  }
+]

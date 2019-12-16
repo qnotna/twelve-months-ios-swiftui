@@ -23,12 +23,12 @@ enum Month: String, Decodable, CaseIterable {
     case november = "November"
     case december = "December"
     
-    static var current: Month = {
+    static var current: Month {
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
         let month = dateFormatter.string(from: now)
         return Month(rawValue: month)!
-    }()
+    }
     
 }
