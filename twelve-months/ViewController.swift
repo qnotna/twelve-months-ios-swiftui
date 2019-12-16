@@ -12,9 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let plants = Bundle.main.decode(file: "plants.json")
+        print(plants)
     }
-
-
+    
 }
 

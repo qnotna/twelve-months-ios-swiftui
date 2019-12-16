@@ -1,0 +1,40 @@
+[
+    {
+        "type": "Fruit",
+        "name": "Apple",
+        "availability": [
+            {
+                "regions": [
+                    "Central Europe"
+                ],
+                "storage": [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "December"
+                ],
+                "fresh": [
+                    "August",
+                    "October",
+                    "November"
+                ]
+            }
+        ]
+    },
+    {
+        "type": "Vegetable",
+        "name": "Tomato",
+        "availability": [
+            {
+                "regions": [
+                    "Central Europe"
+                ],
+                "fresh": [
+                    "August",
+                    "October"
+                ]
+            }
+        ]
+    }
+]
