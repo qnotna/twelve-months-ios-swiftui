@@ -1,5 +1,5 @@
 //
-//  PlantType.swift
+//  FoodType.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 15.12.19.
@@ -8,9 +8,10 @@
 
 import Foundation
 
-enum PlantType: String, Decodable {
+enum FoodType: String, Decodable {
     
     case fruit = "Fruit"
     case vegetable = "Vegetable"
+    case other =  "Only fruits and vegetables are supported at this time."
     
 }
