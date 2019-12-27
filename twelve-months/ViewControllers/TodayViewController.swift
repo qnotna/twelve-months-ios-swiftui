@@ -7,14 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TodayViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let plants = Bundle.main.decode([Plant].self, from: "plants.json")
-        let countries = Bundle.main.decode([Country].self, from: "countries.json")
-    }
-
+    
 }
