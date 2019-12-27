@@ -14,31 +14,30 @@ class AnywhereViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var mapDidShowUserLocationOnce = false
     var locationManager = CLLocationManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.showsUserLocation = true
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last! as CLLocation
-        show(user: location)
-        country(from: location)
+        if let location = locations.last {
+            //  let location = locations.last! as CLLocation
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+            if !mapDidShowUserLocationOnce {
+                self.mapView.setRegion(region, animated: true)
+                mapDidShowUserLocationOnce.toggle()
+            }
+        }
     }
     
-    func show(user location: CLLocation) {
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 50, longitudeDelta: 50))
-        self.mapView.setRegion(region, animated: true)
-        print("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
     }
-    
-    func country(from location: CLLocation) {
-        
-    }
-
 }

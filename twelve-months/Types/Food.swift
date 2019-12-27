@@ -1,5 +1,5 @@
 //
-//  Plant.swift
+//  Food.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 15.12.19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Plant: Decodable {
-    var type: PlantType
+struct Food: Decodable {
+    var type: FoodType
     var name: String
     var availability: [Availability]
     var footprint: Int?

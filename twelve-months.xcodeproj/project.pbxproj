@@ -13,17 +13,15 @@
 		BF1CB12123A6E46100F8A5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB11F23A6E46100F8A5C9 /* Main.storyboard */; };
 		BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */; };
 		BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12423A6E46300F8A5C9 /* LaunchScreen.storyboard */; };
-		BF47CBC423A6E63600386A87 /* plants.json in Resources */ = {isa = PBXBuildFile; fileRef = BF47CBC323A6E63600386A87 /* plants.json */; };
-		BF47CBC723A6EA8200386A87 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Plant.swift */; };
-		BF47CBC923A6EAB100386A87 /* PlantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* PlantType.swift */; };
+		BF47CBC423A6E63600386A87 /* foods.json in Resources */ = {isa = PBXBuildFile; fileRef = BF47CBC323A6E63600386A87 /* foods.json */; };
+		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
+		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
-		BF47CBCF23A6EC0C00386A87 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCE23A6EC0C00386A87 /* Region.swift */; };
+		BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCE23A6EC0C00386A87 /* RegionType.swift */; };
 		BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD023A6EC7C00386A87 /* Availability.swift */; };
 		BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD223A6F5BB00386A87 /* BundleDecodable.swift */; };
-		BF50CBCC23A7E79B00980B2B /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = BF50CBCB23A7E79B00980B2B /* countries.json */; };
-		BF50CBCE23A7E82A00980B2B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBCD23A7E82A00980B2B /* Country.swift */; };
-		BF50CBD623A7FDA400980B2B /* ManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBD523A7FDA400980B2B /* ManagerDelegate.swift */; };
-		BF50CBDA23A7FE1E00980B2B /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBD923A7FE1E00980B2B /* Manager.swift */; };
+		BF50CBCC23A7E79B00980B2B /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = BF50CBCB23A7E79B00980B2B /* regions.json */; };
+		BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBCD23A7E82A00980B2B /* Region.swift */; };
 		BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */; };
 		BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,17 +35,15 @@
 		BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1CB12523A6E46300F8A5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1CB12723A6E46300F8A5C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF47CBC323A6E63600386A87 /* plants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plants.json; sourceTree = "<group>"; };
-		BF47CBC623A6EA8200386A87 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		BF47CBC823A6EAB100386A87 /* PlantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantType.swift; sourceTree = "<group>"; };
+		BF47CBC323A6E63600386A87 /* foods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foods.json; sourceTree = "<group>"; };
+		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
-		BF47CBCE23A6EC0C00386A87 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		BF47CBCE23A6EC0C00386A87 /* RegionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionType.swift; sourceTree = "<group>"; };
 		BF47CBD023A6EC7C00386A87 /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
 		BF47CBD223A6F5BB00386A87 /* BundleDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDecodable.swift; sourceTree = "<group>"; };
-		BF50CBCB23A7E79B00980B2B /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
-		BF50CBCD23A7E82A00980B2B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		BF50CBD523A7FDA400980B2B /* ManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDelegate.swift; sourceTree = "<group>"; };
-		BF50CBD923A7FE1E00980B2B /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		BF50CBCB23A7E79B00980B2B /* regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
+		BF50CBCD23A7E82A00980B2B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnywhereViewController.swift; sourceTree = "<group>"; };
 		BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				BF7E5F0A23A7CA7500F6D211 /* ViewControllers */,
-				BF50CBD823A7FE0C00980B2B /* Managers */,
-				BF50CBD723A7FDD300980B2B /* Delegates */,
 				BF7E5F0B23A7CA8600F6D211 /* Extensions */,
 				BF47CBCD23A6EBDC00386A87 /* Types */,
 				BF2A600723A6FAB2009A6F8F /* Enumerations */,
@@ -102,9 +96,9 @@
 		BF2A600723A6FAB2009A6F8F /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
-				BF47CBC823A6EAB100386A87 /* PlantType.swift */,
+				BF47CBC823A6EAB100386A87 /* FoodType.swift */,
 				BF47CBCA23A6EB0D00386A87 /* Month.swift */,
-				BF47CBCE23A6EC0C00386A87 /* Region.swift */,
+				BF47CBCE23A6EC0C00386A87 /* RegionType.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -112,8 +106,8 @@
 		BF47CBC523A6E64200386A87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BF47CBC323A6E63600386A87 /* plants.json */,
-				BF50CBCB23A7E79B00980B2B /* countries.json */,
+				BF47CBC323A6E63600386A87 /* foods.json */,
+				BF50CBCB23A7E79B00980B2B /* regions.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -121,27 +115,11 @@
 		BF47CBCD23A6EBDC00386A87 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				BF47CBC623A6EA8200386A87 /* Plant.swift */,
+				BF47CBC623A6EA8200386A87 /* Food.swift */,
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
-				BF50CBCD23A7E82A00980B2B /* Country.swift */,
+				BF50CBCD23A7E82A00980B2B /* Region.swift */,
 			);
 			path = Types;
-			sourceTree = "<group>";
-		};
-		BF50CBD723A7FDD300980B2B /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				BF50CBD523A7FDA400980B2B /* ManagerDelegate.swift */,
-			);
-			path = Delegates;
-			sourceTree = "<group>";
-		};
-		BF50CBD823A7FE0C00980B2B /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				BF50CBD923A7FE1E00980B2B /* Manager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		BF7E5F0A23A7CA7500F6D211 /* ViewControllers */ = {
@@ -223,8 +201,8 @@
 				BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */,
 				BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */,
 				BF1CB12123A6E46100F8A5C9 /* Main.storyboard in Resources */,
-				BF50CBCC23A7E79B00980B2B /* countries.json in Resources */,
-				BF47CBC423A6E63600386A87 /* plants.json in Resources */,
+				BF50CBCC23A7E79B00980B2B /* regions.json in Resources */,
+				BF47CBC423A6E63600386A87 /* foods.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,17 +216,15 @@
 				BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */,
 				BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
-				BF50CBDA23A7FE1E00980B2B /* Manager.swift in Sources */,
 				BF1CB11E23A6E46100F8A5C9 /* TodayViewController.swift in Sources */,
-				BF50CBCE23A7E82A00980B2B /* Country.swift in Sources */,
-				BF47CBC723A6EA8200386A87 /* Plant.swift in Sources */,
+				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
+				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
-				BF50CBD623A7FDA400980B2B /* ManagerDelegate.swift in Sources */,
-				BF47CBCF23A6EC0C00386A87 /* Region.swift in Sources */,
+				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
-				BF47CBC923A6EAB100386A87 /* PlantType.swift in Sources */,
+				BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
