@@ -1,5 +1,5 @@
 //
-//  Country.swift
+//  Region.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 16.12.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Country: Decodable {
-    var region: Region
-    var name: String
+struct Region: Decodable {
+    var name: RegionType
+    var countries: [String]
 }

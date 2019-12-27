@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Northern Africa",
+    "countries": [
+        "DZ", "EG", "LY", "MA", "SD", "TN", "EH"
+    ]
+  },
+  {
+    "name": "Eastern Africa",
+    "countries": [
+        "IO", "BI", "KM", "DJ", "ER", "ET", "TF", "KE", "MG", "MW", "MU", "YT", "MZ", "RE", "RW", "SC", "SO", "SS", "UG", "TZ", "ZM", "ZW"
+    ]
+  },
+  {
+    "name": "Middle Africa",
+    "countries": [
+        "AO", "CM", "CF", "TD", "CG", "CD", "GQ", "GA", "ST"
+    ]
+  },
+  {
+    "name": "Southern Africa",
+    "countries": [
+        "SZ", "LS", "NA", "ZA"
+    ]
+  },
+  {
+    "name": "Western Africa",
+    "countries": [
+        "BJ", "BF", "CV", "CI", "GM", "GH", "GN", "GW", "LR", "ML", "MR", "NE", "NG", "SH", "SN", "SL", "TG"
+    ]
+  },
+  {
+    "name": "Caribbean",
+    "countries": [
+        "AI", "AG", "AW", "BS", "BB", "BQ", "VG", "KY", "CU", "CW", "DM", "DO", "GD", "GP", "HT", "JM", "MQ", "MS", "PR", "BL", "KN", "LC", "MF", "VC", "SX", "TT", "TC", "VI"
+    ]
+  },
+  {
+    "name": "Central America",
+    "countries": [
+        "BZ", "CR", "SV", "GT", "HN", "MX", "NI", "PA"
+    ]
+  },
+  {
+    "name": "South America",
+    "countries": [
+        "AR", "BO", "BW", "BR", "CL", "CO", "EC", "FK", "GF", "GY", "PY", "PE", "GS", "SR", "UY", "VE"
+    ]
+  },
+  {
+    "name": "Northern America",
+    "countries": [
+        "BM", "CA", "GL", "PM", "US"
+    ]
+  },
+  {
+    "name": "Antarctica",
+    "countries": [
+        "AQ"
+    ]
+  },
+  {
+    "name": "Central Asia",
+    "countries": [
+        "KZ", "KG", "TJ", "TM", "UZ"
+    ]
+  },
+  {
+    "name": "Eastern Asia",
+    "countries": [
+        "CN", "KP", "JP", "MN", "KR"
+    ]
+  },
+  {
+    "name": "South-eastern Asia",
+    "countries": [
+        "BN", "KH", "ID", "LA", "MY", "MM", "PH", "SG", "TH", "TL", "VN"
+    ]
+  },
+  {
+    "name": "Southern Asia",
+    "countries": [
+        "AF", "BD", "BT", "IN", "IR", "MV", "NP", "PK" ,"LK"
+    ]
+  },
+  {
+    "name": "Western Asia",
+    "countries": [
+        "AM", "AZ", "BH", "CY", "GE", "IQ", "IL", "JO", "KW", "LB", "OM", "QA", "SA", "PS", "SY", "TR", "AE", "YE"
+    ]
+  },
+  {
+    "name": "Eastern Europe",
+    "countries": [
+        "BY", "BG", "CZ", "HU", "PL", "MD", "RO", "RU", "SK", "UA"
+    ]
+  },
+  {
+    "name": "Northern Europe",
+    "countries": [
+        "AX", "GG", "JE", "Sark", "DK", "EE", "FO", "FI", "IS", "IE", "IM", "LV", "LT", "NO", "SJ", "SE", "GB"
+    ]
+  },
+  {
+    "name": "Southern Europe",
+    "countries": [
+        "AL", "AD", "BA", "HR", "GI", "GR", "VA", "IT", "MT", "ME", "MK", "PT", "SM", "RS", "SI", "ES"
+    ]
+  },
+  {
+    "name": "Western Europe",
+    "countries": [
+        "AT", "BE", "FR", "DE", "LI", "LU", "MC", "NL", "CH"
+    ]
+  },
+  {
+    "name": "Australia & New Zealand",
+    "countries": [
+        "AU", "CX", "CC", "HM", "NZ", "NF"
+    ]
+  },
+  {
+    "name": "Melanesia",
+    "countries": [
+        "FJ", "NC", "PG", "SB", "VU"
+    ]
+  },
+  {
+    "name": "Micronesia",
+    "countries": [
+        "GU", "KI", "MH", "FM", "NR", "MP", "PW", "UM"
+    ]
+  },
+  {
+    "name": "Polynesia",
+    "countries": [
+        "AS", "CK", "PF", "NU", "PN", "WS", "TK", "TO", "TV", "WF"
+    ]
+  }
+]
