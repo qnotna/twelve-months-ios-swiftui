@@ -14,7 +14,7 @@ enum Month: String, Decodable, CaseIterable {
     case february = "February"
     case march = "March"
     case april = "April"
-    case may = "Mai"
+    case may = "May"
     case june = "June"
     case july = "July"
     case august = "August"
