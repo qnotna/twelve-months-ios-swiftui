@@ -13,7 +13,6 @@
 		BF1CB12123A6E46100F8A5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB11F23A6E46100F8A5C9 /* Main.storyboard */; };
 		BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */; };
 		BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12423A6E46300F8A5C9 /* LaunchScreen.storyboard */; };
-		BF3F781323BD281500A8DE6B /* TodayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F781223BD281500A8DE6B /* TodayDelegate.swift */; };
 		BF47CBC423A6E63600386A87 /* foods.json in Resources */ = {isa = PBXBuildFile; fileRef = BF47CBC323A6E63600386A87 /* foods.json */; };
 		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
 		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
@@ -26,6 +25,10 @@
 		BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */; };
 		BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
+		BFB471D323BE85B900DD8FDC /* food-template.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB471D223BE85B900DD8FDC /* food-template.json */; };
+		BFB471D523BE8E5A00DD8FDC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB471D423BE8E5A00DD8FDC /* food.json */; };
+		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
+		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +40,6 @@
 		BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1CB12523A6E46300F8A5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1CB12723A6E46300F8A5C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF3F781223BD281500A8DE6B /* TodayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDelegate.swift; sourceTree = "<group>"; };
 		BF47CBC323A6E63600386A87 /* foods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foods.json; sourceTree = "<group>"; };
 		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
@@ -50,6 +52,10 @@
 		BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnywhereViewController.swift; sourceTree = "<group>"; };
 		BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
+		BFB471D223BE85B900DD8FDC /* food-template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "food-template.json"; sourceTree = "<group>"; };
+		BFB471D423BE8E5A00DD8FDC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
+		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
+		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		BF1CB10D23A6E46100F8A5C9 = {
 			isa = PBXGroup;
 			children = (
+				BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */,
 				BF1CB11823A6E46100F8A5C9 /* twelve-months */,
 				BF1CB11723A6E46100F8A5C9 /* Products */,
 			);
@@ -111,7 +118,7 @@
 		BF3F781423BD282F00A8DE6B /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				BF3F781223BD281500A8DE6B /* TodayDelegate.swift */,
+				BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -119,6 +126,8 @@
 		BF47CBC523A6E64200386A87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BFB471D423BE8E5A00DD8FDC /* food.json */,
+				BFB471D223BE85B900DD8FDC /* food-template.json */,
 				BF47CBC323A6E63600386A87 /* foods.json */,
 				BF50CBCB23A7E79B00980B2B /* regions.json */,
 			);
@@ -213,8 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */,
+				BFB471D523BE8E5A00DD8FDC /* food.json in Resources */,
 				BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */,
 				BF1CB12123A6E46100F8A5C9 /* Main.storyboard in Resources */,
+				BFB471D323BE85B900DD8FDC /* food-template.json in Resources */,
 				BF50CBCC23A7E79B00980B2B /* regions.json in Resources */,
 				BF47CBC423A6E63600386A87 /* foods.json in Resources */,
 			);
@@ -229,17 +240,18 @@
 			files = (
 				BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */,
 				BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */,
+				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
+				BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
-				BF3F781323BD281500A8DE6B /* TodayDelegate.swift in Sources */,
 				BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

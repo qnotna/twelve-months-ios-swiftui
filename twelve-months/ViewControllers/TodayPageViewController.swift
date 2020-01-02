@@ -11,31 +11,32 @@ import CoreLocation
 
 class TodayPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var todayDelegate: TodayDelegate?
+    var todayDelegate: TodayPageViewControllerDelegate?
     var pages: [UIViewController]?
     let months: [Month] = [.january, .february, .march, .april, .may, .june, .july, .august, .september, .october, .november, .december]
-    
-    func createPageViewControllers(from months: [Month]) -> [UIViewController] {
-        var viewControllers = [UIViewController]()
-        for month in months {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
-            viewControllers.append(viewController)
-            if let monthViewController = viewController.children.first {
-                todayDelegate = monthViewController as? TodayDelegate
-                todayDelegate?.today(didUpdateTitle: month.rawValue)
-            }
-            
-        }
-        return viewControllers
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
-        pages = createPageViewControllers(from: months)
+        let food = Bundle.main.decode([Food].self, from: "foods.json")
+        pages = createPageViewControllers(from: months, with: food)
         if let currentViewController = pages?.first {
             setViewControllers([currentViewController], direction: .forward, animated: true, completion: nil)
         }
+    }
+
+    func createPageViewControllers(from months: [Month], with food: [Food]) -> [UIViewController] {
+        var viewControllers = [UIViewController]()
+        for month in months {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
+            viewControllers.append(viewController)
+            if let monthViewController = viewController.children.first { //TODO: the current page is always .january
+                todayDelegate = monthViewController as? TodayPageViewControllerDelegate
+                todayDelegate?.pageView(didUpdateChildrenViewControllerDataFor: month, with: food)
+            }
+            
+        }
+        return viewControllers
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
