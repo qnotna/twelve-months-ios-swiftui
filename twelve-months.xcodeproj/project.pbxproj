@@ -29,6 +29,7 @@
 		BFB471D523BE8E5A00DD8FDC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB471D423BE8E5A00DD8FDC /* food.json */; };
 		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
 		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
+		BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		BFB471D423BE8E5A00DD8FDC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
+		BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 		BF1CB10D23A6E46100F8A5C9 = {
 			isa = PBXGroup;
 			children = (
-				BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */,
 				BF1CB11823A6E46100F8A5C9 /* twelve-months */,
 				BF1CB11723A6E46100F8A5C9 /* Products */,
 			);
@@ -108,6 +109,7 @@
 		BF2A600723A6FAB2009A6F8F /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
+				BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */,
 				BF47CBC823A6EAB100386A87 /* FoodType.swift */,
 				BF47CBCA23A6EB0D00386A87 /* Month.swift */,
 				BF47CBCE23A6EC0C00386A87 /* RegionType.swift */,
@@ -147,6 +149,7 @@
 		BF7E5F0A23A7CA7500F6D211 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */,
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
 				BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */,
 				BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */,
@@ -251,6 +254,7 @@
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */,
+				BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
 				BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */,
 			);

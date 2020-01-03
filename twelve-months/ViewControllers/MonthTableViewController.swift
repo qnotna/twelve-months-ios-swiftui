@@ -71,32 +71,22 @@ class MonthTableViewController: UITableViewController, TodayPageViewControllerDe
         return cell
     }
     
-//    let month = Month.current
-//    let region = RegionType.current
-//    let foods = Bundle.main.decode([Food].self, from: "foods.json")
-//    var availableFresh = [String]()
-//    var availableStored = [String]()
-//
-//        monthLabel.text = "\(month.rawValue)"
-//        regionLabel.text = "\(region.rawValue)"
-//
-//        foods.forEach() { food in
-//            for available in food.availability {
-//                if let fresh = available.fresh {
-//                    if fresh.contains(month) {
-//                        availableFresh.append(food.name)
-//                    }
-//                }
-//                if let stored = available.stored {
-//                    if stored.contains(month) {
-//                        availableStored.append(food.name)
-//                    }
-//                }
-//            }
-//        }
-//
-//        freshLabel.text = availableFresh.description
-//        storedLabel.text = availableStored.description
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        var item: Food?
+        switch indexPath.section {
+        case 0:  item = self.availableFresh[indexPath.row]
+        default: item = self.availableStored[indexPath.row]
+        }
+        performSegue(withIdentifier: "FoodItemViewControllerSegue", sender: item)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FoodItemViewControllerSegue",
+            let destination = segue.destination as? FoodItemViewController
+        {
+            destination.item = sender as? Food
+        }
+    }
 
 }
