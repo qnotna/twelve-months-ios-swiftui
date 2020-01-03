@@ -10,6 +10,11 @@ import Foundation
 
 extension Bundle {
     
+    /// Decodes JSON files to a instances of a specified Type.
+    /// Will fatally crash the app if errors occur with error message
+    /// - Parameters:
+    ///   - type: The generic type
+    ///   - file: The location of the file in the bundle
     func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")

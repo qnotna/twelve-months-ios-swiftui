@@ -16,6 +16,7 @@ class AnywhereViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     var mapDidShowUserLocationOnce = false
     var locationManager = CLLocationManager()
+    let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +26,23 @@ class AnywhereViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.startUpdatingLocation()
     }
     
+    //MARK: Delegate methods
+    
+    /// Tells the MapView to display the user's location
+    /// The map will only zoom to the region of the user once
+    /// - Parameters:
+    ///   - manager: The location manager object that generated the update event.
+    ///   - locations: An array of CLLocation objects containing the location data. This array always contains at least one object representing the current location.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             //  let location = locations.last! as CLLocation
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+            let region = MKCoordinateRegion(center: center, span: span)
             if !mapDidShowUserLocationOnce {
                 self.mapView.setRegion(region, animated: true)
                 mapDidShowUserLocationOnce.toggle()
             }
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
+
 }
