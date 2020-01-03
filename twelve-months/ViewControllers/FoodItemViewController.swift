@@ -10,19 +10,17 @@ import UIKit
 
 class FoodItemViewController: UIViewController {
       
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     var item: Food?
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        if let item = self.item {
-//            nameLabel.text = item.name
-//        }
-    }
     
+    //MARK: IBActions
+    
+    /// Removes self from the current view hierarchy
+    /// This view controller will be closed
+    /// - Parameter sender: the button that was tapped
     @IBAction func didTapDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }

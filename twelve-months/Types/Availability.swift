@@ -9,8 +9,10 @@
 import Foundation
 
 struct Availability: Decodable {
+    
     var region: RegionType
     var stored: [Month]?
     var fresh: [Month]?
+    
 }
 

@@ -41,6 +41,8 @@ enum RegionType: String, Decodable, CaseIterable {
     case antarctica = "Antarctica"
     case other = "Your country is not yet supported"
     
+    /// This can be called at all times to receive the current region as Region case
+    /// Will default to unsupported region
     static var current: RegionType {
         let regions = Bundle.main.decode([Region].self, from: "regions.json")
         let countryLocale = NSLocale.current

@@ -9,6 +9,8 @@
 import Foundation
 
 struct Region: Decodable {
+    
     var name: RegionType
     var countries: [String]
+    
 }

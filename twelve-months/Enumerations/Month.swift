@@ -25,6 +25,8 @@ enum Month: String, Decodable, CaseIterable {
     
     case other = "Month unknown"
     
+    /// This can be called at all times to receive the current month as Month case
+    /// Will default to unknown month
     static var current: Month {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
