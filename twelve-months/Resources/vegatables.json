@@ -1,0 +1,275 @@
+[
+    {
+        "name": "artichokes",
+        "name_de": "Artischocken",
+        "type": "vegetable",
+        "importByMonth": [2, 3, 3, 4, 4, 3, 2, 3, 3, 2, 3, 3],
+        "cultivationByMonth": [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0]
+    },
+    {
+        "name": "eggplant",
+        "name_de": "Auberginen",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "cauliflower",
+        "name_de": "Blumenkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "beans",
+        "name_de": "Bohnen",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "broccoli",
+        "name_de": "Brokkoli",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "chicorée",
+        "name_de": "Chicorée",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "napa cabbage",
+        "name_de": "Chinakohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "fat beans",
+        "name_de": "Dicke Bohnen",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "iceberg lettuce",
+        "name_de": "Eisbergsalat",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "endive",
+        "name_de": "Endivien",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "peas",
+        "name_de": "Erbsen",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "lamb's lettuce",
+        "name_de": "Feldsalat",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "fennel",
+        "name_de": "Gemüsefenchel",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "paprika",
+        "name_de": "Paprika",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "kale",
+        "name_de": "Grünkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "cucumber",
+        "name_de": "Gurken",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "kohlrabi",
+        "name_de": "Kohlrabi",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "lettuce",
+        "name_de": "Kopfsalat",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "pumpkin",
+        "name_de": "Kürbis",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "lollo rossa",
+        "name_de": "Lollo Rossa",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "chard",
+        "name_de": "Mangold",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "carrot",
+        "name_de": "Möhren",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "leek",
+        "name_de": "Porree, lauch",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "radicchio",
+        "name_de": "Radicchio",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "radish",
+        "name_de": "Radieschen",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "rhubarb",
+        "name_de": "Rhabarber",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "brussels sprouts",
+        "name_de": "Rosenkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "beetroot",
+        "name_de": "Rote Bete",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "red cabbage",
+        "name_de": "Rotkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "arugula",
+        "name_de": "Rucola",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "salsify",
+        "name_de": "Schwarzwurzeln",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "asparagus",
+        "name_de": "Spargel",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "spinach",
+        "name_de": "Spinat",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "cabbage",
+        "name_de": "Spitzkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "celery",
+        "name_de": "Sellerie",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "tomato",
+        "name_de": "Tomaten",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "white cabbage",
+        "name_de": "Weißkohl",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "zucchini",
+        "name_de": "Zucchini",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    },
+    {
+        "name": "onion",
+        "name_de": "Zwiebeln",
+        "type": "vegetable",
+        "importByMonth": [4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        "cultivationByMonth": [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 2, 1]
+    }    
+]
