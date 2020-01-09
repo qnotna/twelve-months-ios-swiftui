@@ -11,17 +11,17 @@ import UIKit
 class MonthTableViewController: UITableViewController {
     
     var month: Month?
-    var food: [Food]?
-    var availableFresh = [Food]()
-    var availableStored = [Food]()
-    
+    var fruits: [Food]?
+    var vegetables: [Food]?
+    var foodType: FoodType?
+            
     //MARK: TableViewControllerDelegate methods
     
     /// Tells the tableViewController how many sections the table should have
     /// It returns 2: one for fresh, one for stored
     /// - Parameter tableView: An object representing the table view requesting this information.
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     /// Tells the tableViewController what each section should be named
@@ -29,14 +29,10 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: The table-view object asking for the title.
     ///   - section: An index number identifying a section of tableView .
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            let empty = self.availableFresh.count > 0
-            return empty ? AvailabilityType.fresh.rawValue : AvailabilityType.none.rawValue
-        default:
-            let empty = self.availableStored.count > 0
-            return empty ? AvailabilityType.stored.rawValue : AvailabilityType.none.rawValue
+        if let foodType = foodType {
+            return foodType == .vegetable ? FoodType.vegetable.rawValue : FoodType.fruit.rawValue
         }
+        return nil
     }
     
     /// Tells the tableViewController how many rows each section in the table should have
@@ -44,12 +40,10 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section in tableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return self.availableFresh.count
-        default:
-            return self.availableStored.count
+        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
+            return foodType == .vegetable ? vegetables.count : fruits.count
         }
+        return 1
     }
     
     /// Tells the tableViewController what each table cell should contain
@@ -58,13 +52,12 @@ class MonthTableViewController: UITableViewController {
     ///   - indexPath: An index path locating a row in tableView.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        switch indexPath.section {
-        case 0:
-            cell.textLabel!.text = self.availableFresh[indexPath.row].name
-        default:
-            cell.textLabel!.text = self.availableStored[indexPath.row].name
+        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
+            let item = foodType == .vegetable ? vegetables[indexPath.row] : fruits[indexPath.row]
+            cell.textLabel!.text = item.name
+        } else {
+            cell.textLabel!.text = "Nothing to See Here 👀"
         }
-        //  cell.detailTextLabel!.text = "foo bar"
         return cell
     }
     
@@ -76,14 +69,10 @@ class MonthTableViewController: UITableViewController {
     ///   - indexPath: An index path locating the new selected row in tableView.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        var item: Food?
-        switch indexPath.section {
-        case 0:
-            item = self.availableFresh[indexPath.row]
-        default:
-            item = self.availableStored[indexPath.row]
+        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
+            let item = foodType == .vegetable ? vegetables[indexPath.row] : fruits[indexPath.row]
+            performSegue(withIdentifier: StoryBoardSegueIdentifier.monthToFoodItem.rawValue, sender: item)
         }
-        performSegue(withIdentifier: StoryBoardSegueIdentifier.monthToFoodItem.rawValue, sender: item)
     }
     
     /// If a segue is initiated, this method will be called
@@ -114,32 +103,18 @@ extension MonthTableViewController: TodayPageViewControllerDelegate {
     /// - Parameters:
     ///   - month: the received month
     ///   - food: the received food for this month
-    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with food: [Food]) {
+    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with fruits: [Food], and vegetables: [Food]) {
         self.title = month.rawValue
         self.month = month
-        self.food = food
-        for item in food {
-            monthView(updateFoodAvailabilityFor: item, and: month)
-        }
+        self.fruits = fruits
+        self.vegetables = vegetables
+        self.foodType = .vegetable
+        tableView.reloadData()
     }
     
-    /// Populates the availability lists for each food item
-    /// - Parameters:
-    ///   - food: the current food
-    ///   - month: the current month
-    func monthView(updateFoodAvailabilityFor food: Food, and month: Month) {
-        for available in food.availability { //TODO: this currently adds food from all regions
-            if let fresh = available.fresh {
-                if fresh.contains(month) {
-                    availableFresh.append(food)
-                }
-            }
-            if let stored = available.stored {
-                if stored.contains(month) {
-                    availableStored.append(food)
-                }
-            }
-        }
+    func pageView(segmentedControlDidChange index: Int) {
+        self.foodType = index == 0 ? .vegetable : .fruit
+        tableView.reloadData()
     }
     
 }

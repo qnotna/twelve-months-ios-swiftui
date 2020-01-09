@@ -14,7 +14,9 @@ protocol TodayPageViewControllerDelegate {
     /// This method provides month and food from the TodayPageViewController to it's delegate
     /// - Parameters:
     ///   - month: The MonthViewController's month
-    ///   - food: All decoded food data
-    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with food: [Food]) -> Void
+    ///   - fruits: list of decoded fruits
+    ///   - vegetables: list of decoded vegetables
+    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with fruits: [Food], and vegetables: [Food]) -> Void
     
+    func pageView(segmentedControlDidChange index: Int) -> Void
 }
