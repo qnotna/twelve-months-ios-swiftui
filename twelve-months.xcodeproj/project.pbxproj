@@ -14,6 +14,7 @@
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF004B2523BF522A006900C3 /* StoryBoardSegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */; };
 		BF0FD4BE23C79DD60042EE1D /* MonthNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4BD23C79DD60042EE1D /* MonthNavigationViewController.swift */; };
+		BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */; };
 		BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */; };
 		BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */; };
 		BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */; };
@@ -44,6 +45,7 @@
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSegueIdentifier.swift; sourceTree = "<group>"; };
 		BF0FD4BD23C79DD60042EE1D /* MonthNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthNavigationViewController.swift; sourceTree = "<group>"; };
+		BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
 		BF1CB11623A6E46100F8A5C9 /* twelve-months.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "twelve-months.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				BA8D1CF023C3551200CDF1DE /* ProfileControllers */,
 				BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */,
+				BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */,
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
 				BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */,
 				BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */,
@@ -262,6 +265,7 @@
 			files = (
 				BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */,
 				BA8D1CF223C3553600CDF1DE /* TableViewController.swift in Sources */,
+				BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */,
 				BA8D1CF623C379B900CDF1DE /* Nutrition.swift in Sources */,
 				BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */,
 				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,

@@ -130,11 +130,23 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         for month in months {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
             viewControllers.append(viewController)
-//            todayDelegate = viewController as? TodayPageViewControllerDelegate
-//            todayDelegate?.pageView(didUpdateChildrenViewControllerDataFor: month, with: fruits, and: vegetables)
-            if let monthViewController = viewController.children.first { //TODO: the current page is always january
+
+            var cultivatedVegetables = [Food]()
+            for item in vegetables {
+                if item.cultivationByMonth[months.firstIndex(of: month)!] != .none {
+                    cultivatedVegetables.append(item)
+                }
+            }
+            var cultivatedFruits = [Food]()
+            for item in fruits {
+                if item.cultivationByMonth[months.firstIndex(of: month)!] != .none {
+                    cultivatedFruits.append(item)
+                }
+            }
+            
+            if let monthViewController = viewController.children.first {
                 todayDelegate = monthViewController as? TodayPageViewControllerDelegate
-                todayDelegate?.pageView(didUpdateChildrenViewControllerDataFor: month, with: fruits, and: vegetables)
+                todayDelegate?.pageView(didUpdateChildrenViewControllerDataFor: month, with: cultivatedFruits, and: cultivatedVegetables)
             }
         }
         return viewControllers

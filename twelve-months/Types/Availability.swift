@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Availability: Int, Decodable {
     
@@ -15,4 +16,5 @@ enum Availability: Int, Decodable {
     case low = 2
     case lowest = 1
     case none = 0
+    
 }

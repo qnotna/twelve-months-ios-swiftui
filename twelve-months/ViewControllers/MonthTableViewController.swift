@@ -14,6 +14,24 @@ class MonthTableViewController: UITableViewController {
     var fruits: [Food]?
     var vegetables: [Food]?
     var foodType: FoodType?
+    
+    func color(for availability: Availability) -> UIColor {
+        var color: UIColor?
+        switch availability {
+        case .highest:
+            color = UIColor.green
+        case .high:
+            color = UIColor.yellow
+            break
+        case .low:
+            color = UIColor.orange
+        case .lowest:
+            color = UIColor.red
+        default:
+            color = UIColor.clear
+        }
+        return color!
+    }
             
     //MARK: TableViewControllerDelegate methods
     
@@ -51,12 +69,13 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: A table-view object requesting the cell.
     ///   - indexPath: An index path locating a row in tableView.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FoodItemTableViewCell") as! FoodItemTableViewCell
         if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
             let item = foodType == .vegetable ? vegetables[indexPath.row] : fruits[indexPath.row]
-            cell.textLabel!.text = item.name
+            cell.nameLabel.text = item.name.capitalized
+            cell.availabilityTrafficLight.backgroundColor = color(for: item.cultivationByMonth[0])
         } else {
-            cell.textLabel!.text = "Nothing to See Here 👀"
+            cell.nameLabel.text = "Nothing to See Here 👀"
         }
         return cell
     }
@@ -106,15 +125,25 @@ extension MonthTableViewController: TodayPageViewControllerDelegate {
     func pageView(didUpdateChildrenViewControllerDataFor month: Month, with fruits: [Food], and vegetables: [Food]) {
         self.title = month.rawValue
         self.month = month
-        self.fruits = fruits
-        self.vegetables = vegetables
-        self.foodType = .vegetable
-        tableView.reloadData()
+        var sortedFruits = sortByAvailability(list: fruits)
+        self.fruits = sortedFruits//removeUncultivated(from: sortedFruits)
+        var sortedVegetables = sortByAvailability(list: vegetables)
+        self.vegetables = sortedVegetables//removeUncultivated(from: sortedVegetables)
+        self.foodType = .fruit
+//        tableView.reloadData()
     }
     
     func pageView(segmentedControlDidChange index: Int) {
         self.foodType = index == 0 ? .vegetable : .fruit
-        tableView.reloadData()
+//        tableView.reloadData()
+    }
+    
+    func removeUncultivated(from list: [Food]) -> [Food] {
+        return list.filter{$0.cultivationByMonth[0] != .none}
+    }
+    
+    func sortByAvailability(list: [Food]) -> [Food] {
+        return list.sorted{$0.cultivationByMonth[0].rawValue > $1.cultivationByMonth[0].rawValue}
     }
     
 }
