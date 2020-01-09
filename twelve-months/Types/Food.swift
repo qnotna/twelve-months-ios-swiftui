@@ -13,7 +13,7 @@ struct Food: Decodable {
     var name: String
     var localizedName: String
     var type: FoodType
-    var importByMonth: [Int]
-    var cultivationByMonth: [Int]
+    var importByMonth: [Availability]
+    var cultivationByMonth: [Availability]
 
 }

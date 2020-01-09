@@ -2,259 +2,259 @@
     {
         "name": "pineapple",
         "localizedName": "Ananas",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [2, 2, 2, 4, 4, 4, 2, 1, 1, 2, 2, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "apple",
         "localizedName": "Apfel",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3],
         "cultivationByMonth": [4, 4, 4, 4, 3, 3, 1, 1, 2, 3, 3, 4]
     },
     {
         "name": "orange",
         "localizedName": "Orangen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 4, 4, 3, 2, 2, 1, 1, 1, 2, 3, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "apricot",
         "localizedName": "Aprikosen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 4, 4, 2, 1, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]
     },
     {
         "name": "avocado",
         "localizedName": "Avocados",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "banana",
         "localizedName": "Bananen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "pear",
         "localizedName": "Birnen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 3, 4, 4, 3, 3, 2, 2, 4, 4, 4, 4],
         "cultivationByMonth": [1, 1, 1, 0, 0, 0, 0, 1, 2, 2, 2, 2]
     },
     {
         "name": "blackberries",
         "localizedName": "Brombeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [2, 1, 1, 2, 1, 1, 1, 4, 1, 2, 3, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 0]
     },
     {
         "name": "strawberries",
         "localizedName": "Erdbeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 2, 4, 4, 2, 1, 1, 1, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 1, 2, 4, 3, 1, 1, 1, 1, 1]
     },
     {
         "name": "chestnuts",
         "localizedName": "Esskastanien",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 4, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
     },
     {
         "name": "fig",
         "localizedName": "Feigen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 1, 1, 3, 4, 2, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
-        "name": "grapefruit",
-        "localizedName": "Grapefruit",
-        "type": "fruit",
+        "name": "grapeFruit",
+        "localizedName": "GrapeFruit",
+        "type": "Fruit",
         "importByMonth": [4, 4, 4, 4, 3, 2, 2, 2, 3, 4, 4, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "hazelnuts",
         "localizedName": "Haselnüsse",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 1, 1, 1, 1, 1, 1, 1, 1, 4, 2, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0]
     },
     {
         "name": "blueberries",
         "localizedName": "Heidelbeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [2, 1, 2, 2, 4, 4, 2, 2, 1, 1, 1, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 3, 4, 1, 1, 0, 0]
     },
     {
         "name": "raspberries",
         "localizedName": "Himbeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 3, 3, 4, 2, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 1, 2, 4, 2, 2, 1, 1, 0]
     },
     {
         "name": "red currants",
         "localizedName": "Johannisbeeren, rot",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 2, 4, 3, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 4, 2, 1, 1, 0, 0]
     },
     {
         "name": "black currants",
         "localizedName": "Johannisbeeren, schwarz",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 4, 2, 1, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 0, 0]
     },
     {
         "name": "sour cherries",
         "localizedName": "Kirschen, sauer",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 2, 4, 1, 1, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 4, 4, 0, 0, 0, 0]
     },
     {
         "name": "sweet cherries",
         "localizedName": "Kirschen, süß",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 4, 4, 4, 2, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 2, 4, 1, 0, 0, 0, 0]
     },
     {
         "name": "kiwi",
         "localizedName": "Kiwis",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 3, 4, 4, 4, 3, 3, 2, 2, 3, 2, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "lime",
         "localizedName": "Limetten",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 3, 4, 4, 4, 4, 4, 4, 4, 3, 3, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "lychees",
         "localizedName": "Litschis",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "mandarin",
         "localizedName": "Mandarinen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "mango",
         "localizedName": "Mangos",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 2, 4, 4, 3, 3, 3, 2, 3, 3, 2, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "melon",
         "localizedName": "Melonen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 2, 2, 3, 4, 4, 2, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "mirabelle plum",
         "localizedName": "Mirabellen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [0, 0, 0, 0, 0, 1, 2, 4, 4, 2, 0, 0],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 1, 4, 2, 1, 0, 0]
     },
     {
-        "name": "grapefruit",
+        "name": "grapeFruit",
         "localizedName": "Pampelmusen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 3, 2, 1, 0, 0, 1, 1, 1, 2, 4, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "papaya",
         "localizedName": "Papayas",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 4, 4],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "peach",
         "localizedName": "Pfirsiche",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 2, 4, 4, 3, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0]
     },
     {
         "name": "plums",
         "localizedName": "Pflaumen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 2, 2, 2, 1, 2, 3, 4, 4, 4, 2, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 1, 2, 4, 4, 1, 0, 0]
     },
     {
         "name": "cranberries",
         "localizedName": "Preiselbeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [3, 1, 2, 2, 1, 1, 1, 3, 4, 3, 4, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0]
     },
     {
         "name": "quince",
         "localizedName": "Quitten",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1]
     },
     {
         "name": "gooseberries",
         "localizedName": "Stachelbeeren",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 3, 4, 1, 0, 0, 0, 0]
     },
     {
         "name": "grape",
         "localizedName": "Tafeltrauben",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [2, 2, 2, 2, 2, 2, 2, 3, 4, 4, 3, 2],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0]
     },
     {
         "name": "walnuts",
         "localizedName": "Walnüsse",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0]
     },
     {
         "name": "watermelon",
         "localizedName": "Wassermelonen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [1, 1, 1, 1, 2, 4, 4, 4, 2, 1, 1, 1],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     {
         "name": "lemon",
         "localizedName": "Zitronen",
-        "type": "fruit",
+        "type": "Fruit",
         "importByMonth": [4, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3],
         "cultivationByMonth": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
