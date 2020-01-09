@@ -10,9 +10,10 @@ import Foundation
 
 struct Food: Decodable {
     
-    var type: FoodType
     var name: String
-    var availability: [Availability]
-    var footprint: Int?
+    var localizedName: String
+    var type: FoodType
+    var importByMonth: [Int]
+    var cultivationByMonth: [Int]
 
 }
