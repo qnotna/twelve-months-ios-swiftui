@@ -40,6 +40,7 @@
 		BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */; };
 		BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */; };
 		BFA1B58E23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */; };
+		BFA1B59023C90DB000E2A765 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58F23C90DAF00E2A765 /* Image.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
 		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
 		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
@@ -82,6 +83,7 @@
 		BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewController.swift; sourceTree = "<group>"; };
 		BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		BFA1B58F23C90DAF00E2A765 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
 		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		BF47CBCD23A6EBDC00386A87 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				BFA1B58F23C90DAF00E2A765 /* Image.swift */,
 				BF47CBC623A6EA8200386A87 /* Food.swift */,
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
 				BF50CBCD23A7E82A00980B2B /* Region.swift */,
@@ -307,6 +310,7 @@
 				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
 				BA60CC6A23C78F290070B082 /* Goals.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
+				BFA1B59023C90DB000E2A765 /* Image.swift in Sources */,
 				BAEBA9C523C5FAE6003419AF /* KDCircularProgress.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
 				BA60CC6823C78E5A0070B082 /* NutritionTableViewController.swift in Sources */,

@@ -23,7 +23,6 @@ class FoodItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         availabilityTrafficLight.layer.cornerRadius = availabilityTrafficLight.frame.width / 2
-//        availabilityImageView.contentMode = .scaleAspectFill
     }
     
     func populate(from items: (cultivated: [Food], imported: [Food]), at indexPath: IndexPath) {
@@ -43,10 +42,12 @@ class FoodItemTableViewCell: UITableViewCell {
             percentageLabel.isHidden = true
             availabilityImageView.isHidden = true
         }
+        imageView!.image = UIImage(named: item!.name)
         nameLabel.text = item?.name.capitalized
         percentageLabel.text = "\((item?.percentagePerMonth![pageIndex!])!)%"
         availabilityTrafficLight.backgroundColor = colorFor(item: item!)
         availabilityLabel.text = "\((item?.importByMonth[pageIndex!].rawValue)!)"
+        availabilityLabel.textColor = UIColor.white
     }
     
     func colorFor(item: Food) -> UIColor {

@@ -30,6 +30,7 @@ class FoodItemViewController: UIViewController {
         switch segue.identifier {
         case StoryBoardSegueIdentifier.foodItemToFoodItemTableView.rawValue:
             if let destination = segue.destination as? FoodItemTableViewController {
+                imageView.image = UIImage(named: "vegetables-fruits")
                 destination.item = item
                 destination.indexPath = indexPath
                 destination.pageIndex = pageIndex

@@ -151,6 +151,9 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         var food = (cultivated: [Food](), imported: [Food]())
         let monthIndex = months.firstIndex(of: month)!
         if let items = foodItems {
+//            for item in items {
+//                fetchImage()
+//            }
             for item in items {
                 if item.cultivationByMonth[monthIndex] != .none {
                     food.cultivated.append(item)
@@ -169,7 +172,7 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
                 }
                 return lhs.percentagePerMonth![monthIndex] > rhs.percentagePerMonth![monthIndex]
             }
-            return lhs.cultivationByMonth[monthIndex].rawValue > lhs.cultivationByMonth[monthIndex].rawValue
+            return lhs.cultivationByMonth[monthIndex].rawValue > rhs.cultivationByMonth[monthIndex].rawValue
         }
         food.imported = food.imported.sorted() { (lhs, rhs) -> Bool in
             if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
@@ -179,5 +182,28 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         }
         return food
     }
+    
+//    func fetchImage() {
+//        let url = NSURL(string: "https://trackapi.nutritionix.com/v2/natural/nutrients")! as URL
+//        let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+//        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+//            "query": "apple",
+//            "timezone": "US/Eastern"
+//        ], options: [])
+//        request.httpMethod = "POST"
+//        request.allHTTPHeaderFields = [
+//            "Content-Type": "application/json",
+//            "x-app-id": "a9efa5f3",
+//            "x-app-key": "855c22b96ed81051d19df5d0c1319ff8"
+//        ]
+//        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (result, response, error) -> Void in
+//            do {
+//                let data = try JSONSerialization.jsonObject(with: result!, options: [])
+//                print(data)
+//            } catch {
+//                print(error)
+//            }
+//        }).resume()
+//    }
     
 }
