@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA60CC6623C78CF00070B082 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6523C78CF00070B082 /* NutritionViewController.swift */; };
+		BA60CC6823C78E5A0070B082 /* NutritionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */; };
+		BA60CC6A23C78F290070B082 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6923C78F290070B082 /* Goals.swift */; };
+		BA60CC6C23C79EB80070B082 /* NutritionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6B23C79EB80070B082 /* NutritionViewControllerDelegate.swift */; };
 		BA8D1CF223C3553600CDF1DE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D1CF123C3553600CDF1DE /* TableViewController.swift */; };
 		BA8D1CF423C3652300CDF1DE /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D1CF323C3652300CDF1DE /* TextInputTableViewCell.swift */; };
 		BA8D1CF623C379B900CDF1DE /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D1CF523C379B900CDF1DE /* Nutrition.swift */; };
+		BACB364723C616C600F1D68F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACB364623C616C600F1D68F /* TableViewCell.swift */; };
+		BAEBA9C523C5FAE6003419AF /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBA9C423C5FAE6003419AF /* KDCircularProgress.swift */; };
 		BAF7F08423C0F62500AEAEA7 /* vegatables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegatables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF004B2523BF522A006900C3 /* StoryBoardSegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */; };
@@ -39,9 +45,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA60CC6523C78CF00070B082 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
+		BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewController.swift; sourceTree = "<group>"; };
+		BA60CC6923C78F290070B082 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		BA60CC6B23C79EB80070B082 /* NutritionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BA8D1CF123C3553600CDF1DE /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BA8D1CF323C3652300CDF1DE /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputTableViewCell.swift; sourceTree = "<group>"; };
 		BA8D1CF523C379B900CDF1DE /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
+		BACB364623C616C600F1D68F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		BAEBA9C423C5FAE6003419AF /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		BAF7F08323C0F62500AEAEA7 /* vegatables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegatables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSegueIdentifier.swift; sourceTree = "<group>"; };
@@ -90,6 +102,17 @@
 				BA8D1CF323C3652300CDF1DE /* TextInputTableViewCell.swift */,
 			);
 			path = ProfileControllers;
+			sourceTree = "<group>";
+		};
+		BAEBA9C323C5FABC003419AF /* Nutrition */ = {
+			isa = PBXGroup;
+			children = (
+				BAEBA9C423C5FAE6003419AF /* KDCircularProgress.swift */,
+				BACB364623C616C600F1D68F /* TableViewCell.swift */,
+				BA60CC6523C78CF00070B082 /* NutritionViewController.swift */,
+				BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */,
+			);
+			path = Nutrition;
 			sourceTree = "<group>";
 		};
 		BF1CB10D23A6E46100F8A5C9 = {
@@ -143,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */,
+				BA60CC6B23C79EB80070B082 /* NutritionViewControllerDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -167,6 +191,7 @@
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
 				BF50CBCD23A7E82A00980B2B /* Region.swift */,
 				BA8D1CF523C379B900CDF1DE /* Nutrition.swift */,
+				BA60CC6923C78F290070B082 /* Goals.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -174,6 +199,7 @@
 		BF7E5F0A23A7CA7500F6D211 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BAEBA9C323C5FABC003419AF /* Nutrition */,
 				BA8D1CF023C3551200CDF1DE /* ProfileControllers */,
 				BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */,
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
@@ -271,20 +297,26 @@
 			files = (
 				BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */,
 				BA8D1CF223C3553600CDF1DE /* TableViewController.swift in Sources */,
+				BA60CC6C23C79EB80070B082 /* NutritionViewControllerDelegate.swift in Sources */,
 				BA8D1CF623C379B900CDF1DE /* Nutrition.swift in Sources */,
 				BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */,
 				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
+				BA60CC6A23C78F290070B082 /* Goals.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
+				BAEBA9C523C5FAE6003419AF /* KDCircularProgress.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
+				BA60CC6823C78E5A0070B082 /* NutritionTableViewController.swift in Sources */,
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BF004B2523BF522A006900C3 /* StoryBoardSegueIdentifier.swift in Sources */,
 				BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */,
+				BA60CC6623C78CF00070B082 /* NutritionViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BA8D1CF423C3652300CDF1DE /* TextInputTableViewCell.swift in Sources */,
+				BACB364723C616C600F1D68F /* TableViewCell.swift in Sources */,
 				BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */,
 				BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,

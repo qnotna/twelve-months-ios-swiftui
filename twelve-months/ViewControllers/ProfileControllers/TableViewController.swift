@@ -21,10 +21,10 @@ class TableViewController: UITableViewController {
     var kcal: Double { Calories.calculateCalories(gender: gender, height: height, weight: weight, age: age, activityMultiplier: 1.2) }
     
     // MARK: Vegetable data
-    var vData: VegetableData { EatingPatterns.getVegetableAmount(calories: kcal) }
+    var vData: NutritionData { EatingPatterns.getVegetableAmount(calories: kcal) }
     
     // MARK: Fruit data
-    var fData: FruitData { EatingPatterns.getFruitAmount(calories: kcal) }
+    var fData: NutritionData { EatingPatterns.getFruitAmount(calories: kcal) }
 
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var heightInput: UITextField!
@@ -58,20 +58,22 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func updateCalories(_ sender: Any) {
-        caloriesLabel.text = String(format: "%0.f kcal", kcal)
+        let currentKcal = kcal
+        defaults.set(currentKcal, forKey: "kcal")
+        caloriesLabel.text = String(format: "%0.f kcal", currentKcal)
     }
     
     @IBAction func updateVegetables(_ sender: Any) {
-        let amountFormat = vData.amount == floor(vData.amount) ? "%0.f c" : "%.1f c"
-        vegetablesAmountLabel.text = String(format: amountFormat, vData.amount)
-        vegetablesPortionsLabel.text = String(format: "%0.f portions", vData.portions)
+        let amountFormat = vData.dailyAmount == floor(vData.dailyAmount) ? "%0.f c" : "%.1f c"
+        vegetablesAmountLabel.text = String(format: amountFormat, vData.dailyAmount)
+        vegetablesPortionsLabel.text = String(format: "%0.f portions", vData.dailyPortions)
     }
     
     @IBAction func updateFruits(_ sender: Any) {
         print(fData)
-        let amountFormat = fData.amount == floor(fData.amount) ? "%0.f c" : "%.1f c"
-        fruitsAmountLabel.text = String(format: amountFormat, fData.amount)
-        fruitsPortionsLabel.text = String(format: "%0.f portions", fData.portions)
+        let amountFormat = fData.dailyAmount == floor(fData.dailyAmount) ? "%0.f c" : "%.1f c"
+        fruitsAmountLabel.text = String(format: amountFormat, fData.dailyAmount)
+        fruitsPortionsLabel.text = String(format: "%0.f portions", fData.dailyPortions)
     }
     
 

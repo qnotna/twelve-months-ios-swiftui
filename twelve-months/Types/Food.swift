@@ -16,3 +16,10 @@ struct Food: Decodable {
     var footprint: Int?
 
 }
+
+struct Plant: Decodable {
+    let name: String
+    let type: String 
+    let importByMonth: [Int]
+    let cultivationByMonth: [Int]
+}
