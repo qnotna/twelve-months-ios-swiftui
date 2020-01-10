@@ -14,6 +14,8 @@ class TodayPageViewController: UIPageViewController {
     var todayDelegate: TodayPageViewControllerDelegate?
     var pages: [UIViewController]?
     let months: [Month] = [.january, .february, .march, .april, .may, .june, .july, .august, .september, .october, .november, .december]
+    var allFruits: [Food]?
+    var allVegetables: [Food]?
     
     //MARK: IBActions
     
@@ -100,9 +102,9 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         dataSource = self
-        let fruits = Bundle.main.decode([Food].self, from: "fruits.json")
-        let vegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
-        todayView(didDecodeJSON: fruits, and: vegetables)
+        allFruits = Bundle.main.decode([Food].self, from: "fruits.json")
+        allVegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
+        createPages()
     }
     
     /// Creates the page view controllers for the UIPageViewController
@@ -110,8 +112,8 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
     /// - Parameters:
     ///   - fruits: list of decoded fruits
     ///   - vegetables: list of decoded vegetables
-    func todayView(didDecodeJSON fruits: [Food], and vegetables: [Food]) {
-        pages = createPageViewControllers(from: months, with: fruits, and: vegetables)
+    func createPages() {
+        pages = createPageViewControllers()
         if let currentViewController = pages?.first { //TODO: always displays january as first page
             setViewControllers([currentViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -125,31 +127,56 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
     ///   - fruits: list of decoded fruits
     ///   - vegetables: list of decoded vegetables
     /// - Returns: a list of all MonthViewControllers
-    func createPageViewControllers(from months: [Month], with fruits: [Food], and vegetables: [Food]) -> [UIViewController] {
+    func createPageViewControllers() -> [UIViewController] {
         var viewControllers = [UIViewController]()
         for month in months {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
             viewControllers.append(viewController)
 
-            var cultivatedVegetables = [Food]()
-            for item in vegetables {
-                if item.cultivationByMonth[months.firstIndex(of: month)!] != .none {
-                    cultivatedVegetables.append(item)
-                }
-            }
-            var cultivatedFruits = [Food]()
-            for item in fruits {
-                if item.cultivationByMonth[months.firstIndex(of: month)!] != .none {
-                    cultivatedFruits.append(item)
-                }
-            }
-            
+            let fruits = prepareFoodItemData(for: month, from: allFruits)
+            let vegetables = prepareFoodItemData(for: month, from: allVegetables)
             if let monthViewController = viewController.children.first {
                 todayDelegate = monthViewController as? TodayPageViewControllerDelegate
-                todayDelegate?.pageView(didUpdateChildrenViewControllerDataFor: month, with: cultivatedFruits, and: cultivatedVegetables)
+                todayDelegate?.pageView(didUpdatePageFor: month, pageIndex: months.firstIndex(of: month)!, foodType: .vegetable)
+                todayDelegate?.pageView(didUpdateFruitsData: fruits)
+                todayDelegate?.pageView(didUpdateVegetablesData: vegetables)
             }
         }
         return viewControllers
+    }
+    
+    //MARK: Data preparation and delegation
+    
+    func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> (cultivated: [Food], imported: [Food]) {
+        var food = (cultivated: [Food](), imported: [Food]())
+        let monthIndex = months.firstIndex(of: month)!
+        if let items = foodItems {
+            for item in items {
+                if item.cultivationByMonth[monthIndex] != .none {
+                    food.cultivated.append(item)
+                }
+            }
+            for item in items {
+                if item.importByMonth[monthIndex] != .none && !food.cultivated.contains(item) {
+                    food.imported.append(item)
+                }
+            }
+        }
+        food.cultivated = food.cultivated.sorted() {
+            $0.cultivationByMonth[monthIndex].rawValue > $1.cultivationByMonth[monthIndex].rawValue
+        }
+        food.imported = food.imported.sorted() {
+            $0.name < $1.name
+        }
+        return food
+    }
+    
+    func removeImported(from list: [Food]) -> [Food] {
+        return list.filter{$0.cultivationByMonth[0] != .none}
+    }
+    
+    func removeCultivated(from list: [Food]) -> [Food] {
+        return list.filter{$0.cultivationByMonth[0] == .none}
     }
     
 }

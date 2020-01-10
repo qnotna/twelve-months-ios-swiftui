@@ -10,13 +10,12 @@ import Foundation
 
 protocol TodayPageViewControllerDelegate {
     
-    /// Delegate method that should be called when the month and food data have been updated
-    /// This method provides month and food from the TodayPageViewController to it's delegate
-    /// - Parameters:
-    ///   - month: The MonthViewController's month
-    ///   - fruits: list of decoded fruits
-    ///   - vegetables: list of decoded vegetables
-    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with fruits: [Food], and vegetables: [Food]) -> Void
-    
+    func pageView(didUpdatePageFor month: Month, pageIndex: Int, foodType: FoodType) -> Void
+
+    func pageView(didUpdateFruitsData fruits: (cultivated: [Food], imported: [Food])) -> Void
+
+    func pageView(didUpdateVegetablesData vegetables: (cultivated: [Food], imported: [Food])) -> Void
+
     func pageView(segmentedControlDidChange index: Int) -> Void
+    
 }

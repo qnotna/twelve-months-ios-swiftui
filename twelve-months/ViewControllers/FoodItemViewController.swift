@@ -9,10 +9,12 @@
 import UIKit
 
 class FoodItemViewController: UIViewController {
-      
+
     @IBOutlet weak var imageView: UIImageView!
     
     var item: Food?
+    var indexPath: IndexPath?
+    var pageIndex: Int?
     
     //MARK: IBActions
     
@@ -21,6 +23,19 @@ class FoodItemViewController: UIViewController {
     /// - Parameter sender: the button that was tapped
     @IBAction func didTapDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case StoryBoardSegueIdentifier.foodItemToFoodItemTableView.rawValue:
+            if let destination = segue.destination as? FoodItemTableViewController {
+                destination.item = item
+                destination.indexPath = indexPath
+                destination.pageIndex = pageIndex
+            }
+        default:
+            return
+        }
     }
     
 }

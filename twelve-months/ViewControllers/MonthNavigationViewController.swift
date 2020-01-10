@@ -12,9 +12,9 @@ class MonthNavigationViewController: UINavigationController {
 
   override func viewDidLoad() {
         super.viewDidLoad()
-        let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
+//        let searchController = UISearchController(searchResultsController: nil)
+//        navigationItem.hidesSearchBarWhenScrolling = false
+//        navigationItem.searchController = searchController
     }
     
 }
