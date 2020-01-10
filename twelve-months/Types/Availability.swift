@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
-struct Availability: Decodable {
+enum Availability: Int, Decodable {
     
-    var region: RegionType
-    var stored: [Month]?
-    var fresh: [Month]?
+    case highest = 4
+    case high = 3
+    case low = 2
+    case lowest = 1
+    case none = 0
     
 }
-
