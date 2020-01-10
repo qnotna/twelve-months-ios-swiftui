@@ -10,36 +10,27 @@ import UIKit
 
 class MonthTableViewController: UITableViewController {
     
-    var month: Month?
-    var fruits: [Food]?
-    var vegetables: [Food]?
-    var foodType: FoodType?
-    
-    func color(for availability: Availability) -> UIColor {
-        var color: UIColor?
-        switch availability {
-        case .highest:
-            color = UIColor.green
-        case .high:
-            color = UIColor.yellow
-            break
-        case .low:
-            color = UIColor.orange
-        case .lowest:
-            color = UIColor.red
-        default:
-            color = UIColor.clear
+    var pageIndex: Int?
+    var fruits: (cultivated: [Food], imported: [Food])?
+    var vegetables: (cultivated: [Food], imported: [Food])?
+    var foodType: FoodType = .vegetable {
+        didSet {
+            tableView.reloadData()
         }
-        return color!
     }
-            
+    //    var fruits: [Food]?
+    //    var vegetables: [Food]?
+    
     //MARK: TableViewControllerDelegate methods
     
     /// Tells the tableViewController how many sections the table should have
     /// It returns 2: one for fresh, one for stored
     /// - Parameter tableView: An object representing the table view requesting this information.
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if fruits!.imported.count == 0 || vegetables!.imported.count == 0 {
+            return 1
+        }
+        return 2
     }
     
     /// Tells the tableViewController what each section should be named
@@ -47,10 +38,7 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: The table-view object asking for the title.
     ///   - section: An index number identifying a section of tableView .
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let foodType = foodType {
-            return foodType == .vegetable ? FoodType.vegetable.rawValue : FoodType.fruit.rawValue
-        }
-        return nil
+        return section == 0 ? "Cultivation" : "Import Only"
     }
     
     /// Tells the tableViewController how many rows each section in the table should have
@@ -58,10 +46,10 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section in tableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
-            return foodType == .vegetable ? vegetables.count : fruits.count
+        if foodType == .vegetable {
+            return (section == 0 ? vegetables?.cultivated.count : vegetables?.imported.count)!
         }
-        return 1
+        return (section == 0 ? fruits?.cultivated.count : fruits?.imported.count)!
     }
     
     /// Tells the tableViewController what each table cell should contain
@@ -70,12 +58,11 @@ class MonthTableViewController: UITableViewController {
     ///   - indexPath: An index path locating a row in tableView.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FoodItemTableViewCell") as! FoodItemTableViewCell
-        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
-            let item = foodType == .vegetable ? vegetables[indexPath.row] : fruits[indexPath.row]
-            cell.nameLabel.text = item.name.capitalized
-            cell.availabilityTrafficLight.backgroundColor = color(for: item.cultivationByMonth[0])
+        cell.pageIndex = pageIndex
+        if foodType == .vegetable {
+            cell.populate(from: vegetables!, at: indexPath)
         } else {
-            cell.nameLabel.text = "Nothing to See Here 👀"
+            cell.populate(from: fruits!, at: indexPath)
         }
         return cell
     }
@@ -88,8 +75,8 @@ class MonthTableViewController: UITableViewController {
     ///   - indexPath: An index path locating the new selected row in tableView.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let vegetables = vegetables, let fruits = fruits, let foodType = foodType {
-            let item = foodType == .vegetable ? vegetables[indexPath.row] : fruits[indexPath.row]
+        if let vegetables = vegetables, let fruits = fruits {//}, let foodType = foodType {
+            let item = foodType == .vegetable ? vegetables.cultivated[indexPath.row] : fruits.cultivated[indexPath.row]
             performSegue(withIdentifier: StoryBoardSegueIdentifier.monthToFoodItem.rawValue, sender: item)
         }
     }
@@ -117,33 +104,27 @@ class MonthTableViewController: UITableViewController {
 
 extension MonthTableViewController: TodayPageViewControllerDelegate {
     
+    func pageView(didUpdatePageFor month: Month, pageIndex: Int, foodType: FoodType) {
+        self.title = month.rawValue
+        self.pageIndex = pageIndex
+//        self.foodType = foodType
+    }
+
     /// Delegate method from TodayPageViewControllerDelegate
     /// Receives updated month and food data and sets it to MonthTableViewController
     /// - Parameters:
     ///   - month: the received month
     ///   - food: the received food for this month
-    func pageView(didUpdateChildrenViewControllerDataFor month: Month, with fruits: [Food], and vegetables: [Food]) {
-        self.title = month.rawValue
-        self.month = month
-        var sortedFruits = sortByAvailability(list: fruits)
-        self.fruits = sortedFruits//removeUncultivated(from: sortedFruits)
-        var sortedVegetables = sortByAvailability(list: vegetables)
-        self.vegetables = sortedVegetables//removeUncultivated(from: sortedVegetables)
-        self.foodType = .vegetable
-//        tableView.reloadData()
+    func pageView(didUpdateFruitsData fruits: (cultivated: [Food], imported: [Food])) {
+        self.fruits = fruits
+    }
+    
+    func pageView(didUpdateVegetablesData vegetables: (cultivated: [Food], imported: [Food])) {
+        self.vegetables = vegetables
     }
     
     func pageView(segmentedControlDidChange index: Int) {
         self.foodType = index == 0 ? .vegetable : .fruit
-//        tableView.reloadData()
-    }
-    
-    func removeUncultivated(from list: [Food]) -> [Food] {
-        return list.filter{$0.cultivationByMonth[0] != .none}
-    }
-    
-    func sortByAvailability(list: [Food]) -> [Food] {
-        return list.sorted{$0.cultivationByMonth[0].rawValue > $1.cultivationByMonth[0].rawValue}
     }
     
 }

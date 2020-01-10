@@ -11,5 +11,6 @@ import Foundation
 enum StoryBoardSegueIdentifier: String {
     
     case monthToFoodItem = "FoodItemViewControllerSegue"
-
+    case foodItemToFoodItemTableView = "FoodItemTableViewControllerSegue"
+    
 }

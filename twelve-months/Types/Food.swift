@@ -8,19 +8,26 @@
 
 import Foundation
 
-struct Food: Decodable {
+struct Food: Decodable, Equatable {
     
     var name: String
     var localizedName: String
     var type: FoodType
     var importByMonth: [Availability]
     var cultivationByMonth: [Availability]
+    var percentagePerMonth: [Int]? {
+        var percentages = [Int]()
+        for i in 0...11 {
+            let cultivated = cultivationByMonth[i].rawValue
+            let imported = importByMonth[i].rawValue
+            if cultivated + imported != 0 {
+                let percentage = (Double(cultivated) / ( Double(cultivated) + Double(imported) )) * 100
+                percentages.append(Int(percentage))
+            } else {
+                percentages.append(-1)
+            }
+        }
+        return percentages
+    }
 
-}
-
-struct Plant: Decodable {
-    let name: String
-    let type: String 
-    let importByMonth: [Int]
-    let cultivationByMonth: [Int]
 }

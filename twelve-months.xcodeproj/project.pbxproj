@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA4B7D5C23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */; };
 		BA60CC6623C78CF00070B082 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6523C78CF00070B082 /* NutritionViewController.swift */; };
 		BA60CC6823C78E5A0070B082 /* NutritionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */; };
 		BA60CC6A23C78F290070B082 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6923C78F290070B082 /* Goals.swift */; };
@@ -37,6 +38,8 @@
 		BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBCD23A7E82A00980B2B /* Region.swift */; };
 		BF7E5F0723A7CA4200F6D211 /* AnywhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */; };
 		BF7E5F0923A7CA6E00F6D211 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */; };
+		BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */; };
+		BFA1B58E23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
 		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
 		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
@@ -44,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGoalTableViewCell.swift; sourceTree = "<group>"; };
 		BA60CC6523C78CF00070B082 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewController.swift; sourceTree = "<group>"; };
 		BA60CC6923C78F290070B082 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		BF50CBCD23A7E82A00980B2B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnywhereViewController.swift; sourceTree = "<group>"; };
 		BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewController.swift; sourceTree = "<group>"; };
+		BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
 		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 				BACB364623C616C600F1D68F /* TableViewCell.swift */,
 				BA60CC6523C78CF00070B082 /* NutritionViewController.swift */,
 				BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */,
+				BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */,
 			);
 			path = Nutrition;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 			children = (
 				BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */,
 				BA60CC6B23C79EB80070B082 /* NutritionViewControllerDelegate.swift */,
+				BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 				BF7E5F0623A7CA4200F6D211 /* AnywhereViewController.swift */,
 				BF7E5F0823A7CA6E00F6D211 /* SearchViewController.swift */,
 				BF0FD4BD23C79DD60042EE1D /* MonthNavigationViewController.swift */,
+				BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -304,12 +313,15 @@
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
+				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
 				BF004B2523BF522A006900C3 /* StoryBoardSegueIdentifier.swift in Sources */,
 				BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */,
 				BA60CC6623C78CF00070B082 /* NutritionViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF0FD4BE23C79DD60042EE1D /* MonthNavigationViewController.swift in Sources */,
+				BFA1B58E23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
+				BA4B7D5C23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BA8D1CF423C3652300CDF1DE /* TextInputTableViewCell.swift in Sources */,
 				BACB364723C616C600F1D68F /* TableViewCell.swift in Sources */,
