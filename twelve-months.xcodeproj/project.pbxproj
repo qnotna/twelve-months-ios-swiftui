@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA4B7D5C23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */; };
 		BA60CC6623C78CF00070B082 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6523C78CF00070B082 /* NutritionViewController.swift */; };
 		BA60CC6823C78E5A0070B082 /* NutritionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */; };
 		BA60CC6A23C78F290070B082 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60CC6923C78F290070B082 /* Goals.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGoalTableViewCell.swift; sourceTree = "<group>"; };
 		BA60CC6523C78CF00070B082 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewController.swift; sourceTree = "<group>"; };
 		BA60CC6923C78F290070B082 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				BACB364623C616C600F1D68F /* TableViewCell.swift */,
 				BA60CC6523C78CF00070B082 /* NutritionViewController.swift */,
 				BA60CC6723C78E5A0070B082 /* NutritionTableViewController.swift */,
+				BA4B7D5B23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift */,
 			);
 			path = Nutrition;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF0FD4BE23C79DD60042EE1D /* MonthNavigationViewController.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
+				BA4B7D5C23C8CDCE006613DF /* WeeklyGoalTableViewCell.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BA8D1CF423C3652300CDF1DE /* TextInputTableViewCell.swift in Sources */,
 				BACB364723C616C600F1D68F /* TableViewCell.swift in Sources */,

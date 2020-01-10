@@ -42,10 +42,17 @@ class NutritionViewController: UIViewController {
         delegate?.segmentedControl(didChange: sender.selectedSegmentIndex)
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "nutritionTableView")
-        self.delegate = tableViewController as! NutritionTableViewController
+
+//        let tableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "nutritionTableView")
+//        self.delegate = tableViewController as! NutritionTableViewController
+        
+        if let tableViewController = self.children.first! as? NutritionTableViewController {
+            print(tableViewController.dailyPercentageLabel.text)
+        }
         
         self.delegate?.getSelectedSegmentIndex(overviewSegmentedControl.selectedSegmentIndex)
         // Do any additional setup after loading the view.

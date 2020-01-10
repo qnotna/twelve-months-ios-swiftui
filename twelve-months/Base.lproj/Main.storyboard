@@ -603,7 +603,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Weekly goals" id="jG7-V2-2BY">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="0VJ-UL-Bfl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="weeklyGoalCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weeklyGoalCell" rowHeight="60" id="0VJ-UL-Bfl" customClass="WeeklyGoalTableViewCell" customModule="twelve_months" customModuleProvider="target">
                                         <rect key="frame" x="16" y="425" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0VJ-UL-Bfl" id="WaZ-oo-B5b">
@@ -921,6 +921,18 @@
                         <outlet property="circularProgress" destination="smG-G0-N2p" id="o9L-WS-dIv"/>
                         <outlet property="dailyAmountLabel" destination="bnz-VI-l3h" id="g1Y-RV-S11"/>
                         <outlet property="dailyPercentageLabel" destination="vov-eu-ssO" id="Kc1-lo-qHz"/>
+                        <outletCollection property="goalLabels" destination="yzF-md-crs" collectionClass="NSMutableArray" id="akg-96-r2B"/>
+                        <outletCollection property="goalProgresses" destination="GDX-rb-y2x" collectionClass="NSMutableArray" id="DhG-SH-kce"/>
+                        <outletCollection property="goalLabels" destination="qsZ-N7-bjM" collectionClass="NSMutableArray" id="SDU-vv-o5J"/>
+                        <outletCollection property="goalProgresses" destination="iZ1-ei-7W8" collectionClass="NSMutableArray" id="Vhr-Lj-wgU"/>
+                        <outletCollection property="goalLabels" destination="Iu7-Od-SRe" collectionClass="NSMutableArray" id="1hk-Xu-DnM"/>
+                        <outletCollection property="goalProgresses" destination="KVx-dD-gZd" collectionClass="NSMutableArray" id="qtB-BF-WVd"/>
+                        <outletCollection property="goalLabels" destination="gFw-Eq-imz" collectionClass="NSMutableArray" id="umt-sV-bkS"/>
+                        <outletCollection property="goalProgresses" destination="g4I-Nt-XhO" collectionClass="NSMutableArray" id="Vho-JT-dbT"/>
+                        <outletCollection property="goalProgresses" destination="d5B-v8-RPo" collectionClass="NSMutableArray" id="D1l-Vt-d3f"/>
+                        <outletCollection property="goalLabels" destination="KCb-Zg-r1X" collectionClass="NSMutableArray" id="rsH-ky-eQj"/>
+                        <outletCollection property="goalProgresses" destination="S5e-dt-k4c" collectionClass="NSMutableArray" id="zA8-Bw-NkM"/>
+                        <outletCollection property="goalLabels" destination="SeR-vP-w1V" collectionClass="NSMutableArray" id="ajG-tu-lGa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5N-lx-FtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1047,42 +1059,41 @@
                                     <action selector="didTapDismiss:" destination="smz-tp-xjy" eventType="touchUpInside" id="Qzn-In-kS8"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OU4-M4-PXh">
-                                <rect key="frame" x="0.0" y="200" width="375" height="558"/>
-                                <connections>
-                                    <segue destination="DPo-tl-Bar" kind="embed" id="U9e-iU-yps"/>
-                                </connections>
-                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGE-qb-VQE">
+                                <rect key="frame" x="16" y="208" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ZIz-Mm-8Qv" firstAttribute="leading" secondItem="gFv-sK-bu7" secondAttribute="leading" id="FWa-Lb-41h"/>
-                            <constraint firstItem="OU4-M4-PXh" firstAttribute="leading" secondItem="gFv-sK-bu7" secondAttribute="leading" id="SIG-XD-ny4"/>
-                            <constraint firstAttribute="bottom" secondItem="OU4-M4-PXh" secondAttribute="bottom" id="XGd-6p-6lL"/>
                             <constraint firstItem="gFv-sK-bu7" firstAttribute="trailing" secondItem="ZIz-Mm-8Qv" secondAttribute="trailing" id="bLe-X3-Iel"/>
-                            <constraint firstItem="OU4-M4-PXh" firstAttribute="top" secondItem="ZIz-Mm-8Qv" secondAttribute="bottom" id="coE-Y7-JK1"/>
                             <constraint firstItem="ZIz-Mm-8Qv" firstAttribute="top" secondItem="gFv-sK-bu7" secondAttribute="top" id="crm-nf-ZfH"/>
+                            <constraint firstItem="HGE-qb-VQE" firstAttribute="top" secondItem="ZIz-Mm-8Qv" secondAttribute="bottom" constant="8" id="di9-t5-bXK"/>
                             <constraint firstItem="gFv-sK-bu7" firstAttribute="trailing" secondItem="OFl-Cn-0EV" secondAttribute="trailing" constant="16" id="jXO-0K-woE"/>
-                            <constraint firstItem="gFv-sK-bu7" firstAttribute="trailing" secondItem="OU4-M4-PXh" secondAttribute="trailing" id="oRQ-47-dzg"/>
                             <constraint firstItem="OFl-Cn-0EV" firstAttribute="top" secondItem="gFv-sK-bu7" secondAttribute="top" constant="16" id="x9U-mH-BkL"/>
+                            <constraint firstItem="HGE-qb-VQE" firstAttribute="leading" secondItem="gFv-sK-bu7" secondAttribute="leading" constant="16" id="zPG-Gb-gLb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gFv-sK-bu7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="tUh-ZD-xA5"/>
                     <connections>
                         <outlet property="imageView" destination="ZIz-Mm-8Qv" id="fE7-qO-ESB"/>
+                        <outlet property="nameLabel" destination="HGE-qb-VQE" id="Ziz-Hc-L1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfm-8l-E5m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482" y="94"/>
+            <point key="canvasLocation" x="3480.8000000000002" y="93.842364532019715"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="N6N-aW-v0f">
             <objects>
                 <tableViewController id="DPo-tl-Bar" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RKG-WT-4Mt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>

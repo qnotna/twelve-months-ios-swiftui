@@ -11,9 +11,17 @@ import UIKit
 class FoodItemViewController: UIViewController {
       
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+
     var item: Food?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let item = item {
+            nameLabel.text = item.name.capitalized
+        }
+    }
+
     //MARK: IBActions
     
     /// Removes self from the current view hierarchy
