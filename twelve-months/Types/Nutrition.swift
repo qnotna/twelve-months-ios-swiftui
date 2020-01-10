@@ -18,28 +18,25 @@ struct Calories {
     }
 }
 
-struct VegetableData {
-    // per day
-    let amount: Double // given in c (cups)
-    let portions: Double
-    
-    // amount (in c) per week
-    let darkGreen: Double
-    let orange: Double
-    let legumes: Double
-    let starchy: Double
-    let other: Double
+struct NutritionData {
+    let dailyAmount: Double
+    let dailyPortions: Double
+    let goals: [Goal]
 }
 
-struct FruitData {
-    // per day
-    let amount: Double // given in c (cups)
-    let portions: Double
+enum GoalTypes {
+    case DAILY, WEEKLY
+}
+
+struct Goal {
+    let name: String
+    let type: GoalTypes
+    let value: Double
 }
 
 struct EatingPatterns {
     // calculate VegetableData based on given calories
-    static func getVegetableAmount(calories kcal: Double) -> VegetableData {
+    static func getVegetableAmount(calories kcal: Double) -> NutritionData {
         var data = [Double]()
         if (kcal <= 1000) {
             data = [1, 2, 1, 0.5, 0.5, 1.5, 4]
@@ -77,23 +74,35 @@ struct EatingPatterns {
             data = [4, 8, 3 ,2.5 ,3.5 ,9 ,10 ]
         }
         
-        return VegetableData(amount: data[0], portions: data[1], darkGreen: data[2], orange: data[3], legumes: data[4], starchy: data[5], other: data[6])
+        return NutritionData(dailyAmount: data[0], dailyPortions: data[1], goals: [
+            Goal(name: "Vegetables", type: GoalTypes.WEEKLY, value: data[0] * 7),
+            Goal(name: "Dark Green veg.", type: GoalTypes.WEEKLY, value: data[2]),
+            Goal(name: "Orange veg.", type: GoalTypes.WEEKLY, value: data[3]),
+            Goal(name: "Legumes", type: GoalTypes.WEEKLY, value: data[4]),
+            Goal(name: "Starchy veg.", type: GoalTypes.WEEKLY, value: data[5]),
+            Goal(name: "Other veg.", type: GoalTypes.WEEKLY, value: data[6]),
+        ])
         
     }
     
-    static func getFruitAmount(calories kcal: Double) -> FruitData {
+    static func getFruitAmount(calories kcal: Double) -> NutritionData {
+        var data = [Double]()
         if (kcal <= 1200) {
-            return FruitData(amount: 1, portions: 2)
+            data = [1, 2]
         }
         else if (kcal <= 1800) {
-            return FruitData(amount: 1.5, portions: 3)
+            data = [1.5, 3]
         }
         else if (kcal <= 2600) {
-            return FruitData(amount: 2, portions: 4)
+            data = [2, 4]
         }
         else {
-            return FruitData(amount: 2.5, portions: 5)
+            data = [2.5, 5]
         }
+        
+        return NutritionData(dailyAmount: data[0], dailyPortions: data[1], goals: [
+            Goal(name: "Fruits", type: GoalTypes.WEEKLY, value: data[0] * 7)
+        ])
         
     }
 }

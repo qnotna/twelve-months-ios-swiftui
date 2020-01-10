@@ -17,3 +17,10 @@ struct Food: Decodable {
     var cultivationByMonth: [Availability]
 
 }
+
+struct Plant: Decodable {
+    let name: String
+    let type: String 
+    let importByMonth: [Int]
+    let cultivationByMonth: [Int]
+}
