@@ -18,6 +18,7 @@ class FoodItemTableViewController: UITableViewController {
     @IBOutlet weak var availabilityImageView: UIImageView!
     @IBOutlet weak var availabilityHeadlineLabel: UILabel!
     @IBOutlet weak var availabilityDescriptionLabel: UILabel!
+    
     @IBOutlet var availabilityCultivatedCollection: [UILabel]!
     @IBOutlet var availabilityImportedCollection: [UILabel]!
     
@@ -32,42 +33,66 @@ class FoodItemTableViewController: UITableViewController {
     }
     
     func populateTable() {
-        let section = indexPath?.section
-        let row = indexPath?.row
-        if section == 0 {
-//            item = items.cultivated[row]
-            availabilityTrafficLight.isHidden = true
-            percentageLabel.isHidden = false
-            availabilityImageView.isHidden = false
-            let imageName = (item?.cultivationByMonth[pageIndex!].rawValue)!
-            availabilityImageView.image = UIImage(named: "plant-\(imageName)")
-        } else {
-//            item = items.imported[row]
-            availabilityTrafficLight.isHidden = false
-            percentageLabel.isHidden = true
-            availabilityImageView.isHidden = true
+        if let item = item {
+            let section = indexPath!.section
+            if section == 0 {
+                percentageLabel.isHidden = false
+                availabilityImageView.isHidden = false
+                let imageName = item.cultivationByMonth[pageIndex!].rawValue
+                availabilityImageView.image = UIImage(named: "plant-\(imageName)")
+                availabilityLabel.text = ""
+                availabilityTrafficLight.backgroundColor = UIColor.clear
+                availabilityHeadlineLabel.text = "\(descriptionFor(availability: item.cultivationByMonth)) Cultivation"
+                availabilityDescriptionLabel.text = "Buy Locally Sourced if Possible"
+            } else {
+                availabilityImageView.isHidden = true
+                availabilityTrafficLight.backgroundColor = colorFor(item: item)
+                availabilityLabel.text = "\(item.importByMonth[pageIndex!].rawValue)"
+                availabilityHeadlineLabel.text = "\(descriptionFor(availability: item.importByMonth)) Import"
+                availabilityDescriptionLabel.text = "Shipping Creates More CO₂"
+            }
+            nameLabel.text = item.name.capitalized
+            foodTypeLabel.text = item.type.rawValue
+            availabilityLabel.textColor = .white
+            percentageLabel.text = "\(item.percentagePerMonth![pageIndex!])%"
+            populateGraph(from: item.cultivationByMonth, to: availabilityCultivatedCollection)
+            populateGraph(from: item.importByMonth, to: availabilityImportedCollection)
         }
-        nameLabel.text = item?.name.capitalized
-//        percentageLabel.text = "\((item?.percentagePerMonth![pageIndex!])!)%"
-//        availabilityTrafficLight.backgroundColor = colorFor(item: item!)
-//        availabilityLabel.text = "\((item?.importByMonth[pageIndex!].rawValue)!)"
     }
     
+    func populateGraph(from availability: [Availability], to collection: [UILabel]) {
+        for i in 0...11 {
+            let label = collection[i]
+            if availability[i] != .none {
+                label.textColor = UIColor.systemGreen
+            } else {
+                label.textColor = UIColor.systemRed
+            }
+        }
+    }
+     
     func colorFor(item: Food) -> UIColor {
         var color: UIColor?
         switch item.importByMonth[pageIndex!] {
-        case .lowest:
-            color = UIColor.systemGreen
-        case .low:
-            color = UIColor.systemOrange
-        case .high:
-            color = UIColor.systemRed
-        case .highest:
-            color = UIColor.systemPink
-        default:
-            color = UIColor.clear
+        case .lowest:  color = .systemOrange
+        case .low:     color = .systemRed
+        case .high:    color = .systemPink
+        case .highest: color = .systemPurple
+        default:       color = .clear
         }
         return color!
+    }
+    
+    func descriptionFor(availability: [Availability]) -> String {
+        var description: String?
+        switch availability[pageIndex!] {
+        case .lowest:  description = "Small"
+        case .low:     description = "Medium"
+        case .high:    description = "Large"
+        case .highest: description = "Heavy"
+        default:       description = "This should never happen"
+        }
+        return description!
     }
     
 }

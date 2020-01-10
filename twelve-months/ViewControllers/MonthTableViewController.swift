@@ -11,6 +11,7 @@ import UIKit
 class MonthTableViewController: UITableViewController {
     
     var pageIndex: Int?
+    var indexPath: IndexPath?
     var fruits: (cultivated: [Food], imported: [Food])?
     var vegetables: (cultivated: [Food], imported: [Food])?
     var foodType: FoodType = .vegetable {
@@ -76,7 +77,13 @@ class MonthTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let vegetables = vegetables, let fruits = fruits {//}, let foodType = foodType {
-            let item = foodType == .vegetable ? vegetables.cultivated[indexPath.row] : fruits.cultivated[indexPath.row]
+            var item: Food?
+            if indexPath.section == 0 {
+                item = foodType == .vegetable ? vegetables.cultivated[indexPath.row] : fruits.cultivated[indexPath.row]
+            } else {
+                item = foodType == .vegetable ? vegetables.imported[indexPath.row] : fruits.imported[indexPath.row]
+            }
+            self.indexPath = indexPath
             performSegue(withIdentifier: StoryBoardSegueIdentifier.monthToFoodItem.rawValue, sender: item)
         }
     }
@@ -92,6 +99,8 @@ class MonthTableViewController: UITableViewController {
         case StoryBoardSegueIdentifier.monthToFoodItem.rawValue:
             if let destination = segue.destination as? FoodItemViewController {
                 destination.item = sender as? Food
+                destination.indexPath = indexPath
+                destination.pageIndex = pageIndex
             }
         default:
             return

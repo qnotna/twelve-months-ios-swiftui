@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zgm-uc-apN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zgm-uc-apN">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -946,7 +946,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="g5l-Rl-pvw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodItemTableViewCell" id="jXq-QV-dNZ" customClass="FoodItemTableViewCell" customModule="twelve_months" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="375" height="43.666667938232422"/>
@@ -1123,11 +1123,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RKG-WT-4Mt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
                             <tableViewSection headerTitle="Information" id="vRP-tK-uiJ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="B1U-Xk-Qkm">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="B1U-Xk-Qkm">
                                         <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B1U-Xk-Qkm" id="kMQ-tx-eQu">
@@ -1157,9 +1156,9 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Badges" id="Rh2-7r-Wkr">
+                            <tableViewSection headerTitle="This Month" id="Rh2-7r-Wkr">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" rowHeight="150" id="2ta-Oe-mtO">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" rowHeight="150" id="2ta-Oe-mtO">
                                         <rect key="frame" x="16" y="155" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ta-Oe-mtO" id="sjO-E9-HfH">
@@ -1167,7 +1166,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fcb-bU-APn">
-                                                    <rect key="frame" x="11" y="13.999999999999993" width="321" height="122.33333333333331"/>
+                                                    <rect key="frame" x="17.666666666666657" y="13.999999999999993" width="308" height="122.33333333333331"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Oq-RW-BJG">
                                                             <rect key="frame" x="0.0" y="0.0" width="154" height="122.33333333333333"/>
@@ -1183,11 +1182,11 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IY-xl-u8n">
-                                                                            <rect key="frame" x="-14.333333333333336" y="0.0" width="109" height="80"/>
+                                                                            <rect key="frame" x="-27.666666666666664" y="0.0" width="135.33333333333334" height="80"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="80" id="B6v-cd-IRd"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -1203,7 +1202,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Cultivation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apu-gB-5IY">
-                                                                    <rect key="frame" x="9.6666666666666714" y="85" width="135" height="20.333333333333329"/>
+                                                                    <rect key="frame" x="9.3333333333333286" y="85" width="135" height="20.333333333333329"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1220,33 +1219,33 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bPP-dI-EZi">
-                                                            <rect key="frame" x="172" y="0.0" width="149" height="122.33333333333333"/>
+                                                            <rect key="frame" x="172" y="0.0" width="136" height="122.33333333333333"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeB-R8-ev5">
-                                                                    <rect key="frame" x="20" y="0.0" width="109" height="80"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="80"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="80" id="y0y-LI-RzV"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locally Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-QU-aa6">
-                                                                    <rect key="frame" x="6.6666666666666572" y="85" width="135.66666666666666" height="20.333333333333329"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Cultivation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-QU-aa6">
+                                                                    <rect key="frame" x="0.0" y="85" width="136" height="20.333333333333329"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Relation to Imports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-DS-kj1">
-                                                                    <rect key="frame" x="21.666666666666657" y="110.33333333333333" width="106" height="12"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compared to Imports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-DS-kj1">
+                                                                    <rect key="frame" x="15.333333333333343" y="110.33333333333333" width="105" height="12"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="IeB-R8-ev5" firstAttribute="leading" secondItem="bPP-dI-EZi" secondAttribute="leading" constant="20" symbolic="YES" id="bA7-PL-hdP"/>
-                                                                <constraint firstAttribute="trailing" secondItem="IeB-R8-ev5" secondAttribute="trailing" constant="20" symbolic="YES" id="uYX-7e-p3A"/>
+                                                                <constraint firstItem="IeB-R8-ev5" firstAttribute="leading" secondItem="bPP-dI-EZi" secondAttribute="leading" id="bA7-PL-hdP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="IeB-R8-ev5" secondAttribute="trailing" id="uYX-7e-p3A"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
@@ -1262,7 +1261,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Availability by Cultivation" id="gkD-yS-whG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="Q7v-th-pF4">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="Q7v-th-pF4">
                                         <rect key="frame" x="16" y="361" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q7v-th-pF4" id="bnO-Nf-DE1">
@@ -1365,7 +1364,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Availability by Import Only" id="2op-FA-ZXn">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="bec-yn-X3X">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemTableViewCell" id="bec-yn-X3X">
                                         <rect key="frame" x="16" y="460.66666793823242" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bec-yn-X3X" id="GYk-JW-J2I">
@@ -1481,8 +1480,30 @@
                         <outlet property="foodTypeLabel" destination="PQM-cB-GGg" id="D8y-VM-H5F"/>
                         <outlet property="nameLabel" destination="1Fc-eJ-fez" id="955-LZ-Bg6"/>
                         <outlet property="percentageLabel" destination="IeB-R8-ev5" id="KfR-Md-rdL"/>
-                        <outletCollection property="availabilityCultivatedCollection" destination="jtv-0Z-bHH" collectionClass="NSMutableArray" id="JFD-1H-qa0"/>
-                        <outletCollection property="availabilityImportedCollection" destination="ZOB-s0-MDf" collectionClass="NSMutableArray" id="cqP-c3-2lG"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="jtv-0Z-bHH" collectionClass="NSMutableArray" id="7a3-6g-ucW"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="ZOB-s0-MDf" collectionClass="NSMutableArray" id="imC-h3-d2F"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="XpS-z5-xWz" collectionClass="NSMutableArray" id="yYm-Za-bqW"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="OgL-U5-eOI" collectionClass="NSMutableArray" id="uK4-yO-WhE"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="dxa-ad-dWw" collectionClass="NSMutableArray" id="iAh-Ao-SqI"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="Qx1-c4-Y9k" collectionClass="NSMutableArray" id="tVZ-Tf-gjk"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="cya-eY-qNL" collectionClass="NSMutableArray" id="CgH-LP-sdi"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="6Fp-1D-FWQ" collectionClass="NSMutableArray" id="TWc-UT-na2"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="VeT-vu-OzZ" collectionClass="NSMutableArray" id="Cz7-lV-qWf"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="YHb-7p-LwL" collectionClass="NSMutableArray" id="h9C-E2-iVy"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="F6m-Q9-JFM" collectionClass="NSMutableArray" id="PDx-BC-6LN"/>
+                        <outletCollection property="availabilityCultivatedCollection" destination="frO-9m-F5w" collectionClass="NSMutableArray" id="vbO-cK-FzE"/>
+                        <outletCollection property="availabilityImportedCollection" destination="D8a-Po-l86" collectionClass="NSMutableArray" id="dXz-1N-6Va"/>
+                        <outletCollection property="availabilityImportedCollection" destination="XnP-X8-lkn" collectionClass="NSMutableArray" id="eiN-PC-aYA"/>
+                        <outletCollection property="availabilityImportedCollection" destination="eVG-1g-c0Y" collectionClass="NSMutableArray" id="wln-tq-XqA"/>
+                        <outletCollection property="availabilityImportedCollection" destination="l4y-Cg-hJE" collectionClass="NSMutableArray" id="J0O-3K-2BE"/>
+                        <outletCollection property="availabilityImportedCollection" destination="QlA-dA-afZ" collectionClass="NSMutableArray" id="8vG-hb-mc6"/>
+                        <outletCollection property="availabilityImportedCollection" destination="mlU-vb-5cM" collectionClass="NSMutableArray" id="itB-Et-Ib0"/>
+                        <outletCollection property="availabilityImportedCollection" destination="Wiq-xF-aGV" collectionClass="NSMutableArray" id="qJb-jy-CC8"/>
+                        <outletCollection property="availabilityImportedCollection" destination="jgF-FZ-WVk" collectionClass="NSMutableArray" id="DLf-zC-rK5"/>
+                        <outletCollection property="availabilityImportedCollection" destination="MH2-hd-uum" collectionClass="NSMutableArray" id="2Fr-10-HoX"/>
+                        <outletCollection property="availabilityImportedCollection" destination="zOD-sf-GCX" collectionClass="NSMutableArray" id="d6n-3Y-3Af"/>
+                        <outletCollection property="availabilityImportedCollection" destination="xOg-PY-DlF" collectionClass="NSMutableArray" id="fkI-hI-7AF"/>
+                        <outletCollection property="availabilityImportedCollection" destination="A6e-CG-t6a" collectionClass="NSMutableArray" id="qv2-Fg-V6l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYf-ji-CFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -52,16 +52,11 @@ class FoodItemTableViewCell: UITableViewCell {
     func colorFor(item: Food) -> UIColor {
         var color: UIColor?
         switch item.importByMonth[pageIndex!] {
-        case .lowest:
-            color = UIColor.systemGreen
-        case .low:
-            color = UIColor.systemOrange
-        case .high:
-            color = UIColor.systemRed
-        case .highest:
-            color = UIColor.systemPink
-        default:
-            color = UIColor.clear
+        case .lowest:  color = .systemOrange
+        case .low:     color = .systemRed
+        case .high:    color = .systemPink
+        case .highest: color = .systemPurple
+        default:       color = .clear
         }
         return color!
     }

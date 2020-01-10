@@ -162,21 +162,22 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
                 }
             }
         }
-        food.cultivated = food.cultivated.sorted() {
-            $0.cultivationByMonth[monthIndex].rawValue > $1.cultivationByMonth[monthIndex].rawValue
+        food.cultivated = food.cultivated.sorted() { (lhs, rhs) -> Bool in
+            if lhs.cultivationByMonth[monthIndex].rawValue == rhs.cultivationByMonth[monthIndex].rawValue {
+                if lhs.percentagePerMonth![monthIndex] == rhs.percentagePerMonth![monthIndex] {
+                    return lhs.name > rhs.name
+                }
+                return lhs.percentagePerMonth![monthIndex] > rhs.percentagePerMonth![monthIndex]
+            }
+            return lhs.cultivationByMonth[monthIndex].rawValue > lhs.cultivationByMonth[monthIndex].rawValue
         }
-        food.imported = food.imported.sorted() {
-            $0.name < $1.name
+        food.imported = food.imported.sorted() { (lhs, rhs) -> Bool in
+            if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
+                return lhs.name < rhs.name
+            }
+            return lhs.importByMonth[monthIndex].rawValue < rhs.importByMonth[monthIndex].rawValue
         }
         return food
-    }
-    
-    func removeImported(from list: [Food]) -> [Food] {
-        return list.filter{$0.cultivationByMonth[0] != .none}
-    }
-    
-    func removeCultivated(from list: [Food]) -> [Food] {
-        return list.filter{$0.cultivationByMonth[0] == .none}
     }
     
 }
