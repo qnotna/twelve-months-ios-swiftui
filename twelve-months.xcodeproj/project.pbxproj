@@ -16,7 +16,7 @@
 		BA8D1CF623C379B900CDF1DE /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D1CF523C379B900CDF1DE /* Nutrition.swift */; };
 		BACB364723C616C600F1D68F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACB364623C616C600F1D68F /* TableViewCell.swift */; };
 		BAEBA9C523C5FAE6003419AF /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBA9C423C5FAE6003419AF /* KDCircularProgress.swift */; };
-		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegatables.json */; };
+		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF004B2523BF522A006900C3 /* StoryBoardSegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */; };
 		BF0FD4BE23C79DD60042EE1D /* MonthNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4BD23C79DD60042EE1D /* MonthNavigationViewController.swift */; };
@@ -53,7 +53,7 @@
 		BA8D1CF523C379B900CDF1DE /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		BACB364623C616C600F1D68F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		BAEBA9C423C5FAE6003419AF /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
-		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegatables.json; sourceTree = "<group>"; };
+		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF004B2423BF522A006900C3 /* StoryBoardSegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSegueIdentifier.swift; sourceTree = "<group>"; };
 		BF0FD4BD23C79DD60042EE1D /* MonthNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthNavigationViewController.swift; sourceTree = "<group>"; };
@@ -461,13 +461,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZGXK69528C;
+				DEVELOPMENT_TEAM = 9C65G2PSBD;
 				INFOPLIST_FILE = "twelve-months/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "antoniusapps.twelve-months";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.beuth-hochschule.twelve-months";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -479,13 +479,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZGXK69528C;
+				DEVELOPMENT_TEAM = 9C65G2PSBD;
 				INFOPLIST_FILE = "twelve-months/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "antoniusapps.twelve-months";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.beuth-hochschule.twelve-months";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

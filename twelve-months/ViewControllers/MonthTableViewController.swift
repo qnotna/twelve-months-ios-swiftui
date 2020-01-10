@@ -129,7 +129,7 @@ extension MonthTableViewController: TodayPageViewControllerDelegate {
         self.fruits = sortedFruits//removeUncultivated(from: sortedFruits)
         var sortedVegetables = sortByAvailability(list: vegetables)
         self.vegetables = sortedVegetables//removeUncultivated(from: sortedVegetables)
-        self.foodType = .fruit
+        self.foodType = .vegetable
 //        tableView.reloadData()
     }
     
