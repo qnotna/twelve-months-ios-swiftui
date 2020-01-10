@@ -11,7 +11,8 @@ import UIKit
 class FoodItemViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+
     var item: Food?
     var indexPath: IndexPath?
     var pageIndex: Int?

@@ -23,7 +23,6 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
     
     func currentNutritionValueChanged() {
         loadData(forNutitionIndex: selectedIndex ?? 1)
-        print(dailyProgress)
     }
     
     @IBAction func increaceCurrentNutritionValue(_ sender: UIButton) {
@@ -32,6 +31,8 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
         defaults.set(newNutrationValue, forKey: currentNutrition)
         loadData(forNutitionIndex: selectedIndex ?? 0)
         setDailyData()
+        setWeeklyData()
+
     }
     
     @IBAction func decreaseCurrentNutritionValue(_ sender: UIButton) {
@@ -41,6 +42,8 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
             defaults.set(newNutrationValue, forKey: currentNutrition)
             loadData(forNutitionIndex: selectedIndex ?? 0)
             setDailyData()
+            setWeeklyData()
+
         }
     }
     
@@ -59,22 +62,25 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
     var dailyProgress: NutritionProgress?
     var weeklyProgress = [NutritionProgress]()
 
-    
+//    MARK - Daily outlets
     @IBOutlet weak var circularProgress: KDCircularProgress!
     @IBOutlet var dailyAmountLabel: UILabel!
     @IBOutlet weak var dailyPercentageLabel: UILabel!
     
+//    MARK - Weekly outlets
+    @IBOutlet var goalLabels: [UILabel]!
+    @IBOutlet var goalProgresses: [UIProgressView]!
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Hello! Will appear")
         loadData(forNutitionIndex: selectedIndex ?? 0)
         setDailyData()
+        setWeeklyData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello! Did load")
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -83,7 +89,6 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
     }
     
     func setDailyData(){
-        print(dailyProgress!.goalValue)
         let current = dailyProgress!.currentValue
         let goal = dailyProgress!.goalValue
         dailyAmountLabel.text = String(format: "%0.1f / %0.1f c", current, goal)
@@ -91,6 +96,19 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
         circularProgress.angle = dailyProgress!.progress * 360
         
         dailyPercentageLabel.text = String(format: "%.0f%%", (dailyProgress!.progress * 100))
+        
+    }
+    
+    func setWeeklyData(){
+        var currentValue = 1.0
+        for (i,label) in goalLabels.enumerated() {
+            currentValue = i == 0 ? dailyProgress!.currentValue : 1.0
+            label.text = String(format: "%0.1f / %0.1f c", currentValue, weeklyProgress[i].goalValue)
+        }
+        for (i,progress) in goalProgresses.enumerated() {
+            currentValue = i == 0 ? dailyProgress!.currentValue : 1.0
+            progress.progress = Float(currentValue / weeklyProgress[i].goalValue)
+        }
     }
     
     func loadData(forNutitionIndex index: Int){
@@ -114,6 +132,7 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
             currentValue: currentNutrition,
             goalValue: nData.dailyAmount
         )
+        weeklyProgress = [NutritionProgress]()
         for goal in nData.goals {
             weeklyProgress.append(NutritionProgress(
                 name: goal.name,
@@ -137,8 +156,7 @@ class NutritionTableViewController: UITableViewController, NutritionViewControll
     }
 
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print(indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "weeklyGoalCell", for: indexPath)
 //
 //        return cell
 //    }
