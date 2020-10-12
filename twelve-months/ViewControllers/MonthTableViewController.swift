@@ -22,6 +22,11 @@ class MonthTableViewController: UITableViewController {
     //    var fruits: [Food]?
     //    var vegetables: [Food]?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        NotificationCenter.default.addObserver(self, selector: #selector(segmentedControlDidChange()), name: .foodTypeDidChange, object: nil)
+    }
+    
     //MARK: TableViewControllerDelegate methods
     
     /// Tells the tableViewController how many sections the table should have
@@ -136,4 +141,8 @@ extension MonthTableViewController: TodayPageViewControllerDelegate {
         self.foodType = index == 0 ? .vegetable : .fruit
     }
     
+    func segmentedControlDidChange() {
+        self.foodType = self.foodType == .vegetable ? .fruit : .vegetable
+    }
+        
 }

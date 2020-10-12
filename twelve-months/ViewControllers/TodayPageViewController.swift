@@ -20,7 +20,11 @@ class TodayPageViewController: UIPageViewController {
     //MARK: IBActions
     
     @IBAction func foodTypeDidChange(_ sender: UISegmentedControl) {
-        todayDelegate?.pageView(segmentedControlDidChange: sender.selectedSegmentIndex)
+//        for monthViewController in pages! {
+//            todayDelegate = monthViewController as? TodayPageViewControllerDelegate
+            todayDelegate?.pageView(segmentedControlDidChange: sender.selectedSegmentIndex)
+//        }
+//        NotificationCenter.default.post(name: .foodTypeDidChange, object: nil)
     }
     
     //MARK: UIPageViewControllerDelegate methods
@@ -32,6 +36,7 @@ class TodayPageViewController: UIPageViewController {
     ///   - pageViewController: The page view controller
     ///   - viewController: The view controller that the user navigated away from.
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        print("previous")
         guard let index = pages?.firstIndex(of: viewController) else {
             return nil
         }
@@ -136,6 +141,7 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
             let fruits = prepareFoodItemData(for: month, from: allFruits)
             let vegetables = prepareFoodItemData(for: month, from: allVegetables)
             if let monthViewController = viewController.children.first {
+//            for monthViewController in viewControllers {
                 todayDelegate = monthViewController as? TodayPageViewControllerDelegate
                 todayDelegate?.pageView(didUpdatePageFor: month, pageIndex: months.firstIndex(of: month)!, foodType: .vegetable)
                 todayDelegate?.pageView(didUpdateFruitsData: fruits)
