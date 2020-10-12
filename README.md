@@ -9,7 +9,7 @@
 	- [Monthly Overview](#monthly-overview)
 	- [Detailed Summary](detailed-summary)
 3. [Data](#data)
-  - [Availability](#availability)
+	- [Availability](#availability)
 
 ## Overview
 
@@ -34,7 +34,7 @@ This overview shows a list of all available produce for each month. It is sorted
 
 ### Detailed Summary
 
-The detailed summary shows which in months the item is available and if it will be cultivated antother time of the year.
+The detailed summary shows which in months the item is available and if it will be cultivated another time of the year.
 
 <img src="./doc/detail-pear.jpeg" alt="Detail 1" width="300px">
 
