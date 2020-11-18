@@ -10,14 +10,21 @@ import Foundation
 
 protocol TodayPageViewControllerDelegate {
     
-    #warning("Pass 'pageView' as well")
+    /// Call when the current page changed and a new page is presented
+    /// - Parameters:
+    ///   - month: new presented month
+    ///   - pageIndex: new page index
+    func pageView(didCreatePageFor month: Month, at pageIndex: Int) -> Void
     
-    func pageView(didUpdatePageFor month: Month, pageIndex: Int, foodType: FoodType) -> Void
-
-    func pageView(didUpdateFruitsData fruits: (cultivated: [Food], imported: [Food])) -> Void
-
-    func pageView(didUpdateVegetablesData vegetables: (cultivated: [Food], imported: [Food])) -> Void
-
-    func pageView(segmentedControlDidChange index: Int) -> Void
+    /// Call when goods for the current page are ready
+    /// - Parameters:
+    ///   - vegetables: current vegetables
+    ///   - fruits: current fruits
+    func pageView(didUpdate vegetables: Goods, and fruits: Goods) -> Void
+    
+    #warning("Should be part of 'UINavigationViewControllerDelegate'")
+    /// Call when the fruit type changes
+    /// - Parameter foodType: new food type
+    func pageView(didUpdate foodType: FoodType) -> Void
     
 }

@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+#warning("Changing pages is sometimes irreponsive")
+#warning("Page Control should wrap")
 class TodayPageViewController: UIPageViewController {
     
     var todayDelegate: TodayPageViewControllerDelegate?
@@ -21,10 +23,15 @@ class TodayPageViewController: UIPageViewController {
     //MARK: IBActions
     
     @IBAction func foodTypeDidChange(_ sender: UISegmentedControl) {
-        todayDelegate?.pageView(segmentedControlDidChange: sender.selectedSegmentIndex)
+        let fruitType: FoodType = sender.selectedSegmentIndex == 0 ? .vegetable : .fruit
+        todayDelegate?.pageView(didUpdate: fruitType)
     }
     
-    //MARK: UIPageViewControllerDelegate methods
+}
+
+//MARK: UIPageViewControllerDelegate methods
+
+extension TodayPageViewController {
     
     /// Tells the UIPageViewController which page should be displayed before the current page
     /// Calculates the index for the next page if a list overflow happens at the beginning of the pages list
@@ -138,9 +145,8 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
             let vegetables = prepareFoodItemData(for: month, from: allVegetables)
             if let monthViewController = viewController.children.first {
                 todayDelegate = monthViewController as? TodayPageViewControllerDelegate
-                todayDelegate?.pageView(didUpdatePageFor: month, pageIndex: months.firstIndex(of: month)!, foodType: .vegetable)
-                todayDelegate?.pageView(didUpdateFruitsData: fruits)
-                todayDelegate?.pageView(didUpdateVegetablesData: vegetables)
+                todayDelegate?.pageView(didCreatePageFor: month, at: months.firstIndex(of: month)!)
+                todayDelegate?.pageView(didUpdate: vegetables, and: fruits)
             }
         }
         return viewControllers
@@ -148,22 +154,23 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
     
     //MARK: Data preparation and delegation
     
-    func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> (cultivated: [Food], imported: [Food]) {
-        var food = (cultivated: [Food](), imported: [Food]())
+    #warning("Should not use 'Availability.none', use different criteria instead")
+    func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> Goods {
+        var goods = Goods()
         let monthIndex = months.firstIndex(of: month)!
         if let items = foodItems {
             for item in items {
                 if item.cultivationByMonth[monthIndex] != .none {
-                    food.cultivated.append(item)
+                    goods.cultivated.append(item)
                 }
             }
             for item in items {
-                if item.importByMonth[monthIndex] != .none && !food.cultivated.contains(item) {
-                    food.imported.append(item)
+                if item.importByMonth[monthIndex] != .none && !goods.cultivated.contains(item) {
+                    goods.imported.append(item)
                 }
             }
         }
-        food.cultivated = food.cultivated.sorted() { (lhs, rhs) -> Bool in
+        goods.cultivated = goods.cultivated.sorted() { (lhs, rhs) -> Bool in
             if lhs.cultivationByMonth[monthIndex].rawValue == rhs.cultivationByMonth[monthIndex].rawValue {
                 if lhs.percentagePerMonth![monthIndex] == rhs.percentagePerMonth![monthIndex] {
                     return lhs.name > rhs.name
@@ -172,13 +179,13 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
             }
             return lhs.cultivationByMonth[monthIndex].rawValue > rhs.cultivationByMonth[monthIndex].rawValue
         }
-        food.imported = food.imported.sorted() { (lhs, rhs) -> Bool in
+        goods.imported = goods.imported.sorted() { (lhs, rhs) -> Bool in
             if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
                 return lhs.name < rhs.name
             }
             return lhs.importByMonth[monthIndex].rawValue < rhs.importByMonth[monthIndex].rawValue
         }
-        return food
+        return goods
     }
     
 }

@@ -9,34 +9,35 @@
 import UIKit
 
 class FoodItemViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-
+    
     var item: Food?
     var indexPath: IndexPath?
     var pageIndex: Int?
     
-    //MARK: IBActions
+    //MARK: - IBActions
     
     /// Removes self from the current view hierarchy
     /// This view controller will be closed
-    /// - Parameter sender: the button that was tapped
     @IBAction func didTapDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //MARK: - Navigation
+    
+    /// Prepares for segue to `FoodItemTableViewController`
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case SegueIdentifier.foodItemToFoodItemTableView.rawValue:
-            if let destination = segue.destination as? FoodItemTableViewController {
-                imageView.image = UIImage(named: "vegetables-fruits")
-                destination.item = item
-                destination.indexPath = indexPath
-                destination.pageIndex = pageIndex
-            }
-        default:
-            return
+        imageView.image = UIImage(named: "vegetables-fruits")
+        prepareSegue(destination: segue.destination)
+    }
+    
+    /// Sets `item`, `indexPath`, `pageIndex` to `FoodItemViewController` before a segue from this view controller is performed
+    func prepareSegue(destination: UIViewController) {
+        if let destination = destination as? FoodItemTableViewController {
+            destination.item = item
+            destination.indexPath = indexPath
+            destination.pageIndex = pageIndex
         }
     }
     

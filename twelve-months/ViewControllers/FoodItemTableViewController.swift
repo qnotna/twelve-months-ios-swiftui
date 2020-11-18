@@ -32,6 +32,7 @@ class FoodItemTableViewController: UITableViewController {
         populateTable()
     }
     
+    #warning("Do not repeat population from FoodItemTableViewCell")
     func populateTable() {
         if let item = item {
             let section = indexPath!.section
@@ -42,13 +43,13 @@ class FoodItemTableViewController: UITableViewController {
                 availabilityImageView.image = UIImage(named: "plant-\(imageName)")
                 availabilityLabel.text = ""
                 availabilityTrafficLight.backgroundColor = UIColor.clear
-                availabilityHeadlineLabel.text = "\(descriptionFor(availability: item.cultivationByMonth)) Cultivation"
+                availabilityHeadlineLabel.text = "\(item.cultivationByMonth[pageIndex!])"
                 availabilityDescriptionLabel.text = "Buy Locally Sourced if Possible"
             } else {
                 availabilityImageView.isHidden = true
-                availabilityTrafficLight.backgroundColor = colorFor(item: item)
+                availabilityTrafficLight.backgroundColor = UIColor.matching(availability: item.importByMonth[pageIndex!])
                 availabilityLabel.text = "\(item.importByMonth[pageIndex!].rawValue)"
-                availabilityHeadlineLabel.text = "\(descriptionFor(availability: item.importByMonth)) Import"
+                availabilityHeadlineLabel.text = "\(item.importByMonth[pageIndex!])"
                 availabilityDescriptionLabel.text = "Shipping Creates More CO₂"
             }
             nameLabel.text = item.name.capitalized
@@ -60,6 +61,7 @@ class FoodItemTableViewController: UITableViewController {
         }
     }
     
+    #warning("Should not use 'Availability.none', use different criteria instead")
     func populateGraph(from availability: [Availability], to collection: [UILabel]) {
         for i in 0...11 {
             let label = collection[i]
@@ -69,30 +71,6 @@ class FoodItemTableViewController: UITableViewController {
                 label.textColor = UIColor.systemRed
             }
         }
-    }
-     
-    func colorFor(item: Food) -> UIColor {
-        var color: UIColor?
-        switch item.importByMonth[pageIndex!] {
-        case .lowest:  color = .systemOrange
-        case .low:     color = .systemRed
-        case .high:    color = .systemPink
-        case .highest: color = .systemPurple
-        default:       color = .clear
-        }
-        return color!
-    }
-    
-    func descriptionFor(availability: [Availability]) -> String {
-        var description: String?
-        switch availability[pageIndex!] {
-        case .lowest:  description = "Small"
-        case .low:     description = "Medium"
-        case .high:    description = "Large"
-        case .highest: description = "Heavy"
-        default:       description = "This should never happen"
-        }
-        return description!
     }
     
 }

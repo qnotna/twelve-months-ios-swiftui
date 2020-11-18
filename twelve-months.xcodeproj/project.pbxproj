@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
-		BF004B2523BF522A006900C3 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF004B2423BF522A006900C3 /* SegueIdentifier.swift */; };
-		BF0A459623C9364E00220EC6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A459523C9364E00220EC6 /* NotificationName.swift */; };
+		BF0A459623C9364E00220EC6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A459523C9364E00220EC6 /* NotificationName+Extension.swift */; };
 		BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */; };
 		BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */; };
 		BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */; };
@@ -23,23 +22,24 @@
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
 		BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCE23A6EC0C00386A87 /* RegionType.swift */; };
 		BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD023A6EC7C00386A87 /* Availability.swift */; };
-		BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD223A6F5BB00386A87 /* BundleDecodable.swift */; };
+		BF47CBD323A6F5BB00386A87 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD223A6F5BB00386A87 /* Bundle+Extension.swift */; };
 		BF50CBCC23A7E79B00980B2B /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = BF50CBCB23A7E79B00980B2B /* regions.json */; };
 		BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBCD23A7E82A00980B2B /* Region.swift */; };
 		BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */; };
-		BFA1B58E23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
 		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
 		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
 		BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */; };
+		BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* Goods.swift */; };
+		BFB7A0652565914D00C31B5B /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A0642565914D00C31B5B /* SegueIdentifier.swift */; };
 		BFEF250D25656C5700796CE2 /* AvailabilitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */; };
+		BFEF251325656EF400796CE2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF251225656EF400796CE2 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
-		BF004B2423BF522A006900C3 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
-		BF0A459523C9364E00220EC6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		BF0A459523C9364E00220EC6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
 		BF1CB11623A6E46100F8A5C9 /* twelve-months.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "twelve-months.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,16 +54,18 @@
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		BF47CBCE23A6EC0C00386A87 /* RegionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionType.swift; sourceTree = "<group>"; };
 		BF47CBD023A6EC7C00386A87 /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
-		BF47CBD223A6F5BB00386A87 /* BundleDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDecodable.swift; sourceTree = "<group>"; };
+		BF47CBD223A6F5BB00386A87 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		BF50CBCB23A7E79B00980B2B /* regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
 		BF50CBCD23A7E82A00980B2B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewController.swift; sourceTree = "<group>"; };
-		BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
 		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
 		BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemViewController.swift; sourceTree = "<group>"; };
+		BFB7A05D25657CEE00C31B5B /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
+		BFB7A0642565914D00C31B5B /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilitySection.swift; sourceTree = "<group>"; };
+		BFEF251225656EF400796CE2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +117,11 @@
 		BF2A600723A6FAB2009A6F8F /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
+				BFB7A0642565914D00C31B5B /* SegueIdentifier.swift */,
 				BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */,
 				BF47CBC823A6EAB100386A87 /* FoodType.swift */,
 				BF47CBCA23A6EB0D00386A87 /* Month.swift */,
 				BF47CBCE23A6EC0C00386A87 /* RegionType.swift */,
-				BF004B2423BF522A006900C3 /* SegueIdentifier.swift */,
 				BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */,
 			);
 			path = Enumerations;
@@ -129,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */,
-				BFA1B58D23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -150,6 +151,7 @@
 				BF47CBC623A6EA8200386A87 /* Food.swift */,
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
 				BF50CBCD23A7E82A00980B2B /* Region.swift */,
+				BFB7A05D25657CEE00C31B5B /* Goods.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -169,8 +171,9 @@
 		BF7E5F0B23A7CA8600F6D211 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BF0A459523C9364E00220EC6 /* NotificationName.swift */,
-				BF47CBD223A6F5BB00386A87 /* BundleDecodable.swift */,
+				BF0A459523C9364E00220EC6 /* NotificationName+Extension.swift */,
+				BF47CBD223A6F5BB00386A87 /* Bundle+Extension.swift */,
+				BFEF251225656EF400796CE2 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,8 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF47CBD323A6F5BB00386A87 /* BundleDecodable.swift in Sources */,
-				BF0A459623C9364E00220EC6 /* NotificationName.swift in Sources */,
+				BFEF251325656EF400796CE2 /* UIColor+Extension.swift in Sources */,
+				BF47CBD323A6F5BB00386A87 /* Bundle+Extension.swift in Sources */,
+				BF0A459623C9364E00220EC6 /* NotificationName+Extension.swift in Sources */,
 				BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */,
 				BFEF250D25656C5700796CE2 /* AvailabilitySection.swift in Sources */,
 				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
@@ -258,12 +262,12 @@
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
+				BFB7A0652565914D00C31B5B /* SegueIdentifier.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
-				BF004B2523BF522A006900C3 /* SegueIdentifier.swift in Sources */,
 				BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
-				BFA1B58E23C8D3AF00E2A765 /* MonthTableViewControllerDelegate.swift in Sources */,
+				BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */,

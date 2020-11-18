@@ -9,12 +9,23 @@
 import Foundation
 import UIKit
 
-enum Availability: Int, Decodable {
+enum Availability: Int, Decodable, CustomStringConvertible {
     
-    case highest = 4
-    case high = 3
-    case low = 2
-    case lowest = 1
-    case none = 0
+    #warning("Associated value should never be '0'")
+    case highest = 4,
+         high    = 3,
+         low     = 2,
+         lowest  = 1,
+         none    = 0
+    
+    var description: String {
+        switch self {
+        case .lowest:  return "Small"
+        case .low:     return "Medium"
+        case .high:    return "Large"
+        case .highest: return "Heavy"
+        default:       return "This should never happen"
+        }
+    }
     
 }

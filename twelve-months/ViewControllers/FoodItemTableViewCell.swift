@@ -25,7 +25,7 @@ class FoodItemTableViewCell: UITableViewCell {
         availabilityTrafficLight.layer.cornerRadius = availabilityTrafficLight.frame.width / 2
     }
     
-    func populate(from items: (cultivated: [Food], imported: [Food]), at indexPath: IndexPath) {
+    func populate(from items: Goods, at indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
         var item: Food?
@@ -45,21 +45,9 @@ class FoodItemTableViewCell: UITableViewCell {
         imageView!.image = UIImage(named: item!.name)
         nameLabel.text = item?.name.capitalized
         percentageLabel.text = "\((item?.percentagePerMonth![pageIndex!])!)%"
-        availabilityTrafficLight.backgroundColor = colorFor(item: item!)
+        availabilityTrafficLight.backgroundColor = UIColor.matching(availability: item!.importByMonth[pageIndex!])
         availabilityLabel.text = "\((item?.importByMonth[pageIndex!].rawValue)!)"
         availabilityLabel.textColor = UIColor.white
-    }
-    
-    func colorFor(item: Food) -> UIColor {
-        var color: UIColor?
-        switch item.importByMonth[pageIndex!] {
-        case .lowest:  color = .systemOrange
-        case .low:     color = .systemRed
-        case .high:    color = .systemPink
-        case .highest: color = .systemPurple
-        default:       color = .clear
-        }
-        return color!
     }
     
 }

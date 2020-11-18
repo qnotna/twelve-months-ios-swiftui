@@ -11,8 +11,8 @@ import Foundation
 enum AvailabilityType: String {
     
     case fresh = "Fresh"
-    case stored = "Stored"
-    #warning("String should not be empty")
+    case imported = "Imported"
+    #warning("String should never be empty")
     case none = ""
     
 }

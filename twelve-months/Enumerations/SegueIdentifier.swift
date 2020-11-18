@@ -11,6 +11,7 @@ import Foundation
 enum SegueIdentifier: String {
     
     case monthToFoodItem = "FoodItemViewControllerSegue"
+    #warning("No unused cases")
     case foodItemToFoodItemTableView = "FoodItemTableViewControllerSegue"
     
 }
