@@ -44,7 +44,7 @@ class FoodItemTableViewCell: UITableViewCell {
         }
         imageView!.image = UIImage(named: item!.name)
         nameLabel.text = item?.name.capitalized
-        percentageLabel.text = "\((item?.percentagePerMonth![pageIndex!])!)%"
+        percentageLabel.text = "\((item?.ratio![pageIndex!])!)%"
         availabilityTrafficLight.backgroundColor = UIColor.matching(availability: item!.importByMonth[pageIndex!])
         availabilityLabel.text = "\((item?.importByMonth[pageIndex!].rawValue)!)"
         availabilityLabel.textColor = UIColor.white

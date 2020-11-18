@@ -16,8 +16,8 @@ struct Food: Decodable, Equatable {
     var importByMonth: [Availability]
     var cultivationByMonth: [Availability]
     
-    #warning("Calculate this lazily instead")
-    var percentagePerMonth: [Int]? {
+    /// Ratio between `importByMonth` and `cultivationByMonth`
+    var ratio: [Int]? {
         var percentages = [Int]()
         for i in 0...11 {
             let cultivated = cultivationByMonth[i].rawValue

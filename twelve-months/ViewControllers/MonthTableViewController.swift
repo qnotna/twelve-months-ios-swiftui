@@ -21,6 +21,11 @@ class MonthTableViewController: UITableViewController {
         }
     }
     
+    /// Toggles `foodType` between `.vegetable` and `.fruit` depending on which is currently stored in the variable
+    func toggleFoodType() {
+        self.foodType = self.foodType == .vegetable ? .fruit : .vegetable
+    }
+    
 }
 
 //MARK: - TableViewControllerDelegate methods
@@ -103,16 +108,6 @@ extension MonthTableViewController: TodayPageViewControllerDelegate {
     func pageView(didUpdate vegetables: Goods, and fruits: Goods) {
         self.vegetables = vegetables
         self.fruits = fruits
-    }
-    
-    func pageView(didUpdate foodType: FoodType) {
-        self.foodType = foodType
-    }
-    
-    #warning("Does not work yet")
-    #warning("Not a 'TodayPageViewControllerDelegate' method")
-    func segmentedControlDidChange() {
-        self.foodType = self.foodType == .vegetable ? .fruit : .vegetable
     }
         
 }

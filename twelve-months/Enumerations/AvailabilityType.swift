@@ -10,8 +10,9 @@ import Foundation
 
 enum AvailabilityType: String {
     
-    case fresh = "Fresh"
-    case imported = "Imported"
+    case fresh = "Fresh",
+         imported = "Imported"
+    
     #warning("String should never be empty")
     case none = ""
     

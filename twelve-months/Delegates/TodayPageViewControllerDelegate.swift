@@ -22,9 +22,4 @@ protocol TodayPageViewControllerDelegate {
     ///   - fruits: current fruits
     func pageView(didUpdate vegetables: Goods, and fruits: Goods) -> Void
     
-    #warning("Should be part of 'UINavigationViewControllerDelegate'")
-    /// Call when the fruit type changes
-    /// - Parameter foodType: new food type
-    func pageView(didUpdate foodType: FoodType) -> Void
-    
 }

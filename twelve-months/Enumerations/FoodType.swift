@@ -10,8 +10,9 @@ import Foundation
 
 enum FoodType: String, Decodable {
     
-    case fruit = "Fruit"
-    case vegetable = "Vegetable"
+    case fruit = "Fruit",
+         vegetable = "Vegetable"
+    
     case other =  "Only fruits and vegetables are supported at this time."
     
 }

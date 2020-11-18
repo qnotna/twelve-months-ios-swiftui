@@ -9,6 +9,7 @@
 import Foundation
 
 enum AvailabilitySection: Int {
+    
     case cultivation = 0,
          importOnly = 1
 }

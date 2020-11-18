@@ -55,7 +55,7 @@ class FoodItemTableViewController: UITableViewController {
             nameLabel.text = item.name.capitalized
             foodTypeLabel.text = item.type.rawValue
             availabilityLabel.textColor = .white
-            percentageLabel.text = "\(item.percentagePerMonth![pageIndex!])%"
+            percentageLabel.text = "\(item.ratio![pageIndex!])%"
             populateGraph(from: item.cultivationByMonth, to: availabilityCultivatedCollection)
             populateGraph(from: item.importByMonth, to: availabilityImportedCollection)
         }
