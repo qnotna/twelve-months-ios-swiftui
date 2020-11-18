@@ -99,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3F781423BD282F00A8DE6B /* Delegates */,
+				BF38850C2565C73400EE8201 /* Views */,
 				BF7E5F0A23A7CA7500F6D211 /* ViewControllers */,
 				BF7E5F0B23A7CA8600F6D211 /* Extensions */,
 				BF47CBCD23A6EBDC00386A87 /* Types */,
@@ -125,6 +126,14 @@
 				BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */,
 			);
 			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		BF38850C2565C73400EE8201 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BF3F781423BD282F00A8DE6B /* Delegates */ = {
@@ -160,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */,
-				BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */,
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
 				BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */,
 				BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */,

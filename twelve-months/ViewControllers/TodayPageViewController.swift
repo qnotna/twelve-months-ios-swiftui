@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
 
-#warning("Changing pages is sometimes irreponsive")
 #warning("Page Control should wrap")
 class TodayPageViewController: UIPageViewController {
     
@@ -18,17 +16,38 @@ class TodayPageViewController: UIPageViewController {
     var allFruits: [Food]?
     var allVegetables: [Food]?
     
-    //MARK: - Lifecycle
+    lazy var foodTypeControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: ["Vegetables", "Fruits"])
+        control.selectedSegmentIndex = 0
+        control.addTarget(self, action: #selector(foodTypeDidChange(_:)), for: .valueChanged)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
     
+    //MARK: - Lifecycle
+
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
+        setupViews()
         dataSource = self
         allFruits = Bundle.main.decode([Food].self, from: "fruits.json")
         allVegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
         createPages()
+    }
+    
+    fileprivate func setupViews() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        self.navigationItem.titleView = foodTypeControl
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,9 +61,7 @@ class TodayPageViewController: UIPageViewController {
         }
     }
     
-    //MARK: IBActions
-    
-    @IBAction func foodTypeDidChange(_ sender: UISegmentedControl) {
+    @objc func foodTypeDidChange(_ segmentedControl: UISegmentedControl) {
         guard pages != nil else { return }
         for page in pages! {
             if let viewController = page.children.first as? MonthTableViewController {
