@@ -35,7 +35,7 @@ class FoodItemTableViewController: UITableViewController {
     func populateTable() {
         if let item = item {
             let section = indexPath!.section
-            if section == 0 {
+            if section == AvailabilitySection.cultivation.rawValue {
                 percentageLabel.isHidden = false
                 availabilityImageView.isHidden = false
                 let imageName = item.cultivationByMonth[pageIndex!].rawValue

@@ -13,6 +13,7 @@ class TodayPageViewController: UIPageViewController {
     
     var todayDelegate: TodayPageViewControllerDelegate?
     var pages: [UIViewController]?
+    #warning("Replace this with 'allCases', conforming enum to 'CaseIterable'")
     let months: [Month] = [.january, .february, .march, .april, .may, .june, .july, .august, .september, .october, .november, .december]
     var allFruits: [Food]?
     var allVegetables: [Food]?
@@ -20,11 +21,7 @@ class TodayPageViewController: UIPageViewController {
     //MARK: IBActions
     
     @IBAction func foodTypeDidChange(_ sender: UISegmentedControl) {
-//        for monthViewController in pages! {
-//            todayDelegate = monthViewController as? TodayPageViewControllerDelegate
-            todayDelegate?.pageView(segmentedControlDidChange: sender.selectedSegmentIndex)
-//        }
-//        NotificationCenter.default.post(name: .foodTypeDidChange, object: nil)
+        todayDelegate?.pageView(segmentedControlDidChange: sender.selectedSegmentIndex)
     }
     
     //MARK: UIPageViewControllerDelegate methods
@@ -70,7 +67,7 @@ class TodayPageViewController: UIPageViewController {
         }
         return pages?[nextIndex]
     }
-        
+    
     /// Tells the UIPageViewController how many pages should be displayed in the page view control at the bottom of the view
     /// - Parameter pageViewController: The page view controller.
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
@@ -85,11 +82,11 @@ class TodayPageViewController: UIPageViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         for view in view.subviews{
             if view is UIScrollView{
                 view.frame = UIScreen.main.bounds
-            }else if view is UIPageControl{
+            } else if view is UIPageControl{
                 view.backgroundColor = UIColor.clear
             }
         }
@@ -137,11 +134,9 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         for month in months {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
             viewControllers.append(viewController)
-
             let fruits = prepareFoodItemData(for: month, from: allFruits)
             let vegetables = prepareFoodItemData(for: month, from: allVegetables)
             if let monthViewController = viewController.children.first {
-//            for monthViewController in viewControllers {
                 todayDelegate = monthViewController as? TodayPageViewControllerDelegate
                 todayDelegate?.pageView(didUpdatePageFor: month, pageIndex: months.firstIndex(of: month)!, foodType: .vegetable)
                 todayDelegate?.pageView(didUpdateFruitsData: fruits)
@@ -157,9 +152,6 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         var food = (cultivated: [Food](), imported: [Food]())
         let monthIndex = months.firstIndex(of: month)!
         if let items = foodItems {
-//            for item in items {
-//                fetchImage()
-//            }
             for item in items {
                 if item.cultivationByMonth[monthIndex] != .none {
                     food.cultivated.append(item)
@@ -188,28 +180,5 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         }
         return food
     }
-    
-//    func fetchImage() {
-//        let url = NSURL(string: "https://trackapi.nutritionix.com/v2/natural/nutrients")! as URL
-//        let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-//        request.httpBody = try? JSONSerialization.data(withJSONObject: [
-//            "query": "apple",
-//            "timezone": "US/Eastern"
-//        ], options: [])
-//        request.httpMethod = "POST"
-//        request.allHTTPHeaderFields = [
-//            "Content-Type": "application/json",
-//            "x-app-id": "a9efa5f3",
-//            "x-app-key": "855c22b96ed81051d19df5d0c1319ff8"
-//        ]
-//        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (result, response, error) -> Void in
-//            do {
-//                let data = try JSONSerialization.jsonObject(with: result!, options: [])
-//                print(data)
-//            } catch {
-//                print(error)
-//            }
-//        }).resume()
-//    }
     
 }

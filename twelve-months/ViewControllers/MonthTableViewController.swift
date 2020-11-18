@@ -44,7 +44,7 @@ class MonthTableViewController: UITableViewController {
     ///   - tableView: The table-view object asking for the title.
     ///   - section: An index number identifying a section of tableView .
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Cultivation" : "Import Only"
+        return section == AvailabilitySection.cultivation.rawValue ? "Cultivation" : "Import Only"
     }
     
     /// Tells the tableViewController how many rows each section in the table should have
@@ -53,9 +53,9 @@ class MonthTableViewController: UITableViewController {
     ///   - section: An index number identifying a section in tableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if foodType == .vegetable {
-            return (section == 0 ? vegetables?.cultivated.count : vegetables?.imported.count)!
+            return (section == AvailabilitySection.cultivation.rawValue ? vegetables?.cultivated.count : vegetables?.imported.count)!
         }
-        return (section == 0 ? fruits?.cultivated.count : fruits?.imported.count)!
+        return (section == AvailabilitySection.cultivation.rawValue ? fruits?.cultivated.count : fruits?.imported.count)!
     }
     
     /// Tells the tableViewController what each table cell should contain
@@ -89,7 +89,7 @@ class MonthTableViewController: UITableViewController {
                 item = foodType == .vegetable ? vegetables.imported[indexPath.row] : fruits.imported[indexPath.row]
             }
             self.indexPath = indexPath
-            performSegue(withIdentifier: StoryBoardSegueIdentifier.monthToFoodItem.rawValue, sender: item)
+            performSegue(withIdentifier: SegueIdentifier.monthToFoodItem.rawValue, sender: item)
         }
     }
     
@@ -101,7 +101,7 @@ class MonthTableViewController: UITableViewController {
     ///   - sender: The food item that was passed in as sender when tableView(_:_, didSelectRowAt _:_) was called
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case StoryBoardSegueIdentifier.monthToFoodItem.rawValue:
+        case SegueIdentifier.monthToFoodItem.rawValue:
             if let destination = segue.destination as? FoodItemViewController {
                 destination.item = sender as? Food
                 destination.indexPath = indexPath

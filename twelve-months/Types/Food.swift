@@ -15,6 +15,8 @@ struct Food: Decodable, Equatable {
     var type: FoodType
     var importByMonth: [Availability]
     var cultivationByMonth: [Availability]
+    
+    #warning("Calculate this lazily instead")
     var percentagePerMonth: [Int]? {
         var percentages = [Int]()
         for i in 0...11 {
@@ -29,5 +31,5 @@ struct Food: Decodable, Equatable {
         }
         return percentages
     }
-
+    
 }

@@ -1,5 +1,5 @@
 //
-//  StoryBoardSegueIdentifier.swift
+//  SegueIdentifier.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 03.01.20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StoryBoardSegueIdentifier: String {
+enum SegueIdentifier: String {
     
     case monthToFoodItem = "FoodItemViewControllerSegue"
     case foodItemToFoodItemTableView = "FoodItemTableViewControllerSegue"

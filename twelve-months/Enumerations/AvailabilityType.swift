@@ -12,6 +12,7 @@ enum AvailabilityType: String {
     
     case fresh = "Fresh"
     case stored = "Stored"
+    #warning("String should not be empty")
     case none = ""
     
 }

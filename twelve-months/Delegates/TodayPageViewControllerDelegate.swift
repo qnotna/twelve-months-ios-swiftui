@@ -10,6 +10,8 @@ import Foundation
 
 protocol TodayPageViewControllerDelegate {
     
+    #warning("Pass 'pageView' as well")
+    
     func pageView(didUpdatePageFor month: Month, pageIndex: Int, foodType: FoodType) -> Void
 
     func pageView(didUpdateFruitsData fruits: (cultivated: [Food], imported: [Food])) -> Void

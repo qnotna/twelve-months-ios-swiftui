@@ -45,8 +45,7 @@ enum RegionType: String, Decodable, CaseIterable {
     /// Will default to unsupported region
     static var current: RegionType {
         let regions = Bundle.main.decode([Region].self, from: "regions.json")
-        let countryLocale = NSLocale.current
-        if let regionCode = countryLocale.regionCode {
+        if let regionCode = NSLocale.current.regionCode {
             for region in regions {
                 if region.countries.contains(regionCode) {
                     return region.name

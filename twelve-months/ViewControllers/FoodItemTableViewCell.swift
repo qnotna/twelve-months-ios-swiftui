@@ -29,7 +29,7 @@ class FoodItemTableViewCell: UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
         var item: Food?
-        if section == 0 {
+        if section == AvailabilitySection.cultivation.rawValue {
             item = items.cultivated[row]
             availabilityTrafficLight.isHidden = true
             percentageLabel.isHidden = false
