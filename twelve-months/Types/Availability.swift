@@ -11,13 +11,7 @@ import UIKit
 
 enum Availability: Int, Decodable, CustomStringConvertible {
     
-    case highest = 4,
-         high    = 3,
-         low     = 2,
-         lowest  = 1
-
-    #warning("'.none' should not be nessecary")
-    case none = 0
+    case none, lowest, low, high, highest
     
     var description: String {
         switch self {
@@ -25,9 +19,7 @@ enum Availability: Int, Decodable, CustomStringConvertible {
         case .low:     return "Medium"
         case .high:    return "Large"
         case .highest: return "Heavy"
-            
-        #warning("'default' case should be handled differently")
-        default:       return "This should never happen"
+        default: fatalError("'Availability.none.description' is not available")
         }
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+#warning("Remove from storyboard, implement programmatically instead")
 class FoodItemTableViewController: UITableViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,7 +37,7 @@ class FoodItemTableViewController: UITableViewController {
     func populateTable() {
         if let item = item {
             let section = indexPath!.section
-            if section == AvailabilitySection.cultivation.rawValue {
+            if section == Section.cultivation.rawValue {
                 percentageLabel.isHidden = false
                 availabilityImageView.isHidden = false
                 let imageName = item.cultivationByMonth[pageIndex!].rawValue
@@ -61,14 +62,15 @@ class FoodItemTableViewController: UITableViewController {
         }
     }
     
-    #warning("Should not use 'Availability.none', use different criteria instead")
+    #warning("Replace with actual graph someday, use 'UIColor.matching(availability:)'")
     func populateGraph(from availability: [Availability], to collection: [UILabel]) {
         for i in 0...11 {
             let label = collection[i]
-            if availability[i] != .none {
-                label.textColor = UIColor.systemGreen
-            } else {
-                label.textColor = UIColor.systemRed
+            switch availability[i] {
+                case .lowest, .low, .high, .highest:
+                    label.textColor = UIColor.systemGreen
+                default:
+                    label.textColor = UIColor.systemRed
             }
         }
     }

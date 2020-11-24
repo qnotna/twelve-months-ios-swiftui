@@ -8,6 +8,7 @@
 
 import UIKit
 
+#warning("Remove from storyboard, implement programmatically instead")
 class FoodItemViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!

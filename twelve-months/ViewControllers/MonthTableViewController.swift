@@ -14,11 +14,15 @@ class MonthTableViewController: UITableViewController {
     var indexPath: IndexPath?
     var fruits: Goods?
     var vegetables: Goods?
+    
+    #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    private let cellReuseIdentifier = "FoodCell"
     
     /// Toggles `foodType` between `.vegetable` and `.fruit` depending on which is currently stored in the variable
     func toggleFoodType() {
@@ -27,7 +31,7 @@ class MonthTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(FoodItemTableViewCell.self, forCellReuseIdentifier: "FoodItemTableViewCell")
+        tableView.register(FoodCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
 }
@@ -46,38 +50,52 @@ extension MonthTableViewController {
     }
     
     /// Tells the tableViewController what each section should be named
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == AvailabilitySection.cultivation.rawValue ? "Local Cultivation" : "Import Only"
-    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { "\(Section(rawValue: section)!)" }
     
     /// Tells the tableViewController how many rows each section in the table should have
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if foodType == .vegetable {
-            return (section == AvailabilitySection.cultivation.rawValue ? vegetables?.cultivated.count : vegetables?.imported.count)!
+        switch Section(rawValue: section) {
+            case .cultivation:
+                if foodType == .vegetable {
+                    return vegetables!.cultivated.count
+                } else {
+                    return fruits!.cultivated.count
+                }
+            case .importOnly:
+                if foodType == .fruit {
+                    return vegetables!.imported.count
+                } else {
+                    return fruits!.imported.count
+                }
+            default: fatalError("Found invalid section \(section)")
         }
-        return (section == AvailabilitySection.cultivation.rawValue ? fruits?.cultivated.count : fruits?.imported.count)!
     }
     
     /// Tells the tableViewController what each table cell should contain
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = FoodItemTableViewCell(reuseIdentifier: "FoodItemTableViewCell")
-        cell.month = pageIndex!
-        /// Set item to either cultivation or import
-        if indexPath.section == AvailabilitySection.cultivation.rawValue {
+        var cell: FoodCell?
+        switch Section(rawValue: indexPath.section) {
+        case .cultivation:
+            /// Setup `cell` as `CultivationFoodCell`
+            cell = CultivationFoodCell(reuseIdentifier: cellReuseIdentifier)
+            cell?.month = pageIndex
             if foodType == .vegetable {
-                cell.setup(cultivated: vegetables!.cultivated[indexPath.row])
+                cell?.setup(vegetables!.cultivated[indexPath.row])
             } else {
-                cell.setup(cultivated: fruits!.cultivated[indexPath.row])
+                cell?.setup(vegetables!.cultivated[indexPath.row])
             }
-        }
-        if indexPath.section == AvailabilitySection.importOnly.rawValue {
+        case .importOnly:
+            /// Setup `cell` as `ImportFoodCell`
+            cell = ImportFoodCell(reuseIdentifier: cellReuseIdentifier)
+            cell?.month = pageIndex
             if foodType == .fruit {
-                cell.setup(imported: fruits!.imported[indexPath.row])
+                cell?.setup(fruits!.imported[indexPath.row])
             } else {
-                cell.setup(imported: vegetables!.imported[indexPath.row])
+                cell?.setup(fruits!.imported[indexPath.row])
             }
+        default: fatalError("Found invalid section \(indexPath.section)")
         }
-        return cell
+        return cell!
     }
     
     //MARK: - Navigation
@@ -87,15 +105,19 @@ extension MonthTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let vegetables = vegetables, let fruits = fruits {
+            /// Determine `item`
             var item: Food?
-            if indexPath.section == AvailabilitySection.cultivation.rawValue {
+            switch Section(rawValue: indexPath.section) {
+            case .cultivation:
                 item = foodType == .vegetable ? vegetables.cultivated[indexPath.row] : fruits.cultivated[indexPath.row]
-            } else {
+            case .importOnly:
                 item = foodType == .vegetable ? vegetables.imported[indexPath.row] : fruits.imported[indexPath.row]
+            default: fatalError("Found invalid section \(indexPath.section)")
             }
             self.indexPath = indexPath
-            
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FoodItemViewController") as? FoodItemViewController {
+            /// Present `FoodItemViewController` with `item`
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let viewController = storyboard.instantiateViewController(identifier: "FoodItemViewController") as? FoodItemViewController {
                 viewController.item = item
                 viewController.indexPath = indexPath
                 viewController.pageIndex = pageIndex

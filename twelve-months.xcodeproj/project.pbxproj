@@ -10,13 +10,15 @@
 		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF0A459623C9364E00220EC6 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A459523C9364E00220EC6 /* Notification+Name.swift */; };
-		BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */; };
+		BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodCell.swift */; };
 		BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */; };
 		BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */; };
 		BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */; };
 		BF1CB12123A6E46100F8A5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB11F23A6E46100F8A5C9 /* Main.storyboard */; };
 		BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */; };
 		BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1CB12423A6E46300F8A5C9 /* LaunchScreen.storyboard */; };
+		BF284E32256D89B800EBA874 /* ImportFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E31256D89B800EBA874 /* ImportFoodCell.swift */; };
+		BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */; };
 		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
 		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
@@ -30,10 +32,9 @@
 		BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
 		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
-		BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */; };
 		BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */; };
 		BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* Goods.swift */; };
-		BFEF250D25656C5700796CE2 /* AvailabilitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */; };
+		BFEF250D25656C5700796CE2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* Section.swift */; };
 		BFEF251325656EF400796CE2 /* UIColor+Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF251225656EF400796CE2 /* UIColor+Availability.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +42,7 @@
 		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF0A459523C9364E00220EC6 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
-		BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
+		BF0FD4C123C7C4890042EE1D /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		BF1CB11623A6E46100F8A5C9 /* twelve-months.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "twelve-months.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +51,8 @@
 		BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1CB12523A6E46300F8A5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1CB12723A6E46300F8A5C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF284E31256D89B800EBA874 /* ImportFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFoodCell.swift; sourceTree = "<group>"; };
+		BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationFoodCell.swift; sourceTree = "<group>"; };
 		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
@@ -63,10 +66,9 @@
 		BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTrafficLightView.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
 		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
-		BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
 		BFB471DC23BEA2F300DD8FDC /* FoodItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemViewController.swift; sourceTree = "<group>"; };
 		BFB7A05D25657CEE00C31B5B /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
-		BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilitySection.swift; sourceTree = "<group>"; };
+		BFEF250C25656C5700796CE2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		BFEF251225656EF400796CE2 /* UIColor+Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Availability.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,11 +122,10 @@
 		BF2A600723A6FAB2009A6F8F /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
-				BFB471DA23BE949900DD8FDC /* AvailabilityType.swift */,
 				BF47CBC823A6EAB100386A87 /* FoodType.swift */,
 				BF47CBCA23A6EB0D00386A87 /* Month.swift */,
 				BF47CBCE23A6EC0C00386A87 /* RegionType.swift */,
-				BFEF250C25656C5700796CE2 /* AvailabilitySection.swift */,
+				BFEF250C25656C5700796CE2 /* Section.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -132,8 +133,10 @@
 		BF38850C2565C73400EE8201 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF0FD4C123C7C4890042EE1D /* FoodItemTableViewCell.swift */,
+				BF0FD4C123C7C4890042EE1D /* FoodCell.swift */,
 				BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */,
+				BF284E31256D89B800EBA874 /* ImportFoodCell.swift */,
+				BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,8 +269,9 @@
 				BFEF251325656EF400796CE2 /* UIColor+Availability.swift in Sources */,
 				BF47CBD323A6F5BB00386A87 /* Bundle+Decodable.swift in Sources */,
 				BF0A459623C9364E00220EC6 /* Notification+Name.swift in Sources */,
-				BF0FD4C323C7C4890042EE1D /* FoodItemTableViewCell.swift in Sources */,
-				BFEF250D25656C5700796CE2 /* AvailabilitySection.swift in Sources */,
+				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
+				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
+				BFEF250D25656C5700796CE2 /* Section.swift in Sources */,
 				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
@@ -277,11 +281,11 @@
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
-				BFB471DB23BE949900DD8FDC /* AvailabilityType.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
+				BF284E32256D89B800EBA874 /* ImportFoodCell.swift in Sources */,
 				BFB471DD23BEA2F300DD8FDC /* FoodItemViewController.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
 				BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */,

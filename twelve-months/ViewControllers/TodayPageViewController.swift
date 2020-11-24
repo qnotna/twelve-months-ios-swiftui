@@ -161,22 +161,24 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
     //MARK: Data preparation and delegation
     
     #warning("Cultivation should not be sorted 'cultivation'>'import'>'ratio', instead sort by 'cultivation'>'ratio'>'import'")
-    #warning("Should not use 'Availability.none', use different criteria instead")
     func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> Goods {
         var goods = Goods()
         let monthIndex = Month.allCases.firstIndex(of: month)!
         if let items = foodItems {
+            /// Remove items without cultivation
             for item in items {
                 if item.cultivationByMonth[monthIndex] != .none {
                     goods.cultivated.append(item)
                 }
             }
+            /// Remove all items wihout import and cultivation
             for item in items {
                 if item.importByMonth[monthIndex] != .none && !goods.cultivated.contains(item) {
                     goods.imported.append(item)
                 }
             }
         }
+        /// Sort cultivated goods
         goods.cultivated = goods.cultivated.sorted { (lhs, rhs) -> Bool in
             if lhs.cultivationByMonth[monthIndex].rawValue == rhs.cultivationByMonth[monthIndex].rawValue {
                 if lhs.ratio![monthIndex] == rhs.ratio![monthIndex] {
@@ -186,6 +188,7 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
             }
             return lhs.cultivationByMonth[monthIndex].rawValue > rhs.cultivationByMonth[monthIndex].rawValue
         }
+        /// Sort imported goods
         goods.imported = goods.imported.sorted { (lhs, rhs) -> Bool in
             if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
                 return lhs.name < rhs.name
