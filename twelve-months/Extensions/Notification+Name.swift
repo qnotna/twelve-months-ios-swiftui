@@ -1,5 +1,5 @@
 //
-//  NotificationName.swift
+//  Notification+Name.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 10.01.20.

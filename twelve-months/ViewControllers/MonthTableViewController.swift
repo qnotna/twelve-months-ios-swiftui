@@ -8,7 +8,6 @@
 
 import UIKit
 
-#warning("Scrolling is sometimes irresponsive due to segmented control in navigation bar")
 class MonthTableViewController: UITableViewController {
     
     var pageIndex: Int?
@@ -24,6 +23,11 @@ class MonthTableViewController: UITableViewController {
     /// Toggles `foodType` between `.vegetable` and `.fruit` depending on which is currently stored in the variable
     func toggleFoodType() {
         self.foodType = self.foodType == .vegetable ? .fruit : .vegetable
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(FoodItemTableViewCell.self, forCellReuseIdentifier: "FoodItemTableViewCell")
     }
     
 }
@@ -43,7 +47,7 @@ extension MonthTableViewController {
     
     /// Tells the tableViewController what each section should be named
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == AvailabilitySection.cultivation.rawValue ? "Cultivation" : "Import Only"
+        return section == AvailabilitySection.cultivation.rawValue ? "Local Cultivation" : "Import Only"
     }
     
     /// Tells the tableViewController how many rows each section in the table should have
@@ -56,12 +60,22 @@ extension MonthTableViewController {
     
     /// Tells the tableViewController what each table cell should contain
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FoodItemTableViewCell") as! FoodItemTableViewCell
-        cell.pageIndex = pageIndex
-        if foodType == .vegetable {
-            cell.populate(from: vegetables!, at: indexPath)
-        } else {
-            cell.populate(from: fruits!, at: indexPath)
+        let cell = FoodItemTableViewCell(reuseIdentifier: "FoodItemTableViewCell")
+        cell.month = pageIndex!
+        /// Set item to either cultivation or import
+        if indexPath.section == AvailabilitySection.cultivation.rawValue {
+            if foodType == .vegetable {
+                cell.setup(cultivated: vegetables!.cultivated[indexPath.row])
+            } else {
+                cell.setup(cultivated: fruits!.cultivated[indexPath.row])
+            }
+        }
+        if indexPath.section == AvailabilitySection.importOnly.rawValue {
+            if foodType == .fruit {
+                cell.setup(imported: fruits!.imported[indexPath.row])
+            } else {
+                cell.setup(imported: vegetables!.imported[indexPath.row])
+            }
         }
         return cell
     }
@@ -69,8 +83,7 @@ extension MonthTableViewController {
     //MARK: - Navigation
     
     /// Gets called whenever a cell has been tapped by the user
-    /// Whenever this happens, the FoodItemViewControllerSegue will be performed with the current food item as sender.
-    /// This adds the FoodItemViewController to the view hierarchy modally
+    /// Instaniates and adds the FoodItemViewController from the storyboard to the view hierarchy modally
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let vegetables = vegetables, let fruits = fruits {
@@ -81,16 +94,13 @@ extension MonthTableViewController {
                 item = foodType == .vegetable ? vegetables.imported[indexPath.row] : fruits.imported[indexPath.row]
             }
             self.indexPath = indexPath
-            performSegue(withIdentifier: SegueIdentifier.monthToFoodItem.rawValue, sender: item)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? FoodItemViewController {
-            destination.item = sender as? Food
-            destination.indexPath = indexPath
-            destination.pageIndex = pageIndex
             
+            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FoodItemViewController") as? FoodItemViewController {
+                viewController.item = item
+                viewController.indexPath = indexPath
+                viewController.pageIndex = pageIndex
+                present(viewController, animated: true)
+            }
         }
     }
 
@@ -101,7 +111,7 @@ extension MonthTableViewController {
 extension MonthTableViewController: TodayPageViewControllerDelegate {
     
     func pageView(didCreatePageFor month: Month, at pageIndex: Int) {
-        self.title = month.rawValue
+        title = month.rawValue
         self.pageIndex = pageIndex
     }
 

@@ -1,5 +1,5 @@
 //
-//  BundleDecodable.swift
+//  Bundle+Decodable.swift
 //  twelve-months
 //
 //  https://www.hackingwithswift.com/example-code/system/how-to-decode-json-from-your-app-bundle-the-easy-way

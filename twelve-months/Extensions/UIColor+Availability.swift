@@ -1,5 +1,5 @@
 //
-//  UIColor+Extension.swift
+//  UIColor+Availability.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 18.11.20.
@@ -12,7 +12,6 @@ import UIKit
 extension UIColor {
     
     #warning("Find matching colors for traffic light")
-    #warning("Default case should result in fatal error")
     /// Maps `Availability` cases to `UIColor`
     /// - Parameter availability: import availability
     /// - Returns: color for availability
@@ -22,7 +21,9 @@ extension UIColor {
         case .low:      return .systemRed
         case .high:     return .systemPurple
         case .highest:  return .gray
-        default:        return .clear
+            
+        #warning("Default case should result in fatal error")
+        default:        return .systemBlue
         }
     }
     

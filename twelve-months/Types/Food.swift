@@ -23,6 +23,7 @@ struct Food: Decodable, Equatable {
             let cultivated = cultivationByMonth[i].rawValue
             let imported = importByMonth[i].rawValue
             if cultivated + imported != 0 {
+                #warning("Unclutter this calculation")
                 let percentage = (Double(cultivated) / ( Double(cultivated) + Double(imported) )) * 100
                 percentages.append(Int(percentage))
             } else {

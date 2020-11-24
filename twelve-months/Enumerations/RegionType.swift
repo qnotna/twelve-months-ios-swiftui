@@ -39,6 +39,8 @@ enum RegionType: String, Decodable, CaseIterable {
     case australiaAndNewZealand = "Australia & New Zealand"
     
     case antarctica = "Antarctica"
+    
+    #warning("'.other' should not be nessecary")
     case other = "Your country is not yet supported"
     
     /// This can be called at all times to receive the current region as Region case

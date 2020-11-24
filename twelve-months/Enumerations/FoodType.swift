@@ -13,6 +13,7 @@ enum FoodType: String, Decodable {
     case fruit = "Fruit",
          vegetable = "Vegetable"
     
+    #warning("'.other' should not be nessecary")
     case other =  "Only fruits and vegetables are supported at this time."
     
 }

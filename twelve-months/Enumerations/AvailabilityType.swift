@@ -13,7 +13,7 @@ enum AvailabilityType: String {
     case fresh = "Fresh",
          imported = "Imported"
     
-    #warning("String should never be empty")
+    #warning("'.none' should not be nessecary")
     case none = ""
     
 }

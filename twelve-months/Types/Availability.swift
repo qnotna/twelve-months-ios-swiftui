@@ -11,12 +11,13 @@ import UIKit
 
 enum Availability: Int, Decodable, CustomStringConvertible {
     
-    #warning("Associated value should never be '0'")
     case highest = 4,
          high    = 3,
          low     = 2,
-         lowest  = 1,
-         none    = 0
+         lowest  = 1
+
+    #warning("'.none' should not be nessecary")
+    case none = 0
     
     var description: String {
         switch self {
@@ -24,6 +25,8 @@ enum Availability: Int, Decodable, CustomStringConvertible {
         case .low:     return "Medium"
         case .high:    return "Large"
         case .highest: return "Heavy"
+            
+        #warning("'default' case should be handled differently")
         default:       return "This should never happen"
         }
     }

@@ -16,6 +16,7 @@ class TodayPageViewController: UIPageViewController {
     var allFruits: [Food]?
     var allVegetables: [Food]?
     
+    /// SegmentedControl as `navigationItem`
     lazy var foodTypeControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Vegetables", "Fruits"])
         control.selectedSegmentIndex = 0
@@ -23,9 +24,9 @@ class TodayPageViewController: UIPageViewController {
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
+        
+    //MARK: - PageViewController Initializers
     
-    //MARK: - Lifecycle
-
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
@@ -33,6 +34,8 @@ class TodayPageViewController: UIPageViewController {
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
+    
+    //MARK: - Lifecycle
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,8 @@ class TodayPageViewController: UIPageViewController {
         allVegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
         createPages()
     }
-    
+
+    /// Set `foodTypeControl` as `navigationItem` and remove border from parent `navigationController`
     fileprivate func setupViews() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -50,6 +54,7 @@ class TodayPageViewController: UIPageViewController {
         self.navigationItem.titleView = foodTypeControl
     }
     
+    /// Make `pageControl` transparent
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         for view in view.subviews {
@@ -61,6 +66,7 @@ class TodayPageViewController: UIPageViewController {
         }
     }
     
+    /// Called by `foodTypeControl` when the value for `selectedSegmentIndex` changes
     @objc func foodTypeDidChange(_ segmentedControl: UISegmentedControl) {
         guard pages != nil else { return }
         for page in pages! {
@@ -132,27 +138,29 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
         }
     }
     
-    /// Instantiates each MonthViewController to be added as Page to the UIPageViewController
-    /// Creates the view controllers from the storyboard without segue
-    /// Informs each MonthViewController as TodayPageViewControllerDelegate that data has been updated
+    /// Instantiates each `MonthViewController` to be added as page to the `TodayPageViewController`
+    /// Informs each `MonthViewController` as `TodayPageViewControllerDelegate` that data has been updated
     func createPageViewControllers() -> [UIViewController] {
-        var viewControllers = [UIViewController]()
+        var pages = [UIViewController]()
         for month in Month.allCases {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthNavigationViewController")
-            viewControllers.append(viewController)
+            /// Create `monthTableViewController` with own `navigationController` for each `.month`
+            let monthViewController = MonthTableViewController()
+            let navigationController = UINavigationController(rootViewController: monthViewController)
+            /// Add `navigationController` to `pages` and `prepareFoodItemData(for:from:)`
+            pages.append(navigationController)
             let fruits = prepareFoodItemData(for: month, from: allFruits)
             let vegetables = prepareFoodItemData(for: month, from: allVegetables)
-            if let monthViewController = viewController.children.first {
-                todayDelegate = monthViewController as? TodayPageViewControllerDelegate
-                todayDelegate?.pageView(didCreatePageFor: month, at: Month.allCases.firstIndex(of: month)!)
-                todayDelegate?.pageView(didUpdate: vegetables, and: fruits)
-            }
+            /// Delegate page actions to each `monthViewController`
+            todayDelegate = monthViewController
+            todayDelegate?.pageView(didCreatePageFor: month, at: Month.allCases.firstIndex(of: month)!)
+            todayDelegate?.pageView(didUpdate: vegetables, and: fruits)
         }
-        return viewControllers
+        return pages
     }
     
     //MARK: Data preparation and delegation
     
+    #warning("Cultivation should not be sorted 'cultivation'>'import'>'ratio', instead sort by 'cultivation'>'ratio'>'import'")
     #warning("Should not use 'Availability.none', use different criteria instead")
     func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> Goods {
         var goods = Goods()
