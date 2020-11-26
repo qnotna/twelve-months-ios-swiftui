@@ -19,7 +19,7 @@ enum Availability: Int, Decodable, CustomStringConvertible {
         case .low:     return "Medium"
         case .high:    return "Large"
         case .highest: return "Heavy"
-        default: fatalError("'Availability.none.description' is not available")
+        default:       return "Not available"
         }
     }
     

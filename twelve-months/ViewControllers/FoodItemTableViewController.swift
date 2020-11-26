@@ -10,19 +10,19 @@ import UIKit
 
 class FoodItemTableViewController: UITableViewController {
     
+    weak var coordiantor: MainCoordinator?
+    
     private let dismissButton = UIButton()
     
     private var item: Food!
-    private var indexPath: IndexPath!
     private var pageIndex: Int!
     private var sender: OverviewSection!
     
-    init(item: Food, in month: Int, at indexPath: IndexPath, from sender: OverviewSection) {
+    init(item: Food, at pageIndex: Int, from section: Int) {
         super.init(style: .insetGrouped)
         self.item = item
-        pageIndex = month
-        self.indexPath = indexPath
-        self.sender = sender
+        self.pageIndex = pageIndex
+        self.sender = OverviewSection(rawValue: section)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -46,6 +46,19 @@ class FoodItemTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = barButtonItem
     }
     
+    //MARK: - Actions
+
+    /// Removes `self` from the view hierarchy
+    @objc func didTapDismissSelf(_ sender: Any) {
+        coordiantor?.dismissViewController(self)
+    }
+    
+}
+
+// MARK: - TableView Delegate Methods
+
+extension FoodItemTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int { DetailSection.allCases.count }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -57,16 +70,8 @@ class FoodItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         switch DetailSection(rawValue: section) {
-        case .monthly:
-            let availability: Availability?
-            if sender == .cultivation {
-                availability = item!.cultivationByMonth[pageIndex!]
-            } else {
-                availability = item!.importByMonth[pageIndex!]
-            }
-            #warning("Pass 'item', 'month', 'sender' instead")
-            return MonthlyAvailabilityCell(type: sender!, availability: availability!, ratio: item!.ratio![pageIndex!])
-        case .yearly: return YearlyAvailabilityCell(item)
+        case .monthly: return MonthlyAvailabilityCell(item, in: pageIndex, from: sender)
+        case .yearly:  return YearlyAvailabilityCell(item)
         default: fatalError("Failed dequeueing FoodCell for section \(section)")
         }
     }
@@ -77,13 +82,6 @@ class FoodItemTableViewController: UITableViewController {
         case .yearly:  return 88
         default: fatalError("Unexpectedly found illegal section \(indexPath.section)")
         }
-    }
-    
-    //MARK: - Actions
-
-    /// Removes `self` from the view hierarchy
-    @objc func didTapDismissSelf(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
     
 }

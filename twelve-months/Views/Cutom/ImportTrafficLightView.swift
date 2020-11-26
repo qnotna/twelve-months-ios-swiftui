@@ -31,6 +31,7 @@ class ImportTrafficLightView: UIView {
         layer.masksToBounds = true
         layer.cornerRadius = frame.width / 2
         scoreLabel.frame = frame
+        #warning("Only set fat font when large")
         scoreLabel.font = UIFont.systemFont(ofSize: scoreLabel.frame.height / 2,
                                             weight: .black)
     }

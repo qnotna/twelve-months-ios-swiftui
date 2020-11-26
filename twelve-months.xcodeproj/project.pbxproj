@@ -27,7 +27,10 @@
 		BF284E5A256F087A00EBA874 /* RatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E59256F087A00EBA874 /* RatioView.swift */; };
 		BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E5D256FC04100EBA874 /* YearlyView.swift */; };
 		BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E60256FC88D00EBA874 /* String+Substring.swift */; };
-		BF284E65256FDAC200EBA874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF284E64256FDAC200EBA874 /* Main.storyboard */; };
+		BF284E72256FDCAC00EBA874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF284E70256FDCAC00EBA874 /* Main.storyboard */; };
+		BF284E7B256FE1A100EBA874 /* UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */; };
+		BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E81256FF83400EBA874 /* Coordinator.swift */; };
+		BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */; };
 		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
 		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
@@ -40,7 +43,6 @@
 		BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A21F256D462F0069233D /* UIView+Subviews.swift */; };
 		BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
-		BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */; };
 		BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* Goods.swift */; };
 		BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* OverviewSection.swift */; };
 		BFEF251325656EF400796CE2 /* UIColor+Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF251225656EF400796CE2 /* UIColor+Availability.swift */; };
@@ -69,7 +71,10 @@
 		BF284E59256F087A00EBA874 /* RatioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioView.swift; sourceTree = "<group>"; };
 		BF284E5D256FC04100EBA874 /* YearlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyView.swift; sourceTree = "<group>"; };
 		BF284E60256FC88D00EBA874 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
-		BF284E64256FDAC200EBA874 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BF284E71256FDCAC00EBA874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Text.swift"; sourceTree = "<group>"; };
+		BF284E81256FF83400EBA874 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
@@ -82,7 +87,6 @@
 		BFA3A21F256D462F0069233D /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTrafficLightView.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
-		BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		BFB7A05D25657CEE00C31B5B /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		BFEF250C25656C5700796CE2 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
 		BFEF251225656EF400796CE2 /* UIColor+Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Availability.swift"; sourceTree = "<group>"; };
@@ -118,7 +122,7 @@
 		BF1CB11823A6E46100F8A5C9 /* twelve-months */ = {
 			isa = PBXGroup;
 			children = (
-				BF3F781423BD282F00A8DE6B /* Delegates */,
+				BF3F781423BD282F00A8DE6B /* Protocols */,
 				BF38850C2565C73400EE8201 /* Views */,
 				BF7E5F0A23A7CA7500F6D211 /* ViewControllers */,
 				BF7E5F0B23A7CA8600F6D211 /* Extensions */,
@@ -127,12 +131,45 @@
 				BF47CBC523A6E64200386A87 /* Resources */,
 				BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */,
 				BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */,
-				BF284E64256FDAC200EBA874 /* Main.storyboard */,
+				BF284E70256FDCAC00EBA874 /* Main.storyboard */,
 				BF1CB12423A6E46300F8A5C9 /* LaunchScreen.storyboard */,
 				BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */,
 				BF1CB12723A6E46300F8A5C9 /* Info.plist */,
+				BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */,
 			);
 			path = "twelve-months";
+			sourceTree = "<group>";
+		};
+		BF284E75256FDD3800EBA874 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BF0FD4C123C7C4890042EE1D /* FoodCell.swift */,
+				BF284E31256D89B800EBA874 /* ImportFoodCell.swift */,
+				BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */,
+				BF284E45256EC94C00EBA874 /* YearlyAvailabilityCell.swift */,
+				BF284E48256EC95F00EBA874 /* MonthlyAvailabilityCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BF284E76256FDD6300EBA874 /* Availability */ = {
+			isa = PBXGroup;
+			children = (
+				BF284E4F256EE20E00EBA874 /* CultivationView.swift */,
+				BF284E52256EEB8800EBA874 /* ImportView.swift */,
+				BF284E56256F027600EBA874 /* AvailabilityView.swift */,
+				BF284E59256F087A00EBA874 /* RatioView.swift */,
+			);
+			path = Availability;
+			sourceTree = "<group>";
+		};
+		BF284E77256FDD6E00EBA874 /* Cutom */ = {
+			isa = PBXGroup;
+			children = (
+				BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */,
+				BF284E5D256FC04100EBA874 /* YearlyView.swift */,
+			);
+			path = Cutom;
 			sourceTree = "<group>";
 		};
 		BF2A600723A6FAB2009A6F8F /* Enumerations */ = {
@@ -150,27 +187,19 @@
 		BF38850C2565C73400EE8201 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF0FD4C123C7C4890042EE1D /* FoodCell.swift */,
-				BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */,
-				BF284E31256D89B800EBA874 /* ImportFoodCell.swift */,
-				BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */,
-				BF284E45256EC94C00EBA874 /* YearlyAvailabilityCell.swift */,
-				BF284E48256EC95F00EBA874 /* MonthlyAvailabilityCell.swift */,
-				BF284E4F256EE20E00EBA874 /* CultivationView.swift */,
-				BF284E52256EEB8800EBA874 /* ImportView.swift */,
-				BF284E56256F027600EBA874 /* AvailabilityView.swift */,
-				BF284E59256F087A00EBA874 /* RatioView.swift */,
-				BF284E5D256FC04100EBA874 /* YearlyView.swift */,
+				BF284E75256FDD3800EBA874 /* Cells */,
+				BF284E77256FDD6E00EBA874 /* Cutom */,
+				BF284E76256FDD6300EBA874 /* Availability */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BF3F781423BD282F00A8DE6B /* Delegates */ = {
+		BF3F781423BD282F00A8DE6B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				BFB471D823BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift */,
+				BF284E81256FF83400EBA874 /* Coordinator.swift */,
 			);
-			path = Delegates;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BF47CBC523A6E64200386A87 /* Resources */ = {
@@ -212,6 +241,7 @@
 				BFEF251225656EF400796CE2 /* UIColor+Availability.swift */,
 				BFA3A21F256D462F0069233D /* UIView+Subviews.swift */,
 				BF284E60256FC88D00EBA874 /* String+Substring.swift */,
+				BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,9 +307,9 @@
 				BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */,
 				BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */,
 				BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */,
+				BF284E72256FDCAC00EBA874 /* Main.storyboard in Resources */,
 				BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */,
 				BF50CBCC23A7E79B00980B2B /* regions.json in Resources */,
-				BF284E65256FDAC200EBA874 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +328,6 @@
 				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
 				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
 				BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */,
-				BFB471D923BE92DC00DD8FDC /* TodayPageViewControllerDelegate.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */,
 				BF284E4C256EC9C800EBA874 /* DetailSection.swift in Sources */,
@@ -307,6 +336,8 @@
 				BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */,
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
+				BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */,
+				BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
@@ -317,6 +348,7 @@
 				BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */,
 				BF284E53256EEB8800EBA874 /* ImportView.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
+				BF284E7B256FE1A100EBA874 /* UILabel+Text.swift in Sources */,
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BF284E32256D89B800EBA874 /* ImportFoodCell.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
@@ -333,6 +365,14 @@
 				BF1CB12523A6E46300F8A5C9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BF284E70256FDCAC00EBA874 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF284E71256FDCAC00EBA874 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

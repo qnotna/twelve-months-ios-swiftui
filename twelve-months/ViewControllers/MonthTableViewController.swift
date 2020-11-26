@@ -10,14 +10,26 @@ import UIKit
 
 class MonthTableViewController: UITableViewController {
     
-    var pageIndex: Int?
-    var fruits: Goods?
-    var vegetables: Goods?
+    weak var coordinator: MainCoordinator?
     
+    var fruits: Goods!
+    var vegetables: Goods!
+    var month: Int!
     #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
         didSet { tableView.reloadData() }
     }
+    
+    // MARK: - Lifecycle
+    
+    init(_ goods: (vegetables: Goods, fruits: Goods), for month: Month) {
+        super.init(style: .grouped)
+        vegetables = goods.vegetables
+        fruits = goods.fruits
+        self.month = Month.allCases.firstIndex(of: month)!
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +38,16 @@ class MonthTableViewController: UITableViewController {
     
     #warning("This should be a method on 'Goods', maybe overload subscript operator")
     func goods(in section: Int) -> [Food] {
-        if let cultivatedVegetables = vegetables?.cultivated,
-           let importedVegetables = vegetables?.imported,
-           let cultivatedFruits = fruits?.cultivated,
-           let importedFruits = fruits?.imported
-        {
-            switch OverviewSection(rawValue: section) {
-            case .cultivation: return (foodType == .vegetable) ? cultivatedVegetables : cultivatedFruits
-            case .importOnly:  return (foodType == .vegetable) ? importedVegetables   : importedFruits
-            default: fatalError("Unexpectedly found illegal section \(section)")
-            }
+        let cultivatedVegetables = vegetables.cultivated,
+            importedVegetables = vegetables.imported,
+            cultivatedFruits = fruits.cultivated,
+            importedFruits = fruits.imported
+        switch OverviewSection(rawValue: section) {
+        case .cultivation: return (foodType == .vegetable) ? cultivatedVegetables : cultivatedFruits
+        case .importOnly:  return (foodType == .vegetable) ? importedVegetables   : importedFruits
+        default: fatalError("Unexpectedly found illegal section \(section)")
         }
-        fatalError("Failed loading goods")
     }
-    
 }
 
 //MARK: - TableViewControllerDelegate methods
@@ -67,44 +75,20 @@ extension MonthTableViewController {
             section = indexPath.section
         let item = goods(in: section)[row]
         switch OverviewSection(rawValue: section) {
-        case .cultivation: return CultivationFoodCell(item, in: pageIndex!)
-        case .importOnly:  return ImportFoodCell(item, in: pageIndex!)
+        case .cultivation: return CultivationFoodCell(item, in: month)
+        case .importOnly:  return ImportFoodCell(item, in: month)
         default: fatalError("Failed initializing FoodCell for section \(section)")
         }
     }
     
-    //MARK: - Navigation
-    
     /// Gets called whenever a cell has been tapped by the user
-    /// Instaniates and adds the FoodItemViewController from the storyboard to the view hierarchy modally
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         /// Find `item` for `indexPath`
         let row = indexPath.row, section = indexPath.section
         let item = goods(in: section)[row]
         /// Present `FoodItemViewController` with `item`
-        let tableViewController = FoodItemTableViewController(item: item,
-                                                              in: pageIndex!,
-                                                              at: indexPath,
-                                                              from: OverviewSection(rawValue: section)!)
-        let navigationController = UINavigationController(rootViewController: tableViewController)
-        present(navigationController, animated: true)
+        coordinator?.instantiateFoodItemTableViewController(for: item, from: section, on: self)
     }
-
-}
-
-//MARK: - Updating Data
-
-extension MonthTableViewController: TodayPageViewControllerDelegate {
     
-    func pageView(didCreatePageFor month: Month, at pageIndex: Int) {
-        title = month.rawValue
-        self.pageIndex = pageIndex
-    }
-
-    func pageView(didUpdate vegetables: Goods, and fruits: Goods) {
-        self.vegetables = vegetables
-        self.fruits = fruits
-    }
-        
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class CultivationView: AvailabilityView {
   
-    #warning("Create UIImageView subclass for this")
     private var contentImageView = UIImageView()
     
     private var availability: Availability!
@@ -25,7 +24,6 @@ class CultivationView: AvailabilityView {
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupViews() {
-        print("cultivation \(availability!)")
         contentImageView.image = UIImage(named: "plant-\(availability.rawValue)")
         contentImageView.contentMode = .scaleAspectFit
         contentImageView.translatesAutoresizingMaskIntoConstraints = false

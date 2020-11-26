@@ -12,7 +12,7 @@ import UIKit
 class FoodCell: UITableViewCell {
 
     var thumbImageView = UIImageView()
-    var nameLabel = UILabel()
+    var nameLabel: UILabel!
     
     internal var item: Food!
     internal var month: Int!
@@ -23,7 +23,6 @@ class FoodCell: UITableViewCell {
         self.item = item
         self.item = item
         self.accessoryType = .disclosureIndicator
-        addSubviews(thumbImageView, nameLabel)
         setupThumbImageView()
         setupNameLabel()
     }
@@ -34,6 +33,7 @@ class FoodCell: UITableViewCell {
         thumbImageView.image = UIImage(named: item.name)
         thumbImageView.contentMode = .scaleAspectFit
         thumbImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(thumbImageView)
         NSLayoutConstraint.activate([
             thumbImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             thumbImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -44,7 +44,8 @@ class FoodCell: UITableViewCell {
     
     fileprivate func setupNameLabel() {
         if let name = item?.name.capitalized {
-            nameLabel.text = name
+            nameLabel = UILabel(text: name)
+            addSubview(nameLabel)
         }
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

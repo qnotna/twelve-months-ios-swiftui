@@ -25,7 +25,6 @@ class ImportView: AvailabilityView {
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupViews() {
-        print("import \(availability!)")
         contentView?.availability = availability
         contentView?.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

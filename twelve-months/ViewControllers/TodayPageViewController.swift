@@ -9,12 +9,18 @@
 import UIKit
 
 #warning("Page Control should wrap")
-class TodayPageViewController: UIPageViewController {
+class TodayPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var todayDelegate: TodayPageViewControllerDelegate?
-    var pages = [UIViewController]()
-    var allFruits = [Food]()
-    var allVegetables = [Food]()
+    weak var coordinator: MainCoordinator?
+    
+    var pages: [UIViewController]!
+    
+    init(pages: [UIViewController]) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        self.pages = pages
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     /// SegmentedControl as `navigationItem`
     lazy var foodTypeControl: UISegmentedControl = {
@@ -24,26 +30,15 @@ class TodayPageViewController: UIPageViewController {
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
-        
-    //MARK: - PageViewController Initializers
-    
-    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    }
     
     //MARK: - Lifecycle
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
         dataSource = self
-        allFruits = Bundle.main.decode([Food].self, from: "fruits.json")
-        allVegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
-        createPages()
+        guard let index = Month.allCases.firstIndex(of: Month.current) else { return }
+        setViewControllers([pages[index]], direction: .forward, animated: true)
+        setupViews()
     }
 
     /// Set `foodTypeControl` as `navigationItem` and remove border from parent `navigationController`
@@ -65,6 +60,8 @@ class TodayPageViewController: UIPageViewController {
             }
         }
     }
+    
+    // MARK: - Actions
     
     /// Called by `foodTypeControl` when the value for `selectedSegmentIndex` changes
     @objc func foodTypeDidChange(_ segmentedControl: UISegmentedControl) {
@@ -119,81 +116,6 @@ extension TodayPageViewController {
     /// - Parameter pageViewController: The page view controller.
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         Month.allCases.firstIndex(of: Month.current)!
-    }
-    
-}
-
-//MARK: Create pages
-
-extension TodayPageViewController: UIPageViewControllerDataSource {
-    
-    /// Creates the page view controllers for the UIPageViewController
-    /// Sets the `MonthViewController` for the `Month.current as the current page
-    func createPages() {
-        pages = createPageViewControllers()
-        guard let firstMonthIndex = Month.allCases.firstIndex(of: Month.current) else { return }
-        let currentViewController = pages[firstMonthIndex]
-        setViewControllers([currentViewController], direction: .forward, animated: true, completion: nil)
-    }
-    
-    /// Instantiates each `MonthViewController` to be added as page to the `TodayPageViewController`
-    /// Informs each `MonthViewController` as `TodayPageViewControllerDelegate` that data has been updated
-    func createPageViewControllers() -> [UIViewController] {
-        var pages = [UIViewController]()
-        for month in Month.allCases {
-            /// Create `monthTableViewController` with own `navigationController` for each `.month`
-            let monthViewController = MonthTableViewController()
-            let navigationController = UINavigationController(rootViewController: monthViewController)
-            /// Add `navigationController` to `pages` and `prepareFoodItemData(for:from:)`
-            pages.append(navigationController)
-            let fruits = prepareFoodItemData(for: month, from: allFruits)
-            let vegetables = prepareFoodItemData(for: month, from: allVegetables)
-            /// Delegate page actions to each `monthViewController`
-            todayDelegate = monthViewController
-            todayDelegate!.pageView(didCreatePageFor: month, at: Month.allCases.firstIndex(of: month)!)
-            todayDelegate!.pageView(didUpdate: vegetables, and: fruits)
-        }
-        return pages
-    }
-    
-    //MARK: Data preparation and delegation
-    
-    #warning("Cultivation should not be sorted 'cultivation'>'import'>'ratio', instead sort by 'cultivation'>'ratio'>'import'")
-    func prepareFoodItemData(for month: Month, from foodItems: [Food]?) -> Goods {
-        var goods = Goods()
-        let monthIndex = Month.allCases.firstIndex(of: month)!
-        if let items = foodItems {
-            /// Remove items without cultivation
-            for item in items {
-                if item.cultivationByMonth[monthIndex] != .none {
-                    goods.cultivated.append(item)
-                }
-            }
-            /// Remove all items wihout import and cultivation
-            for item in items {
-                if item.importByMonth[monthIndex] != .none && !goods.cultivated.contains(item) {
-                    goods.imported.append(item)
-                }
-            }
-        }
-        /// Sort cultivated goods
-        goods.cultivated = goods.cultivated.sorted { (lhs, rhs) -> Bool in
-            if lhs.cultivationByMonth[monthIndex].rawValue == rhs.cultivationByMonth[monthIndex].rawValue {
-                if lhs.ratio![monthIndex] == rhs.ratio![monthIndex] {
-                    return lhs.name > rhs.name
-                }
-                return lhs.ratio![monthIndex] > rhs.ratio![monthIndex]
-            }
-            return lhs.cultivationByMonth[monthIndex].rawValue > rhs.cultivationByMonth[monthIndex].rawValue
-        }
-        /// Sort imported goods
-        goods.imported = goods.imported.sorted { (lhs, rhs) -> Bool in
-            if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
-                return lhs.name < rhs.name
-            }
-            return lhs.importByMonth[monthIndex].rawValue < rhs.importByMonth[monthIndex].rawValue
-        }
-        return goods
     }
     
 }

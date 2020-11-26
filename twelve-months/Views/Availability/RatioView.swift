@@ -10,24 +10,23 @@ import UIKit
 
 class RatioView: AvailabilityView {
 
-    private var contentLabel = UILabel()
+    private var contentLabel: UILabel!
     private var ratio: Int!
 
     init(for ratio: Int, withLabels showsLabels: Bool) {
         super.init(withLabels: showsLabels)
         self.ratio = ratio
-        insertArrangedSubview(contentLabel, at: 0)
         setupViews()
     }
     
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupViews() {
-        print("ratio \(ratio!)")
-        contentLabel.text = "\(ratio!)%"
+        contentLabel = UILabel(text: "\(ratio!)%")
         contentLabel.textAlignment = .center
         contentLabel.font = UIFont.systemFont(ofSize: 50, weight: .black)
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
+        insertArrangedSubview(contentLabel, at: 0)
         NSLayoutConstraint.activate([
             contentLabel.heightAnchor.constraint(equalToConstant: 80),
         ])

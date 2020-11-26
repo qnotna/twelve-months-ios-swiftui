@@ -8,7 +8,6 @@
 
 import Foundation
 
-#warning("DRY, create superclass 'Section' and 'TableViewController'")
 enum OverviewSection: Int, CustomStringConvertible, CaseIterable {
     
     case cultivation, importOnly

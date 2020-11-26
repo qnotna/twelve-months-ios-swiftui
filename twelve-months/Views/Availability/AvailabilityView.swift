@@ -30,8 +30,6 @@ class AvailabilityView: UIStackView {
         axis = .vertical
         distribution = .fill
         alignment = .center
-        addArrangedSubview(textLabel)
-        addArrangedSubview(accessoryLabel)
         setupTextLabel()
         setupAccessoryLabel()
     }
@@ -41,11 +39,13 @@ class AvailabilityView: UIStackView {
     fileprivate func setupTextLabel() {
         textLabel.textAlignment = .center
         textLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        addArrangedSubview(textLabel)
     }
 
     fileprivate func setupAccessoryLabel() {
         accessoryLabel.textAlignment = .center
         accessoryLabel.textColor = .systemGray
         accessoryLabel.font = UIFont.systemFont(ofSize: 10)
+        addArrangedSubview(accessoryLabel)
     }
 }

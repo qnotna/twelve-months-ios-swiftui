@@ -8,7 +8,6 @@
 
 import UIKit
 
-#warning("Add 'init(with:)' to 'UIImage'")
 class YearlyView: UIView {
     
     private var descriptionLabel: UILabel!
@@ -27,23 +26,19 @@ class YearlyView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupViews() {
-        descriptionLabel = UILabel()
-        descriptionLabel.text = title
+        descriptionLabel = UILabel(text: title)
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15)
         ])
-        let monthLetters = Month.allCases.compactMap { $0.rawValue.substring(in: 0..<1) }
-        var monthLabels = [UILabel]()
-        availability.enumerated().forEach { index, element in
-            let label = UILabel()
-            label.text = monthLetters[index]
-            monthLabels.append(label)
+        /// Add a label with the first letters of each month case as text to a list of labels
+        let months = Month.allCases.compactMap {
+            UILabel(text: $0.rawValue.substring(in: 0..<1))
         }
-        project(availability, to: monthLabels)
-        setupStackView(arrangedSubviews: monthLabels)
+        setupStackView(arrangedSubviews: months)
+        project(availability, to: stackView.arrangedSubviews)
     }
 
     fileprivate func setupStackView(arrangedSubviews subviews: [UIView]) {
@@ -61,9 +56,9 @@ class YearlyView: UIView {
     }
     
     #warning("Replace with actual graph someday, use 'UIColor.matching(availability:)'")
-    func project(_ availability: [Availability], to collection: [UILabel]) {
+    func project(_ availability: [Availability], to collection: [UIView]) {
         for i in 0...11 {
-            let label = collection[i]
+            let label = collection[i] as! UILabel
             switch availability[i] {
             case .lowest, .low, .high, .highest:
                 label.textColor = UIColor.systemGreen

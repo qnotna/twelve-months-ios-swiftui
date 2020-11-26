@@ -10,7 +10,7 @@ import UIKit
 
 class MonthlyAvailabilityCell: UITableViewCell {
     
-    private var availabilityView: AvailabilityView?
+    private var availabilityView: AvailabilityView!
     private var ratioView: RatioView!
     private var stackView: UIStackView!
     
@@ -18,11 +18,18 @@ class MonthlyAvailabilityCell: UITableViewCell {
     private var availability: Availability!
     private var ratio: Int!
     
-    init(type: OverviewSection, availability: Availability, ratio: Int) {
+    init(_ item: Food, in month: Int, from type: OverviewSection) {
         super.init(style: .default, reuseIdentifier: "MonthlyCell")
-        self.availability = availability
-        self.type = type
-        self.ratio = ratio
+        switch OverviewSection(rawValue: type.rawValue) {
+        case .cultivation:
+            availability = item.cultivationByMonth[month]
+            availabilityView = CultivationView(for: availability, withLabels: true)
+        case .importOnly:
+            availability = item.importByMonth[month]
+            availabilityView = ImportView(for: availability, withLabels: true)
+        default: fatalError("Unexpectedly found illegal section \(type.rawValue)")
+        }
+        ratio = item.ratio![month]
         isUserInteractionEnabled = false
         setupViews()
     }
@@ -30,15 +37,8 @@ class MonthlyAvailabilityCell: UITableViewCell {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupViews() {
-        switch OverviewSection(rawValue: type.rawValue) {
-        case .cultivation:
-            availabilityView = CultivationView(for: availability, withLabels: true)
-        case .importOnly:
-            availabilityView = ImportView(for: availability, withLabels: true)
-        default: fatalError("Unexpectedly found illegal section \(type!)")
-        }
         ratioView = RatioView(for: ratio, withLabels: true)
-        stackView = UIStackView(arrangedSubviews: [availabilityView!, ratioView])
+        stackView = UIStackView(arrangedSubviews: [availabilityView, ratioView])
         stackView.frame = frame
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually

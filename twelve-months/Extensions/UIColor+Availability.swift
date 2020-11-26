@@ -21,9 +21,7 @@ extension UIColor {
         case .low:      return .systemRed
         case .high:     return .systemPurple
         case .highest:  return .gray
-            
-        #warning("Default case should result in fatal error")
-        default:        return .systemBlue
+        default: fatalError("Unexpectedly found illegal availability \(availability)")
         }
     }
     
