@@ -14,19 +14,13 @@ class FoodCell: UITableViewCell {
     var thumbImageView = UIImageView()
     var nameLabel = UILabel()
     
-    internal var item: Food?
+    internal var item: Food!
+    internal var month: Int!
     
-    #warning("Do not pass 'month' to cell")
-    var month: Int?
-    
-    init(reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    /// Setup for all regular views
-    func setup(_ item: Food) {
+    init(_ item: Food, in month: Int) {
+        super.init(style: .default, reuseIdentifier: "FoodCell")
+        self.month = month
+        self.item = item
         self.item = item
         self.accessoryType = .disclosureIndicator
         addSubviews(thumbImageView, nameLabel)
@@ -34,10 +28,10 @@ class FoodCell: UITableViewCell {
         setupNameLabel()
     }
     
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     fileprivate func setupThumbImageView() {
-        if let item = item {
-            thumbImageView.image = UIImage(named: item.name)
-        }
+        thumbImageView.image = UIImage(named: item.name)
         thumbImageView.contentMode = .scaleAspectFit
         thumbImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -13,6 +13,8 @@ class ImportTrafficLightView: UIView {
     var scoreLabel = UILabel()
     
     var availability: Availability?
+    
+    init() { super.init(frame: .null) }
 
     init(for availability: Availability) {
         super.init(frame: .null)
@@ -28,6 +30,9 @@ class ImportTrafficLightView: UIView {
         super.draw(rect)
         layer.masksToBounds = true
         layer.cornerRadius = frame.width / 2
+        scoreLabel.frame = frame
+        scoreLabel.font = UIFont.systemFont(ofSize: scoreLabel.frame.height / 2,
+                                            weight: .black)
     }
     
     fileprivate func setupBackground() {
@@ -40,6 +45,7 @@ class ImportTrafficLightView: UIView {
         if let availability = availability?.rawValue {
             scoreLabel.text = "\(availability)"
         }
+        scoreLabel.textAlignment  = .center
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scoreLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

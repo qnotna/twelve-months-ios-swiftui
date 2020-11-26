@@ -8,71 +8,82 @@
 
 import UIKit
 
-#warning("Remove from storyboard, implement programmatically instead")
 class FoodItemTableViewController: UITableViewController {
+    
+    private let dismissButton = UIButton()
+    
+    private var item: Food!
+    private var indexPath: IndexPath!
+    private var pageIndex: Int!
+    private var sender: OverviewSection!
+    
+    init(item: Food, in month: Int, at indexPath: IndexPath, from sender: OverviewSection) {
+        super.init(style: .insetGrouped)
+        self.item = item
+        pageIndex = month
+        self.indexPath = indexPath
+        self.sender = sender
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tableView.register(MonthlyAvailabilityCell.self, forCellReuseIdentifier: "MonthlyCell")
+        tableView.register(YearlyAvailabilityCell.self, forCellReuseIdentifier: "YearlyCell")
+        setupNavigationBar()
+    }
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var foodTypeLabel: UILabel!
-    @IBOutlet weak var percentageLabel: UILabel!
-    @IBOutlet weak var availabilityLabel: UILabel!
-    @IBOutlet weak var availabilityTrafficLight: UIView!
-    @IBOutlet weak var availabilityImageView: UIImageView!
-    @IBOutlet weak var availabilityHeadlineLabel: UILabel!
-    @IBOutlet weak var availabilityDescriptionLabel: UILabel!
-    
-    @IBOutlet var availabilityCultivatedCollection: [UILabel]!
-    @IBOutlet var availabilityImportedCollection: [UILabel]!
-    
-    var item: Food?
-    var indexPath: IndexPath?
-    var pageIndex: Int?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        availabilityTrafficLight.layer.cornerRadius = availabilityTrafficLight.frame.width / 2
-        populateTable()
+    fileprivate func setupNavigationBar() {
+        if let title = item?.name {
+            self.title = title.capitalized
+        }
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle.fill"),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(didTapDismissSelf(_:)))
+        barButtonItem.tintColor = .label
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
-    #warning("Do not repeat population from FoodItemTableViewCell")
-    func populateTable() {
-        if let item = item {
-            let section = indexPath!.section
-            if section == Section.cultivation.rawValue {
-                percentageLabel.isHidden = false
-                availabilityImageView.isHidden = false
-                let imageName = item.cultivationByMonth[pageIndex!].rawValue
-                availabilityImageView.image = UIImage(named: "plant-\(imageName)")
-                availabilityLabel.text = ""
-                availabilityTrafficLight.backgroundColor = UIColor.clear
-                availabilityHeadlineLabel.text = "\(item.cultivationByMonth[pageIndex!])"
-                availabilityDescriptionLabel.text = "Buy Locally Sourced if Possible"
+    override func numberOfSections(in tableView: UITableView) -> Int { DetailSection.allCases.count }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "\(DetailSection(rawValue: section)!)"
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = indexPath.section
+        switch DetailSection(rawValue: section) {
+        case .monthly:
+            let availability: Availability?
+            if sender == .cultivation {
+                availability = item!.cultivationByMonth[pageIndex!]
             } else {
-                availabilityImageView.isHidden = true
-                availabilityTrafficLight.backgroundColor = UIColor.matching(availability: item.importByMonth[pageIndex!])
-                availabilityLabel.text = "\(item.importByMonth[pageIndex!].rawValue)"
-                availabilityHeadlineLabel.text = "\(item.importByMonth[pageIndex!])"
-                availabilityDescriptionLabel.text = "Shipping Creates More CO₂"
+                availability = item!.importByMonth[pageIndex!]
             }
-            nameLabel.text = item.name.capitalized
-            foodTypeLabel.text = item.type.rawValue
-            availabilityLabel.textColor = .white
-            percentageLabel.text = "\(item.ratio![pageIndex!])%"
-            populateGraph(from: item.cultivationByMonth, to: availabilityCultivatedCollection)
-            populateGraph(from: item.importByMonth, to: availabilityImportedCollection)
+            #warning("Pass 'item', 'month', 'sender' instead")
+            return MonthlyAvailabilityCell(type: sender!, availability: availability!, ratio: item!.ratio![pageIndex!])
+        case .yearly: return YearlyAvailabilityCell(item)
+        default: fatalError("Failed dequeueing FoodCell for section \(section)")
         }
     }
     
-    #warning("Replace with actual graph someday, use 'UIColor.matching(availability:)'")
-    func populateGraph(from availability: [Availability], to collection: [UILabel]) {
-        for i in 0...11 {
-            let label = collection[i]
-            switch availability[i] {
-                case .lowest, .low, .high, .highest:
-                    label.textColor = UIColor.systemGreen
-                default:
-                    label.textColor = UIColor.systemRed
-            }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch DetailSection(rawValue: indexPath.section) {
+        case .monthly: return 150
+        case .yearly:  return 88
+        default: fatalError("Unexpectedly found illegal section \(indexPath.section)")
         }
+    }
+    
+    //MARK: - Actions
+
+    /// Removes `self` from the view hierarchy
+    @objc func didTapDismissSelf(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

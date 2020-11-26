@@ -14,15 +14,17 @@ class CultivationFoodCell: FoodCell {
     var cultivationImageView = UIImageView()
     
     /// Only add subviews that are specific to section `.cultivated`.
-    override func setup(_ item: Food) {
-        super.setup(item)
+    override init(_ item: Food, in month: Int) {
+        super.init(item, in: month)
         addSubviews(cultivationLabel, cultivationImageView)
         setupCultivationLabel()
-        setupCultivationImageView(for: item.cultivationByMonth[month!])
+        setupCultivationImageView(for: item.cultivationByMonth[month])
     }
     
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     fileprivate func setupCultivationLabel() {
-        if let item = super.item, let month = month {
+        if let item = item, let month = month {
             cultivationLabel.text = "\(item.ratio![month])%"
         }
         cultivationLabel.textColor = .systemGray

@@ -8,6 +8,7 @@
 
 import Foundation
 
+#warning("Possibly use 'GregorianMonth' instead")
 enum Month: String, Decodable, CaseIterable {
     
     case january   = "January",

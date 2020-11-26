@@ -12,9 +12,9 @@ import UIKit
 class TodayPageViewController: UIPageViewController {
     
     var todayDelegate: TodayPageViewControllerDelegate?
-    var pages: [UIViewController]?
-    var allFruits: [Food]?
-    var allVegetables: [Food]?
+    var pages = [UIViewController]()
+    var allFruits = [Food]()
+    var allVegetables = [Food]()
     
     /// SegmentedControl as `navigationItem`
     lazy var foodTypeControl: UISegmentedControl = {
@@ -68,10 +68,9 @@ class TodayPageViewController: UIPageViewController {
     
     /// Called by `foodTypeControl` when the value for `selectedSegmentIndex` changes
     @objc func foodTypeDidChange(_ segmentedControl: UISegmentedControl) {
-        guard pages != nil else { return }
-        for page in pages! {
+        for page in pages {
             if let viewController = page.children.first as? MonthTableViewController {
-                viewController.toggleFoodType()
+                viewController.foodType.toggle()
             }
         }
     }
@@ -86,34 +85,34 @@ extension TodayPageViewController {
     /// Calculates the index for the next page if a list overflow happens at the beginning of the pages list
     /// The index will wrap around if it is smaller than 0
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = pages?.firstIndex(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else { return nil }
         var previousIndex = index - 1
         if previousIndex < 0 {
-            previousIndex = pages!.count - 1
+            previousIndex = pages.count - 1
         }
-        guard pages!.count > previousIndex else { return nil }
-        return pages?[previousIndex]
+        guard pages.count > previousIndex else { return nil }
+        return pages[previousIndex]
     }
     
     /// Tells the UIPageViewController which page should be displayed after the current page
     /// Calculates the index for the next page if a list overflow happens at the end of the pages list
     /// The index will wrap around if it is equal to the last page
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = pages?.firstIndex(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else { return nil }
         var nextIndex = index + 1
-        let count = pages?.count
+        let count = pages.count
         if count == nextIndex {
             nextIndex = 0
         }
-        guard count! > nextIndex else { return nil }
-        return pages?[nextIndex]
+        guard count > nextIndex else { return nil }
+        return pages[nextIndex]
     }
     
     #warning("Always displays in dark mode")
     /// Tells the UIPageViewController how many pages should be displayed in the page view control at the bottom of the view
     /// - Parameter pageViewController: The page view controller.
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        pages!.count
+        pages.count
     }
     
     /// Tells the UIPageViewController which page should be displayed highlighted in the page view control at the bottom of the view
@@ -133,9 +132,8 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
     func createPages() {
         pages = createPageViewControllers()
         guard let firstMonthIndex = Month.allCases.firstIndex(of: Month.current) else { return }
-        if let currentViewController = pages?[firstMonthIndex] {
-            setViewControllers([currentViewController], direction: .forward, animated: true, completion: nil)
-        }
+        let currentViewController = pages[firstMonthIndex]
+        setViewControllers([currentViewController], direction: .forward, animated: true, completion: nil)
     }
     
     /// Instantiates each `MonthViewController` to be added as page to the `TodayPageViewController`
@@ -152,8 +150,8 @@ extension TodayPageViewController: UIPageViewControllerDataSource {
             let vegetables = prepareFoodItemData(for: month, from: allVegetables)
             /// Delegate page actions to each `monthViewController`
             todayDelegate = monthViewController
-            todayDelegate?.pageView(didCreatePageFor: month, at: Month.allCases.firstIndex(of: month)!)
-            todayDelegate?.pageView(didUpdate: vegetables, and: fruits)
+            todayDelegate!.pageView(didCreatePageFor: month, at: Month.allCases.firstIndex(of: month)!)
+            todayDelegate!.pageView(didUpdate: vegetables, and: fruits)
         }
         return pages
     }

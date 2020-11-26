@@ -13,12 +13,14 @@ class ImportFoodCell: FoodCell {
     var importView: ImportTrafficLightView?
 
     /// Only add subviews that are specific to section `.importOnly`.
-    override func setup(_ item: Food) {
-        super.setup(item)
+    override init(_ item: Food, in month: Int) {
+        super.init(item, in: month)
         importView = ImportTrafficLightView(for: item.importByMonth[super.month!])
         addSubview(importView!)
         setupImportView()
     }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     fileprivate func setupImportView() {
         if let importView = importView {
