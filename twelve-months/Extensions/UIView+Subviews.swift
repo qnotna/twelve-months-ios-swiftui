@@ -10,12 +10,10 @@ import Foundation
 import UIKit
 
 extension UIView {
-    
     /// Adds `views` to the end of the receiver’s list of subviews.
     func addSubviews(_ views: UIView...) {
         for view in views {
             addSubview(view)
         }
     }
-    
 }

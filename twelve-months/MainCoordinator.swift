@@ -10,14 +10,13 @@ import UIKit
 
 /// Responsible for navigation and handling viewControllers
 class MainCoordinator: Coordinator {
-    
     var navigationController: UINavigationController
     var monthViewControllers: [UIViewController]
-    
+
     #warning("Create datasource instead")
     private var allVegetables: [Food]
     private var allFruits: [Food]
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         #warning("SafeArea should not be transparent")
@@ -26,22 +25,22 @@ class MainCoordinator: Coordinator {
         allVegetables = Bundle.main.decode([Food].self, from: Food.vegetablesUrl)
         allFruits = Bundle.main.decode([Food].self, from: Food.fruitsUrl)
     }
-    
+
     // MARK: - ViewController Instantiation
-    
+
     /// Entry point
     func start() {
         instantiateMonthNavigationViewControllers()
         instantiateTodayPageViewController()
     }
-    
+
     /// Create `todayViewController` and embed in a `navigationController`
     func instantiateTodayPageViewController() {
         let viewController = TodayPageViewController(pages: monthViewControllers)
         viewController.coordinator = self
         navigationController.viewControllers = [viewController]
     }
-    
+
     /// Create a `navigationController` with `monthViewController` for each `month`
     func instantiateMonthNavigationViewControllers() {
         for month in Month.allCases {
@@ -53,7 +52,7 @@ class MainCoordinator: Coordinator {
             monthViewControllers.append(monthViewController)
         }
     }
-    
+
     /// Present `foodItemTableViewController` with `item` on `viewController` modally
     func instantiateFoodItemTableViewController(for item: Food,
                                                 from section: Int,
@@ -65,14 +64,14 @@ class MainCoordinator: Coordinator {
         let navigationController = UINavigationController(rootViewController: foodItemTableViewController)
         viewController.present(navigationController, animated: true)
     }
-    
+
     /// Dismisses a presented `viewController` and removes it from the view hierarchy
     func dismissViewController(_ viewController: UIViewController) {
         viewController.dismiss(animated: true)
     }
-    
+
     // MARK: - DataSource
-    
+
     #warning("Do this in 'MonthDataSource'")
     #warning("Enable user sorting")
     private func prepareData(for month: Month, from foodItems: [Food]?) -> Goods {
@@ -85,7 +84,7 @@ class MainCoordinator: Coordinator {
                     goods.cultivated.append(item)
                 }
                 /// Remove all items wihout import and cultivation
-                if item.importByMonth[monthIndex] != .none && !goods.cultivated.contains(item) {
+                if item.importByMonth[monthIndex] != .none, !goods.cultivated.contains(item) {
                     goods.imported.append(item)
                 }
             }
@@ -109,7 +108,4 @@ class MainCoordinator: Coordinator {
         }
         return goods
     }
-    
-    
-    
 }

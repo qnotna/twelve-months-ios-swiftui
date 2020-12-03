@@ -10,17 +10,15 @@ import Foundation
 import UIKit
 
 enum Availability: Int, Decodable, CustomStringConvertible {
-    
     case none, lowest, low, high, highest
-    
+
     var description: String {
         switch self {
-        case .lowest:  return "Small"
-        case .low:     return "Medium"
-        case .high:    return "Large"
+        case .lowest: return "Small"
+        case .low: return "Medium"
+        case .high: return "Large"
         case .highest: return "Heavy"
-        default:       return "Not available"
+        default: return "Not available"
         }
     }
-    
 }

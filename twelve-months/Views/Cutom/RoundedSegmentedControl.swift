@@ -9,7 +9,6 @@
 import UIKit
 
 class RoundedSegmentedControl: UISegmentedControl {
-
     init(items: [String]) {
         super.init(items: items)
         selectedSegmentIndex = 0
@@ -17,7 +16,7 @@ class RoundedSegmentedControl: UISegmentedControl {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }

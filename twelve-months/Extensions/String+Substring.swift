@@ -9,15 +9,13 @@
 import Foundation
 
 extension String {
-    
     private func index(from: Int) -> Index {
         index(startIndex, offsetBy: from)
     }
-    
+
     func substring(in range: Range<Int>) -> String {
         let start = index(from: range.lowerBound)
         let end = index(from: range.upperBound)
-        return String(self[start..<end])
+        return String(self[start ..< end])
     }
-    
 }

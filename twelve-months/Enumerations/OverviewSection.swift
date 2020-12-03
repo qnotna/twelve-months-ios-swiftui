@@ -16,7 +16,7 @@ extension OverviewSection: CustomStringConvertible {
     var description: String {
         switch self {
         case .cultivation: return "Local Cultivation"
-        case .importOnly:  return "Import Only"
+        case .importOnly: return "Import Only"
         }
     }
 }

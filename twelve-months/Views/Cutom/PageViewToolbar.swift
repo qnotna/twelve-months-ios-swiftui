@@ -9,17 +9,16 @@
 import UIKit
 
 class PageViewToolbar: UIToolbar {
-    
     // MARK: - Outlets
-    
+
     var previousButton: UIBarButtonItem!
     var titleLabel: UILabel!
     var nextButton: UIBarButtonItem!
-    
+
     // MARK: - Variables
-    
-    var navigationDelegate: PageViewToolbarDelegate?
-    
+
+    weak var navigationDelegate: PageViewToolbarDelegate?
+
     /// Total size of navigationStack
     var navigationSize: Int?
     /// Current working index in navigationStack
@@ -28,23 +27,24 @@ class PageViewToolbar: UIToolbar {
     var title: String? {
         willSet { titleLabel.text = newValue! }
     }
-    
+
     // MARK: - Lifecycle
-    
+
     init(withSize navigationSize: Int, startingAt navigationIndex: Int) {
         super.init(frame: .zero)
         guard navigationSize > 0 else { fatalError("Unexpectedly found illegal navigationSize \(navigationSize)") }
         self.navigationSize = navigationSize
-        guard (0..<navigationSize).contains(navigationIndex) else {
+        guard (0 ..< navigationSize).contains(navigationIndex) else {
             fatalError("Unexpectedly found illegal navigationIndex \(navigationIndex) with navigationSize \(navigationSize)")
         }
         self.navigationIndex = navigationIndex
         setupBarButtonItems()
         setupTitleLabel()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupBarButtonItems() {
         previousButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left.circle.fill"),
                                          style: .plain,
@@ -55,43 +55,43 @@ class PageViewToolbar: UIToolbar {
                                      target: self,
                                      action: #selector(didTapNextButton(_:)))
     }
-    
+
     fileprivate func setupTitleLabel() {
         titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font.pointSize, weight: .bold)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        self.items = [previousButton,
-                      flexibleSpace,
-                      UIBarButtonItem(customView: titleLabel),
-                      flexibleSpace,
-                      nextButton]
+        items = [previousButton,
+                 flexibleSpace,
+                 UIBarButtonItem(customView: titleLabel),
+                 flexibleSpace,
+                 nextButton]
     }
-        
+
     // MARK: - Actions
-    
+
     /// Delegate title change and informs about decremented `navigationIndex`
-    @objc private func didTapPreviousButton(_ button: UIBarButtonItem) {
+    @objc private func didTapPreviousButton(_: UIBarButtonItem) {
         guard navigationIndex != nil else { return }
         decrementIndex()
         reloadTitle()
         navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex!, direction: .reverse)
     }
-    
+
     /// Delegate title change and informs about incremented `navigationIndex`
-    @objc private func didTapNextButton(_ button: UIBarButtonItem) {
+    @objc private func didTapNextButton(_: UIBarButtonItem) {
         guard navigationIndex != nil else { return }
         incrementIndex()
         reloadTitle()
         navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex!, direction: .forward)
     }
-    
+
     // MARK: - Modifying index
-    
+
     /// Decrements `navigationIndex` by 1, wraps around to `0` if `navigationSize` is reached
     func decrementIndex() {
         if let index = navigationIndex,
@@ -102,7 +102,7 @@ class PageViewToolbar: UIToolbar {
             navigationIndex = previousIndex
         }
     }
-    
+
     /// Increments `navigationIndex` by 1, wraps around to `navigationSize` if `0` is reached
     func incrementIndex() {
         if let index = navigationIndex,
@@ -113,11 +113,10 @@ class PageViewToolbar: UIToolbar {
             navigationIndex = nextIndex
         }
     }
-    
+
     // MARK: - Reload Data
-    
+
     func reloadTitle() {
         title = navigationDelegate?.toolbar(self, titleForNavigationIndex: navigationIndex!)
     }
-    
 }

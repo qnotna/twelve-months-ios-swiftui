@@ -9,18 +9,18 @@
 import UIKit
 
 class CultivationFoodCell: FoodCell {
-    
     var cultivationLabel: UILabel!
     var cultivationImageView = UIImageView()
-    
+
     /// Only add subviews that are specific to section `.cultivated`.
     override init(_ item: Food, in month: Int) {
         super.init(item, in: month)
         setupCultivationImageView()
         setupCultivationLabel()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     fileprivate func setupCultivationImageView() {
         let availability = item.cultivationByMonth[month].rawValue
@@ -31,10 +31,10 @@ class CultivationFoodCell: FoodCell {
             cultivationImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             cultivationImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             cultivationImageView.widthAnchor.constraint(equalToConstant: 30),
-            cultivationImageView.heightAnchor.constraint(equalToConstant: 30),
+            cultivationImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
-    
+
     fileprivate func setupCultivationLabel() {
         let ratio = item.ratio![month]
         cultivationLabel = UILabel(text: "\(ratio)%")
@@ -46,5 +46,4 @@ class CultivationFoodCell: FoodCell {
             cultivationLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-    
 }

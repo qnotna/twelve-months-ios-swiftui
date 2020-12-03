@@ -9,7 +9,6 @@
 import UIKit
 
 class ImportFoodCell: FoodCell {
-    
     var importView: ImportTrafficLightView?
 
     /// Only add subviews that are specific to section `.importOnly`.
@@ -19,9 +18,10 @@ class ImportFoodCell: FoodCell {
         addSubview(importView!)
         setupImportView()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupImportView() {
         if let importView = importView {
             importView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,9 +29,8 @@ class ImportFoodCell: FoodCell {
                 importView.centerYAnchor.constraint(equalTo: centerYAnchor),
                 importView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
                 importView.widthAnchor.constraint(equalToConstant: 30),
-                importView.heightAnchor.constraint(equalToConstant: 30),
+                importView.heightAnchor.constraint(equalToConstant: 30)
             ])
         }
     }
-    
 }

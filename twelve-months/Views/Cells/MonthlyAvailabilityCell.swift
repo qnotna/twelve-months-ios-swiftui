@@ -9,17 +9,16 @@
 import UIKit
 
 class MonthlyAvailabilityCell: UITableViewCell {
-    
     static let identifier = "MonthlyCell"
-    
+
     private var availabilityView: AvailabilityView!
     private var ratioView: RatioView!
     private var stackView: UIStackView!
-    
+
     private var type: OverviewSection!
     private var availability: Availability!
     private var ratio: Int!
-    
+
     init(_ item: Food, in month: Int, from type: OverviewSection) {
         super.init(style: .default, reuseIdentifier: MonthlyAvailabilityCell.identifier)
         switch OverviewSection(rawValue: type.rawValue) {
@@ -35,9 +34,10 @@ class MonthlyAvailabilityCell: UITableViewCell {
         isUserInteractionEnabled = false
         setupViews()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupViews() {
         ratioView = RatioView(for: ratio, withLabels: true)
         stackView = UIStackView(arrangedSubviews: [availabilityView, ratioView])
@@ -52,5 +52,4 @@ class MonthlyAvailabilityCell: UITableViewCell {
             stackView.heightAnchor.constraint(equalTo: heightAnchor)
         ])
     }
-
 }

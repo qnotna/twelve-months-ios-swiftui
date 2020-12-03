@@ -9,22 +9,22 @@
 import UIKit
 
 class YearlyView: UIView {
-    
     private var descriptionLabel: UILabel!
     private var stackView: UIStackView!
-    
+
     private var availability = [Availability]()
     private var title: String!
-    
+
     init(availability: [Availability], title: String) {
         super.init(frame: .zero)
         self.availability = availability
         self.title = title
         setupViews()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupViews() {
         descriptionLabel = UILabel(text: title)
         addSubview(descriptionLabel)
@@ -35,7 +35,7 @@ class YearlyView: UIView {
         ])
         /// Add a label with the first letters of each month case as text to a list of labels
         let months = Month.allCases.compactMap {
-            UILabel(text: $0.rawValue.substring(in: 0..<1))
+            UILabel(text: $0.rawValue.substring(in: 0 ..< 1))
         }
         setupStackView(arrangedSubviews: months)
         project(availability, to: stackView.arrangedSubviews)
@@ -54,16 +54,17 @@ class YearlyView: UIView {
             stackView.heightAnchor.constraint(equalTo: heightAnchor)
         ])
     }
-    
+
     #warning("Replace with actual graph someday, use 'UIColor.matching(availability:)'")
     func project(_ availability: [Availability], to collection: [UIView]) {
-        for i in 0...11 {
-            let label = collection[i] as! UILabel
-            switch availability[i] {
-            case .lowest, .low, .high, .highest:
-                label.textColor = UIColor.systemGreen
-            default:
-                label.textColor = UIColor.systemRed
+        for month in 0 ... Month.allCases.count - 1 {
+            if let label = collection[month] as? UILabel {
+                switch availability[month] {
+                case .lowest, .low, .high, .highest:
+                    label.textColor = UIColor.systemGreen
+                default:
+                    label.textColor = UIColor.systemRed
+                }
             }
         }
     }

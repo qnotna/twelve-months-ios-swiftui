@@ -10,18 +10,17 @@ import UIKit
 
 /// `UIStackView` with a `textLabel` and a `accessoryLabel`
 class AvailabilityView: UIStackView {
-
     var textLabel = UILabel()
     var accessoryLabel = UILabel()
-    
-    ///Enables and disables `textLabel` and `accessoryLabel`
+
+    /// Enables and disables `textLabel` and `accessoryLabel`
     var showsLabels: Bool! {
         didSet {
             textLabel.isHidden = showsLabels
             accessoryLabel.isHidden = showsLabels
         }
     }
-    
+
     /// Initializes `textLabel` and `accessoryLabel` in `stackView`
     init(withLabels showsLabels: Bool) {
         super.init(frame: .zero)
@@ -33,9 +32,9 @@ class AvailabilityView: UIStackView {
         setupTextLabel()
         setupAccessoryLabel()
     }
-    
-    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    required init(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupTextLabel() {
         textLabel.textAlignment = .center
         textLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)

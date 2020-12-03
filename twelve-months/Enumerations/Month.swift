@@ -10,20 +10,19 @@ import Foundation
 
 #warning("Possibly use 'GregorianMonth' instead")
 enum Month: String, Decodable, CaseIterable {
-    
-    case january   = "January",
-         february  = "February",
-         march     = "March",
-         april     = "April",
-         may       = "May",
-         june      = "June",
-         july      = "July",
-         august    = "August",
+    case january = "January",
+         february = "February",
+         march = "March",
+         april = "April",
+         may = "May",
+         june = "June",
+         july = "July",
+         august = "August",
          september = "September",
-         october   = "October",
-         november  = "November",
-         december  = "December"
-    
+         october = "October",
+         november = "November",
+         december = "December"
+
     /// This can be called at all times to receive the current month as Month case
     /// Will default to unknown month
     static var current: Month {
@@ -35,5 +34,4 @@ enum Month: String, Decodable, CaseIterable {
         }
         fatalError("Could not determine current month")
     }
-    
 }

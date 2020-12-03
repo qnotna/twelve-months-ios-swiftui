@@ -16,7 +16,7 @@ extension DetailSection: CustomStringConvertible {
     var description: String {
         switch self {
         case .monthly: return "Monthly Availability"
-        case .yearly:  return "Yearly Availability"
+        case .yearly: return "Yearly Availability"
         }
     }
 }

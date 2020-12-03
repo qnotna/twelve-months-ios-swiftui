@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
-		BF0A459623C9364E00220EC6 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A459523C9364E00220EC6 /* Notification+Name.swift */; };
 		BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodCell.swift */; };
 		BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */; };
 		BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
-		BF0A459523C9364E00220EC6 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		BF0FD4C123C7C4890042EE1D /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		BF1CB11623A6E46100F8A5C9 /* twelve-months.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "twelve-months.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		BF7E5F0B23A7CA8600F6D211 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BF0A459523C9364E00220EC6 /* Notification+Name.swift */,
 				BF47CBD223A6F5BB00386A87 /* Bundle+Decodable.swift */,
 				BFEF251225656EF400796CE2 /* UIColor+Availability.swift */,
 				BFA3A21F256D462F0069233D /* UIView+Subviews.swift */,
@@ -262,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF1CB12A23A6E46300F8A5C9 /* Build configuration list for PBXNativeTarget "twelve-months" */;
 			buildPhases = (
+				BFC9285B2579020500D5136D /* ShellScript */,
 				BF1CB11223A6E46100F8A5C9 /* Sources */,
 				BF1CB11323A6E46100F8A5C9 /* Frameworks */,
 				BF1CB11423A6E46100F8A5C9 /* Resources */,
@@ -324,6 +322,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BFC9285B2579020500D5136D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF1CB11223A6E46100F8A5C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -333,7 +351,6 @@
 				BF47CBD323A6F5BB00386A87 /* Bundle+Decodable.swift in Sources */,
 				BF284E5A256F087A00EBA874 /* RatioView.swift in Sources */,
 				BF284E57256F027600EBA874 /* AvailabilityView.swift in Sources */,
-				BF0A459623C9364E00220EC6 /* Notification+Name.swift in Sources */,
 				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
 				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
 				BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */,

@@ -9,11 +9,10 @@
 import UIKit
 
 class ImportTrafficLightView: UIView {
-    
     var scoreLabel = UILabel()
-    
+
     var availability: Availability?
-    
+
     init() { super.init(frame: .null) }
 
     init(for availability: Availability) {
@@ -23,9 +22,10 @@ class ImportTrafficLightView: UIView {
         setupBackground()
         setupScoreLabel()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         layer.masksToBounds = true
@@ -35,23 +35,22 @@ class ImportTrafficLightView: UIView {
         scoreLabel.font = UIFont.systemFont(ofSize: scoreLabel.frame.height / 2,
                                             weight: .black)
     }
-    
+
     fileprivate func setupBackground() {
         if let availability = availability {
             backgroundColor = UIColor.matching(availability: availability)
         }
     }
-    
+
     fileprivate func setupScoreLabel() {
         if let availability = availability?.rawValue {
             scoreLabel.text = "\(availability)"
         }
-        scoreLabel.textAlignment  = .center
+        scoreLabel.textAlignment = .center
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scoreLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             scoreLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-
 }

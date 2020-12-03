@@ -10,27 +10,26 @@ import Foundation
 import UIKit
 
 class FoodCell: UITableViewCell {
-    
     static let identifier = "FoodCell"
 
     var thumbImageView = UIImageView()
     var nameLabel: UILabel!
-    
+
     var item: Food!
     var month: Int!
-    
+
     init(_ item: Food, in month: Int) {
         super.init(style: .default, reuseIdentifier: FoodCell.identifier)
         self.month = month
         self.item = item
         self.item = item
-        self.accessoryType = .disclosureIndicator
+        accessoryType = .disclosureIndicator
         setupThumbImageView()
         setupNameLabel()
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     fileprivate func setupThumbImageView() {
         thumbImageView.image = UIImage(named: item.name)
         thumbImageView.contentMode = .scaleAspectFit
@@ -40,10 +39,10 @@ class FoodCell: UITableViewCell {
             thumbImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             thumbImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             thumbImageView.widthAnchor.constraint(equalToConstant: 35),
-            thumbImageView.heightAnchor.constraint(equalToConstant: 35),
+            thumbImageView.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
-    
+
     fileprivate func setupNameLabel() {
         if let name = item?.name.capitalized {
             nameLabel = UILabel(text: name)
@@ -55,5 +54,4 @@ class FoodCell: UITableViewCell {
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-    
 }
