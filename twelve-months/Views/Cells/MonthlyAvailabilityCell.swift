@@ -10,6 +10,8 @@ import UIKit
 
 class MonthlyAvailabilityCell: UITableViewCell {
     
+    static let identifier = "MonthlyCell"
+    
     private var availabilityView: AvailabilityView!
     private var ratioView: RatioView!
     private var stackView: UIStackView!
@@ -19,7 +21,7 @@ class MonthlyAvailabilityCell: UITableViewCell {
     private var ratio: Int!
     
     init(_ item: Food, in month: Int, from type: OverviewSection) {
-        super.init(style: .default, reuseIdentifier: "MonthlyCell")
+        super.init(style: .default, reuseIdentifier: MonthlyAvailabilityCell.identifier)
         switch OverviewSection(rawValue: type.rawValue) {
         case .cultivation:
             availability = item.cultivationByMonth[month]

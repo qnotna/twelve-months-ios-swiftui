@@ -10,8 +10,15 @@ import Foundation
 
 /// Data source for any food in a given month
 struct Goods {
-
     var cultivated = [Food]()
     var imported = [Food]()
-    
+    var identifier = UUID()
+}
+
+#warning("Use this for 'UIDiffableDataSource'")
+extension Goods: Hashable {
+    /// Only represent hash from `identifier`
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
 }

@@ -29,8 +29,8 @@ class FoodItemTableViewController: UITableViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tableView.register(MonthlyAvailabilityCell.self, forCellReuseIdentifier: "MonthlyCell")
-        tableView.register(YearlyAvailabilityCell.self, forCellReuseIdentifier: "YearlyCell")
+        tableView.register(MonthlyAvailabilityCell.self, forCellReuseIdentifier: MonthlyAvailabilityCell.identifier)
+        tableView.register(YearlyAvailabilityCell.self, forCellReuseIdentifier: YearlyAvailabilityCell.identifier)
         setupNavigationBar()
     }
 

@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 class FoodCell: UITableViewCell {
+    
+    static let identifier = "FoodCell"
 
     var thumbImageView = UIImageView()
     var nameLabel: UILabel!
     
-    internal var item: Food!
-    internal var month: Int!
+    var item: Food!
+    var month: Int!
     
     init(_ item: Food, in month: Int) {
-        super.init(style: .default, reuseIdentifier: "FoodCell")
+        super.init(style: .default, reuseIdentifier: FoodCell.identifier)
         self.month = month
         self.item = item
         self.item = item

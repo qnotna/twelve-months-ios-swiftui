@@ -31,6 +31,9 @@
 		BF284E7B256FE1A100EBA874 /* UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */; };
 		BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E81256FF83400EBA874 /* Coordinator.swift */; };
 		BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */; };
+		BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */; };
+		BF284E9C257142DC00EBA874 /* PageViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */; };
+		BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */; };
 		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
 		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
@@ -75,6 +78,9 @@
 		BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Text.swift"; sourceTree = "<group>"; };
 		BF284E81256FF83400EBA874 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentedControl.swift; sourceTree = "<group>"; };
+		BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewToolbar.swift; sourceTree = "<group>"; };
+		BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewToolbarDelegate.swift; sourceTree = "<group>"; };
 		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
@@ -168,6 +174,8 @@
 			children = (
 				BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */,
 				BF284E5D256FC04100EBA874 /* YearlyView.swift */,
+				BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */,
+				BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */,
 			);
 			path = Cutom;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				BF284E81256FF83400EBA874 /* Coordinator.swift */,
+				BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -340,11 +349,14 @@
 				BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
+				BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
+				BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */,
 				BF284E46256EC94C00EBA874 /* YearlyAvailabilityCell.swift in Sources */,
 				BF284E49256EC95F00EBA874 /* MonthlyAvailabilityCell.swift in Sources */,
 				BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */,
+				BF284E9C257142DC00EBA874 /* PageViewToolbar.swift in Sources */,
 				BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */,
 				BF284E53256EEB8800EBA874 /* ImportView.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,

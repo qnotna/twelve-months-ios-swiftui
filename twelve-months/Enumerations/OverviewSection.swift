@@ -8,10 +8,11 @@
 
 import Foundation
 
-enum OverviewSection: Int, CustomStringConvertible, CaseIterable {
-    
+enum OverviewSection: Int, CaseIterable {
     case cultivation, importOnly
-    
+}
+
+extension OverviewSection: CustomStringConvertible {
     var description: String {
         switch self {
         case .cultivation: return "Local Cultivation"

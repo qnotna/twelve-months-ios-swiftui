@@ -10,6 +10,8 @@ import UIKit
 
 class YearlyAvailabilityCell: UITableViewCell {
     
+    static let identifier = "YearlyCell"
+    
     private var stackView: UIStackView!
     private var cultivationView: YearlyView!
     private var importView: YearlyView!
@@ -17,7 +19,7 @@ class YearlyAvailabilityCell: UITableViewCell {
     var item: Food!
     
     init(_ item: Food) {
-        super.init(style: .default, reuseIdentifier: "YearlyCell")
+        super.init(style: .default, reuseIdentifier: YearlyAvailabilityCell.identifier)
         self.item = item
         isUserInteractionEnabled = false
         setupStackView()

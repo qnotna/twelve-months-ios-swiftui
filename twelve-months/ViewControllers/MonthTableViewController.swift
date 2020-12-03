@@ -23,20 +23,26 @@ class MonthTableViewController: UITableViewController {
     // MARK: - Lifecycle
     
     init(_ goods: (vegetables: Goods, fruits: Goods), for month: Month) {
-        super.init(style: .grouped)
+        super.init(style: .insetGrouped)
+        /// Inset `tableView` to be visible under `TodayPageViewController.foodTypeControl`
+        tableView.contentInset.bottom = 65
         vegetables = goods.vegetables
         fruits = goods.fruits
         self.month = Month.allCases.firstIndex(of: month)!
+        #warning("Is this the best way?")
+        title = month.rawValue
+        tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.identifier)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(FoodCell.self, forCellReuseIdentifier: "FoodCell")
-    }
+}
+
+//MARK: - Delegate+DataSource
+
+#warning("Move to 'MonthDataSource'")
+extension MonthTableViewController {
     
-    #warning("This should be a method on 'Goods', maybe overload subscript operator")
     func goods(in section: Int) -> [Food] {
         let cultivatedVegetables = vegetables.cultivated,
             importedVegetables = vegetables.imported,
@@ -48,11 +54,6 @@ class MonthTableViewController: UITableViewController {
         default: fatalError("Unexpectedly found illegal section \(section)")
         }
     }
-}
-
-//MARK: - TableViewControllerDelegate methods
-    
-extension MonthTableViewController {
     
     #warning("Missing edge case: no cultivation/imports in '.vegetables' or '.fruits'")
     /// Tells the tableViewController how many sections the table should have

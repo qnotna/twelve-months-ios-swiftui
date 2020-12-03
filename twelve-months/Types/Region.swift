@@ -9,8 +9,7 @@
 import Foundation
 
 struct Region: Decodable {
-    
     var name: RegionType
     var countries: [String]
-    
+    static var url = "Region.json"
 }

@@ -8,10 +8,11 @@
 
 import Foundation
 
-enum DetailSection: Int, CustomStringConvertible, CaseIterable {
-    
+enum DetailSection: Int, CaseIterable {
     case monthly, yearly
-    
+}
+
+extension DetailSection: CustomStringConvertible {
     var description: String {
         switch self {
         case .monthly: return "Monthly Availability"

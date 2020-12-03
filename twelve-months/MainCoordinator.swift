@@ -12,7 +12,7 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController
-    var monthNavigationControllers: [UIViewController]
+    var monthViewControllers: [UIViewController]
     
     #warning("Create datasource instead")
     private var allVegetables: [Food]
@@ -20,10 +20,14 @@ class MainCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        monthNavigationControllers = [UINavigationController]()
-        allVegetables = Bundle.main.decode([Food].self, from: "vegetables.json")
-        allFruits = Bundle.main.decode([Food].self, from: "fruits.json")
+        #warning("SafeArea should not be transparent")
+        self.navigationController.isNavigationBarHidden = true
+        monthViewControllers = [UIViewController]()
+        allVegetables = Bundle.main.decode([Food].self, from: Food.vegetablesUrl)
+        allFruits = Bundle.main.decode([Food].self, from: Food.fruitsUrl)
     }
+    
+    // MARK: - ViewController Instantiation
     
     /// Entry point
     func start() {
@@ -33,7 +37,7 @@ class MainCoordinator: Coordinator {
     
     /// Create `todayViewController` and embed in a `navigationController`
     func instantiateTodayPageViewController() {
-        let viewController = TodayPageViewController(pages: monthNavigationControllers)
+        let viewController = TodayPageViewController(pages: monthViewControllers)
         viewController.coordinator = self
         navigationController.viewControllers = [viewController]
     }
@@ -46,10 +50,7 @@ class MainCoordinator: Coordinator {
             let monthViewController = MonthTableViewController((vegetables: vegetables, fruits: fruits),
                                                                for: month)
             monthViewController.coordinator = self
-            #warning("Do this in MonthTableViewController")
-            monthViewController.title = month.rawValue
-            let monthNavigationController = UINavigationController(rootViewController: monthViewController)
-            monthNavigationControllers.append(monthNavigationController)
+            monthViewControllers.append(monthViewController)
         }
     }
     
@@ -70,8 +71,9 @@ class MainCoordinator: Coordinator {
         viewController.dismiss(animated: true)
     }
     
-    // MARK: -
+    // MARK: - DataSource
     
+    #warning("Do this in 'MonthDataSource'")
     #warning("Enable user sorting")
     private func prepareData(for month: Month, from foodItems: [Food]?) -> Goods {
         var goods = Goods()

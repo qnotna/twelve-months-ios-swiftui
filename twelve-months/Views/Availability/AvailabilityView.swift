@@ -11,8 +11,8 @@ import UIKit
 /// `UIStackView` with a `textLabel` and a `accessoryLabel`
 class AvailabilityView: UIStackView {
 
-    internal var textLabel = UILabel()
-    internal var accessoryLabel = UILabel()
+    var textLabel = UILabel()
+    var accessoryLabel = UILabel()
     
     ///Enables and disables `textLabel` and `accessoryLabel`
     var showsLabels: Bool! {
@@ -23,7 +23,7 @@ class AvailabilityView: UIStackView {
     }
     
     /// Initializes `textLabel` and `accessoryLabel` in `stackView`
-    internal init(withLabels showsLabels: Bool) {
+    init(withLabels showsLabels: Bool) {
         super.init(frame: .zero)
         self.showsLabels = showsLabels
         spacing = 5

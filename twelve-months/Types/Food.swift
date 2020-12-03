@@ -32,4 +32,7 @@ struct Food: Decodable, Equatable {
         return percentages
     }
     
+    static var vegetablesUrl = "vegetables.json"
+    static var fruitsUrl = "fruits.json"
+    
 }

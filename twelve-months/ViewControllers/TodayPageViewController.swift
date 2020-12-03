@@ -8,12 +8,15 @@
 
 import UIKit
 
-#warning("Page Control should wrap")
-class TodayPageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class TodayPageViewController: UIPageViewController {
     
     weak var coordinator: MainCoordinator?
     
+    var toolbar: PageViewToolbar!
+    var foodTypeControl: RoundedSegmentedControl!
     var pages: [UIViewController]!
+    
+    // MARK: - Lifecycle
     
     init(pages: [UIViewController]) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -22,100 +25,93 @@ class TodayPageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    /// SegmentedControl as `navigationItem`
-    lazy var foodTypeControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Vegetables", "Fruits"])
-        control.selectedSegmentIndex = 0
-        control.addTarget(self, action: #selector(foodTypeDidChange(_:)), for: .valueChanged)
-        control.translatesAutoresizingMaskIntoConstraints = false
-        return control
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupToolbar()
+        setupSegmentedControl()
+        setupSwipeGestureRecognizers()
+    }
     
-    //MARK: - Lifecycle
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dataSource = self
+    fileprivate func setupToolbar() {
         guard let index = Month.allCases.firstIndex(of: Month.current) else { return }
+        toolbar = PageViewToolbar(withSize: pages.count, startingAt: index)
+        toolbar.title = pages[index].title!
+        toolbar.navigationDelegate = self
+        view.addSubview(toolbar)
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
         setViewControllers([pages[index]], direction: .forward, animated: true)
-        setupViews()
+    }
+    
+    fileprivate func setupSegmentedControl() {
+        foodTypeControl = RoundedSegmentedControl(items: FoodType.allCases.map { "\($0)" })
+        foodTypeControl.addTarget(self, action: #selector(foodTypeDidChange(_:)), for: .valueChanged)
+        view.addSubview(foodTypeControl)
+        foodTypeControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            foodTypeControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            foodTypeControl.bottomAnchor.constraint(equalTo: toolbar.topAnchor, constant: -15)
+        ])
+    }
+    
+    fileprivate func setupSwipeGestureRecognizers() {
+        /// Previous page recognizer
+        let swipePrevious = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeToPresentPreviousPage(_:)))
+        swipePrevious.direction = .right
+        view.addGestureRecognizer(swipePrevious)
+        /// Next page recognizer
+        let swipeNext = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeToPresentNextPage(_:)))
+        swipeNext.direction = .left
+        view.addGestureRecognizer(swipeNext)
     }
 
-    /// Set `foodTypeControl` as `navigationItem` and remove border from parent `navigationController`
-    fileprivate func setupViews() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        self.navigationItem.titleView = foodTypeControl
-    }
-    
-    /// Make `pageControl` transparent
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        for view in view.subviews {
-            if view is UIScrollView {
-                view.frame = UIScreen.main.bounds
-            } else if view is UIPageControl {
-                view.backgroundColor = UIColor.clear
-            }
-        }
-    }
-    
     // MARK: - Actions
     
     /// Called by `foodTypeControl` when the value for `selectedSegmentIndex` changes
     @objc func foodTypeDidChange(_ segmentedControl: UISegmentedControl) {
         for page in pages {
-            if let viewController = page.children.first as? MonthTableViewController {
+            if let viewController = page as? MonthTableViewController {
                 viewController.foodType.toggle()
             }
         }
     }
     
+    /// Detected swipe to `.right`, decrements navigationIndex and calls to present new page
+    @objc func didSwipeToPresentPreviousPage(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        toolbar.decrementIndex()
+        didSwipeToPresentPage(in: .reverse)
+    }
+    
+    /// Detected swipe to `.left`, increments navigationIndex and calls to present new page
+    @objc func didSwipeToPresentNextPage(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        toolbar.incrementIndex()
+        didSwipeToPresentPage(in: .forward)
+    }
+    
+    #warning("Selected cells stay selected when new page is presented")
+    #warning("Scrollbar blinks after transition")
+    /// Presents the next page animated depending on the `direction`
+    private func didSwipeToPresentPage(in direction: UIPageViewController.NavigationDirection) {
+        let viewController = pages[toolbar.navigationIndex!]
+        setViewControllers([viewController], direction: direction, animated: true)
+        toolbar.reloadTitle()
+    }
+    
 }
 
-//MARK: UIPageViewControllerDelegate methods
+// MARK: - PageViewToolbar Delegate Methods
 
-extension TodayPageViewController {
-    
-    /// Tells the UIPageViewController which page should be displayed before the current page
-    /// Calculates the index for the next page if a list overflow happens at the beginning of the pages list
-    /// The index will wrap around if it is smaller than 0
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.firstIndex(of: viewController) else { return nil }
-        var previousIndex = index - 1
-        if previousIndex < 0 {
-            previousIndex = pages.count - 1
-        }
-        guard pages.count > previousIndex else { return nil }
-        return pages[previousIndex]
+extension TodayPageViewController: PageViewToolbarDelegate {
+    /// Set the next page to be presented
+    func toolbar(_ toolbar: PageViewToolbar, navigationIndexDidChange index: Int, direction: UIPageViewController.NavigationDirection) {
+        setViewControllers([pages[index]], direction: direction, animated: true)
     }
-    
-    /// Tells the UIPageViewController which page should be displayed after the current page
-    /// Calculates the index for the next page if a list overflow happens at the end of the pages list
-    /// The index will wrap around if it is equal to the last page
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.firstIndex(of: viewController) else { return nil }
-        var nextIndex = index + 1
-        let count = pages.count
-        if count == nextIndex {
-            nextIndex = 0
-        }
-        guard count > nextIndex else { return nil }
-        return pages[nextIndex]
+    /// Title of the current page
+    func toolbar(_ toolbar: PageViewToolbar, titleForNavigationIndex index: Int) -> String {
+        pages[index].title!
     }
-    
-    #warning("Always displays in dark mode")
-    /// Tells the UIPageViewController how many pages should be displayed in the page view control at the bottom of the view
-    /// - Parameter pageViewController: The page view controller.
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        pages.count
-    }
-    
-    /// Tells the UIPageViewController which page should be displayed highlighted in the page view control at the bottom of the view
-    /// - Parameter pageViewController: The page view controller.
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        Month.allCases.firstIndex(of: Month.current)!
-    }
-    
 }
