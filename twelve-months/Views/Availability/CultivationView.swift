@@ -30,7 +30,7 @@ class CultivationView: AvailabilityView {
             contentImageView.widthAnchor.constraint(equalToConstant: 80),
             contentImageView.heightAnchor.constraint(equalToConstant: 80)
         ])
-        textLabel.text = "\(availability!) Cultivation"
+        textLabel.text = "\(optional: availability) Cultivation"
         accessoryLabel.text = "Buy Locally Sourced if Possible"
     }
 }

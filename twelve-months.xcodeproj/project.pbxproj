@@ -46,6 +46,7 @@
 		BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
 		BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* Goods.swift */; };
+		BFCA960525838109009A9457 /* DefaultStringInterpolation+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA960425838109009A9457 /* DefaultStringInterpolation+Optional.swift */; };
 		BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* OverviewSection.swift */; };
 		BFEF251325656EF400796CE2 /* UIColor+Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF251225656EF400796CE2 /* UIColor+Availability.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTrafficLightView.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
 		BFB7A05D25657CEE00C31B5B /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
+		BFCA960425838109009A9457 /* DefaultStringInterpolation+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultStringInterpolation+Optional.swift"; sourceTree = "<group>"; };
 		BFEF250C25656C5700796CE2 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
 		BFEF251225656EF400796CE2 /* UIColor+Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Availability.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +250,7 @@
 				BFA3A21F256D462F0069233D /* UIView+Subviews.swift */,
 				BF284E60256FC88D00EBA874 /* String+Substring.swift */,
 				BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */,
+				BFCA960425838109009A9457 /* DefaultStringInterpolation+Optional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */,
+				BFCA960525838109009A9457 /* DefaultStringInterpolation+Optional.swift in Sources */,
 				BF284E46256EC94C00EBA874 /* YearlyAvailabilityCell.swift in Sources */,
 				BF284E49256EC95F00EBA874 /* MonthlyAvailabilityCell.swift in Sources */,
 				BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */,

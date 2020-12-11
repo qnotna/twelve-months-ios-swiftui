@@ -16,9 +16,9 @@ class FoodCell: UITableViewCell {
     var nameLabel: UILabel!
 
     var item: Food!
-    var month: Int!
+    var month: Month!
 
-    init(_ item: Food, in month: Int) {
+    init(_ item: Food, in month: Month) {
         super.init(style: .default, reuseIdentifier: FoodCell.identifier)
         self.month = month
         self.item = item

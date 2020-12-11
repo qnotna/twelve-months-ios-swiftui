@@ -19,18 +19,21 @@ class MonthlyAvailabilityCell: UITableViewCell {
     private var availability: Availability!
     private var ratio: Int!
 
-    init(_ item: Food, in month: Int, from type: OverviewSection) {
+    init(_ item: Food, in month: Month, from type: OverviewSection) {
+        let index = Month.index(of: month)
         super.init(style: .default, reuseIdentifier: MonthlyAvailabilityCell.identifier)
         switch OverviewSection(rawValue: type.rawValue) {
         case .cultivation:
-            availability = item.cultivationByMonth[month]
+            availability = item.cultivationByMonth[index]
             availabilityView = CultivationView(for: availability, withLabels: true)
         case .importOnly:
-            availability = item.importByMonth[month]
+            availability = item.importByMonth[index]
             availabilityView = ImportView(for: availability, withLabels: true)
         default: fatalError("Unexpectedly found illegal section \(type.rawValue)")
         }
-        ratio = item.ratio![month]
+        if let ratio = item.ratio?[index] {
+            self.ratio = ratio
+        }
         isUserInteractionEnabled = false
         setupViews()
     }

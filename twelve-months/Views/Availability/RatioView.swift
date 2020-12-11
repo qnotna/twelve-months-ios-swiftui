@@ -21,7 +21,7 @@ class RatioView: AvailabilityView {
     required init(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     fileprivate func setupViews() {
-        contentLabel = UILabel(text: "\(ratio!)%")
+        contentLabel = UILabel(text: "\(optional: ratio)%")
         contentLabel.textAlignment = .center
         contentLabel.font = UIFont.systemFont(ofSize: 50, weight: .black)
         contentLabel.translatesAutoresizingMaskIntoConstraints = false

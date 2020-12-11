@@ -8,8 +8,7 @@
 
 import Foundation
 
-#warning("Possibly use 'GregorianMonth' instead")
-enum Month: String, Decodable, CaseIterable {
+enum Month: String, Decodable {
     case january = "January",
          february = "February",
          march = "March",
@@ -23,15 +22,23 @@ enum Month: String, Decodable, CaseIterable {
          november = "November",
          december = "December"
 
-    /// This can be called at all times to receive the current month as Month case
-    /// Will default to unknown month
+    /// Determines the current month as case of `self`
     static var current: Month {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
-        let month = dateFormatter.string(from: Date())
-        if let month = Month(rawValue: month) {
-            return month
+        let formattedDate = dateFormatter.string(from: Date())
+        guard let month = Month(rawValue: formattedDate) else {
+            fatalError("Could not determine current month")
         }
-        fatalError("Could not determine current month")
+        return month
+    }
+}
+
+extension Month: CaseIterable {
+    /// Create index for `month` in `allCases`
+    static func index(of month: Month) -> Int {
+        /// Protocol conformance guarantees this never fails
+        //swiftlint:disable:next force_unwrapping
+        return allCases.firstIndex(of: month)!
     }
 }

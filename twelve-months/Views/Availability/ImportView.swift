@@ -9,7 +9,7 @@
 import UIKit
 
 class ImportView: AvailabilityView {
-    private var contentView: ImportTrafficLightView?
+    private var contentView: ImportTrafficLightView!
 
     private var availability: Availability!
 
@@ -17,20 +17,20 @@ class ImportView: AvailabilityView {
         super.init(withLabels: showsLabels)
         self.availability = availability
         contentView = ImportTrafficLightView(for: availability)
-        insertArrangedSubview(contentView!, at: 0)
+        insertArrangedSubview(contentView, at: 0)
         setupViews()
     }
 
     required init(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     fileprivate func setupViews() {
-        contentView?.availability = availability
-        contentView?.translatesAutoresizingMaskIntoConstraints = false
+        contentView.availability = availability
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentView!.widthAnchor.constraint(equalToConstant: 80),
-            contentView!.heightAnchor.constraint(equalToConstant: 80)
+            contentView.widthAnchor.constraint(equalToConstant: 80),
+            contentView.heightAnchor.constraint(equalToConstant: 80)
         ])
-        textLabel.text = "\(availability!) Import"
+        textLabel.text = "\(optional: availability) Import"
         accessoryLabel.text = "Shipping Creates More CO₂"
     }
 }

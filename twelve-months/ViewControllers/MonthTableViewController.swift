@@ -13,7 +13,7 @@ class MonthTableViewController: UITableViewController {
 
     var fruits: Goods!
     var vegetables: Goods!
-    var month: Int!
+    var month: Month!
     #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
         didSet { tableView.reloadData() }
@@ -23,14 +23,13 @@ class MonthTableViewController: UITableViewController {
 
     init(_ goods: (vegetables: Goods, fruits: Goods), for month: Month) {
         super.init(style: .insetGrouped)
-        /// Inset `tableView` to be visible under `TodayPageViewController.foodTypeControl`
-        tableView.contentInset.bottom = 65
         vegetables = goods.vegetables
         fruits = goods.fruits
-        self.month = Month.allCases.firstIndex(of: month)!
-        #warning("Is this the best way?")
+        self.month = month
         title = month.rawValue
         tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.identifier)
+        /// Inset `tableView` to be visible under `TodayPageViewController.foodTypeControl`
+        tableView.contentInset.bottom = 65
     }
 
     @available(*, unavailable)
@@ -60,7 +59,7 @@ extension MonthTableViewController {
 
     /// Tells the tableViewController what each section should be named
     override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "\(OverviewSection(rawValue: section)!)"
+        OverviewSection(rawValue: section)?.description
     }
 
     /// Tells the tableViewController how many rows each section in the table should have

@@ -14,13 +14,13 @@ class FoodItemTableViewController: UITableViewController {
     private let dismissButton = UIButton()
 
     private var item: Food!
-    private var pageIndex: Int!
+    private var month: Month!
     private var sender: OverviewSection!
 
-    init(item: Food, at pageIndex: Int, from section: Int) {
+    init(item: Food, at month: Month, from section: Int) {
         super.init(style: .insetGrouped)
         self.item = item
-        self.pageIndex = pageIndex
+        self.month = month
         sender = OverviewSection(rawValue: section)
     }
 
@@ -60,7 +60,7 @@ extension FoodItemTableViewController {
     override func numberOfSections(in _: UITableView) -> Int { DetailSection.allCases.count }
 
     override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "\(DetailSection(rawValue: section)!)"
+        DetailSection(rawValue: section)?.description
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int { 1 }
@@ -68,7 +68,7 @@ extension FoodItemTableViewController {
     override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         switch DetailSection(rawValue: section) {
-        case .monthly: return MonthlyAvailabilityCell(item, in: pageIndex, from: sender)
+        case .monthly: return MonthlyAvailabilityCell(item, in: month, from: sender)
         case .yearly: return YearlyAvailabilityCell(item)
         default: fatalError("Failed dequeueing FoodCell for section \(section)")
         }

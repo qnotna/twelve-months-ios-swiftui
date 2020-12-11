@@ -13,7 +13,7 @@ class CultivationFoodCell: FoodCell {
     var cultivationImageView = UIImageView()
 
     /// Only add subviews that are specific to section `.cultivated`.
-    override init(_ item: Food, in month: Int) {
+    override init(_ item: Food, in month: Month) {
         super.init(item, in: month)
         setupCultivationImageView()
         setupCultivationLabel()
@@ -23,7 +23,8 @@ class CultivationFoodCell: FoodCell {
     required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     fileprivate func setupCultivationImageView() {
-        let availability = item.cultivationByMonth[month].rawValue
+        let index = Month.index(of: month)
+        let availability = item.cultivationByMonth[index].rawValue
         cultivationImageView.image = UIImage(named: "plant-\(availability)")
         addSubview(cultivationImageView)
         cultivationImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +37,10 @@ class CultivationFoodCell: FoodCell {
     }
 
     fileprivate func setupCultivationLabel() {
-        let ratio = item.ratio![month]
+        let index = Month.index(of: month)
+        guard let ratio = item.ratio?[index] else {
+            fatalError("No cultivation found for \(item.name)")
+        }
         cultivationLabel = UILabel(text: "\(ratio)%")
         cultivationLabel.textColor = .systemGray
         addSubview(cultivationLabel)

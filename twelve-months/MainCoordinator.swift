@@ -76,35 +76,35 @@ class MainCoordinator: Coordinator {
     #warning("Enable user sorting")
     private func prepareData(for month: Month, from foodItems: [Food]?) -> Goods {
         var goods = Goods()
-        let monthIndex = Month.allCases.firstIndex(of: month)!
+        let index = Month.index(of: month)
         if let items = foodItems {
             for item in items {
                 /// Remove items without cultivation
-                if item.cultivationByMonth[monthIndex] != .none {
+                if item.cultivationByMonth[index] != .none {
                     goods.cultivated.append(item)
                 }
-                /// Remove all items wihout import and cultivation
-                if item.importByMonth[monthIndex] != .none, !goods.cultivated.contains(item) {
+                /// Remove all items without import and cultivation
+                if item.importByMonth[index] != .none, !goods.cultivated.contains(item) {
                     goods.imported.append(item)
                 }
             }
         }
         /// Sort cultivated goods
         goods.cultivated = goods.cultivated.sorted { (lhs, rhs) -> Bool in
-            if lhs.cultivationByMonth[monthIndex].rawValue == rhs.cultivationByMonth[monthIndex].rawValue {
-                if lhs.ratio![monthIndex] == rhs.ratio![monthIndex] {
+            if lhs.cultivationByMonth[index].rawValue == rhs.cultivationByMonth[index].rawValue {
+                if lhs.ratio![index] == rhs.ratio![index] {
                     return lhs.name > rhs.name
                 }
-                return lhs.ratio![monthIndex] > rhs.ratio![monthIndex]
+                return lhs.ratio![index] > rhs.ratio![index]
             }
-            return lhs.cultivationByMonth[monthIndex].rawValue > rhs.cultivationByMonth[monthIndex].rawValue
+            return lhs.cultivationByMonth[index].rawValue > rhs.cultivationByMonth[index].rawValue
         }
         /// Sort imported goods
         goods.imported = goods.imported.sorted { (lhs, rhs) -> Bool in
-            if lhs.importByMonth[monthIndex].rawValue == rhs.importByMonth[monthIndex].rawValue {
+            if lhs.importByMonth[index].rawValue == rhs.importByMonth[index].rawValue {
                 return lhs.name < rhs.name
             }
-            return lhs.importByMonth[monthIndex].rawValue < rhs.importByMonth[monthIndex].rawValue
+            return lhs.importByMonth[index].rawValue < rhs.importByMonth[index].rawValue
         }
         return goods
     }

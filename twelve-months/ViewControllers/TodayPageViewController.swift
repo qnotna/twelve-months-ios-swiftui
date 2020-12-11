@@ -35,7 +35,9 @@ class TodayPageViewController: UIPageViewController {
     fileprivate func setupToolbar() {
         guard let index = Month.allCases.firstIndex(of: Month.current) else { return }
         toolbar = PageViewToolbar(withSize: pages.count, startingAt: index)
-        toolbar.title = pages[index].title!
+        if let title = pages[index].title {
+            toolbar.title = title
+        }
         toolbar.navigationDelegate = self
         view.addSubview(toolbar)
         toolbar.translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +98,7 @@ class TodayPageViewController: UIPageViewController {
     #warning("Scrollbar blinks after transition")
     /// Presents the next page animated depending on the `direction`
     private func didSwipeToPresentPage(in direction: UIPageViewController.NavigationDirection) {
-        let viewController = pages[toolbar.navigationIndex!]
+        let viewController = pages[toolbar.navigationIndex]
         setViewControllers([viewController], direction: direction, animated: true)
         toolbar.reloadTitle()
     }
@@ -114,6 +116,9 @@ extension TodayPageViewController: PageViewToolbarDelegate {
 
     /// Title of the current page
     func toolbar(_: PageViewToolbar, titleForNavigationIndex index: Int) -> String {
-        pages[index].title!
+        guard let title = pages[index].title else {
+            fatalError("Unexpectedly found page at index \(index) without title")
+        }
+        return title
     }
 }

@@ -20,23 +20,26 @@ class PageViewToolbar: UIToolbar {
     weak var navigationDelegate: PageViewToolbarDelegate?
 
     /// Total size of navigationStack
-    var navigationSize: Int?
+    var navigationSize: Int!
     /// Current working index in navigationStack
-    var navigationIndex: Int?
+    var navigationIndex: Int!
     /// Title for `titleLabel`
     var title: String? {
-        willSet { titleLabel.text = newValue! }
+        willSet {
+            if newValue != nil {
+                titleLabel.text = newValue
+            }
+        }
     }
 
     // MARK: - Lifecycle
 
     init(withSize navigationSize: Int, startingAt navigationIndex: Int) {
         super.init(frame: .zero)
-        guard navigationSize > 0 else { fatalError("Unexpectedly found illegal navigationSize \(navigationSize)") }
+        assert(navigationSize > 0, "navigationSize must be larger than 0. Found '\(navigationSize)'")
         self.navigationSize = navigationSize
-        guard (0 ..< navigationSize).contains(navigationIndex) else {
-            fatalError("Unexpectedly found illegal navigationIndex \(navigationIndex) with navigationSize \(navigationSize)")
-        }
+        assert((0 ..< navigationSize).contains(navigationIndex),
+               "navigationIndex must be within 0..<\(navigationSize). Found '\(navigationSize)'")
         self.navigationIndex = navigationIndex
         setupBarButtonItems()
         setupTitleLabel()
@@ -76,47 +79,39 @@ class PageViewToolbar: UIToolbar {
 
     /// Delegate title change and informs about decremented `navigationIndex`
     @objc private func didTapPreviousButton(_: UIBarButtonItem) {
-        guard navigationIndex != nil else { return }
         decrementIndex()
         reloadTitle()
-        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex!, direction: .reverse)
+        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex, direction: .reverse)
     }
 
     /// Delegate title change and informs about incremented `navigationIndex`
     @objc private func didTapNextButton(_: UIBarButtonItem) {
-        guard navigationIndex != nil else { return }
         incrementIndex()
         reloadTitle()
-        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex!, direction: .forward)
+        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex, direction: .forward)
     }
 
     // MARK: - Modifying index
 
     /// Decrements `navigationIndex` by 1, wraps around to `0` if `navigationSize` is reached
     func decrementIndex() {
-        if let index = navigationIndex,
-           let count = navigationSize {
-            var previousIndex = index - 1
-            if previousIndex < 0 { previousIndex = count - 1 }
-            guard count > previousIndex else { return }
-            navigationIndex = previousIndex
-        }
+        var previousIndex = navigationIndex - 1
+        if previousIndex < 0 { previousIndex = navigationSize - 1 }
+        guard navigationSize > previousIndex else { return }
+        navigationIndex = previousIndex
     }
 
     /// Increments `navigationIndex` by 1, wraps around to `navigationSize` if `0` is reached
     func incrementIndex() {
-        if let index = navigationIndex,
-           let count = navigationSize {
-            var nextIndex = index + 1
-            if count == nextIndex { nextIndex = 0 }
-            guard count > nextIndex else { return }
-            navigationIndex = nextIndex
-        }
+        var nextIndex = navigationIndex + 1
+        if navigationSize == nextIndex { nextIndex = 0 }
+        guard navigationSize > nextIndex else { return }
+        navigationIndex = nextIndex
     }
 
     // MARK: - Reload Data
 
     func reloadTitle() {
-        title = navigationDelegate?.toolbar(self, titleForNavigationIndex: navigationIndex!)
+        title = navigationDelegate?.toolbar(self, titleForNavigationIndex: navigationIndex)
     }
 }
