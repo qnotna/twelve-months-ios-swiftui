@@ -10,7 +10,6 @@ import UIKit
 
 class TodayPageViewController: UIPageViewController {
     weak var coordinator: MainCoordinator?
-
     var toolbar: PageViewToolbar!
     var foodTypeControl: RoundedSegmentedControl!
     var pages: [UIViewController]!
@@ -98,7 +97,7 @@ class TodayPageViewController: UIPageViewController {
     #warning("Scrollbar blinks after transition")
     /// Presents the next page animated depending on the `direction`
     private func didSwipeToPresentPage(in direction: UIPageViewController.NavigationDirection) {
-        let viewController = pages[toolbar.navigationIndex]
+        let viewController = pages[toolbar.pageIndex]
         setViewControllers([viewController], direction: direction, animated: true)
         toolbar.reloadTitle()
     }

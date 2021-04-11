@@ -8,11 +8,13 @@
 
 import UIKit
 
+/// Holds categorized vegetables and fruits
+typealias CategorizedFoodPair = (vegetables: CategorizedFood, fruits: CategorizedFood)
+
 class MonthTableViewController: UITableViewController {
     weak var coordinator: MainCoordinator?
-
-    var fruits: Goods!
-    var vegetables: Goods!
+    var fruits: CategorizedFood!
+    var vegetables: CategorizedFood!
     var month: Month!
     #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
@@ -21,10 +23,10 @@ class MonthTableViewController: UITableViewController {
 
     // MARK: - Lifecycle
 
-    init(_ goods: (vegetables: Goods, fruits: Goods), for month: Month) {
+    init(categorized pair: CategorizedFoodPair, for month: Month) {
         super.init(style: .insetGrouped)
-        vegetables = goods.vegetables
-        fruits = goods.fruits
+        vegetables = pair.vegetables
+        fruits = pair.fruits
         self.month = month
         title = month.rawValue
         tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.identifier)
@@ -45,7 +47,7 @@ extension MonthTableViewController {
             importedVegetables = vegetables.imported,
             cultivatedFruits = fruits.cultivated,
             importedFruits = fruits.imported
-        switch OverviewSection(rawValue: section) {
+        switch AvailabilityType(rawValue: section) {
         case .cultivation: return (foodType == .vegetable) ? cultivatedVegetables : cultivatedFruits
         case .importOnly: return (foodType == .vegetable) ? importedVegetables : importedFruits
         default: fatalError("Unexpectedly found illegal section \(section)")
@@ -55,11 +57,11 @@ extension MonthTableViewController {
     #warning("Missing edge case: no cultivation/imports in '.vegetables' or '.fruits'")
     /// Tells the tableViewController how many sections the table should have
     /// First section `.cultivation`, second section `.importOnly`
-    override func numberOfSections(in _: UITableView) -> Int { OverviewSection.allCases.count }
+    override func numberOfSections(in _: UITableView) -> Int { AvailabilityType.allCases.count }
 
     /// Tells the tableViewController what each section should be named
     override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        OverviewSection(rawValue: section)?.description
+        AvailabilityType(rawValue: section)?.description
     }
 
     /// Tells the tableViewController how many rows each section in the table should have
@@ -72,7 +74,7 @@ extension MonthTableViewController {
         let row = indexPath.row,
             section = indexPath.section
         let item = goods(in: section)[row]
-        switch OverviewSection(rawValue: section) {
+        switch AvailabilityType(rawValue: section) {
         case .cultivation: return CultivationFoodCell(item, in: month)
         case .importOnly: return ImportFoodCell(item, in: month)
         default: fatalError("Failed initializing FoodCell for section \(section)")
@@ -86,6 +88,6 @@ extension MonthTableViewController {
         let row = indexPath.row, section = indexPath.section
         let item = goods(in: section)[row]
         /// Present `FoodItemViewController` with `item`
-        coordinator?.instantiateFoodItemTableViewController(for: item, from: section, on: self)
+        coordinator?.presentDetail(for: item, from: section, on: self)
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Represents the availability of `Food`
 enum Availability: Int, Decodable, CustomStringConvertible {
     case none, lowest, low, high, highest
 

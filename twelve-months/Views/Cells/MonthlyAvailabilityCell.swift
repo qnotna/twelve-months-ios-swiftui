@@ -15,14 +15,14 @@ class MonthlyAvailabilityCell: UITableViewCell {
     private var ratioView: RatioView!
     private var stackView: UIStackView!
 
-    private var type: OverviewSection!
+    private var type: AvailabilityType!
     private var availability: Availability!
     private var ratio: Int!
 
-    init(_ item: Food, in month: Month, from type: OverviewSection) {
+    init(_ item: Food, in month: Month, from type: AvailabilityType) {
         let index = Month.index(of: month)
         super.init(style: .default, reuseIdentifier: MonthlyAvailabilityCell.identifier)
-        switch OverviewSection(rawValue: type.rawValue) {
+        switch AvailabilityType(rawValue: type.rawValue) {
         case .cultivation:
             availability = item.cultivationByMonth[index]
             availabilityView = CultivationView(for: availability, withLabels: true)

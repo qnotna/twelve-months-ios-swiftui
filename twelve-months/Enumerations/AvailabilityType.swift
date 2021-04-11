@@ -1,5 +1,5 @@
 //
-//  OverviewSection.swift
+//  AvailabilityType.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 18.11.20.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum OverviewSection: Int, CaseIterable {
+enum AvailabilityType: Int, CaseIterable {
     case cultivation, importOnly
 }
 
-extension OverviewSection: CustomStringConvertible {
+extension AvailabilityType: CustomStringConvertible {
     var description: String {
         switch self {
         case .cultivation: return "Local Cultivation"

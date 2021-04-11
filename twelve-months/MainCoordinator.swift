@@ -8,89 +8,93 @@
 
 import UIKit
 
-/// Responsible for navigation and handling viewControllers
+/// Responsible for navigation and handling view controllers
 class MainCoordinator: Coordinator {
+    /// The main navigation controller that embeds `monthViewControllers`
     var navigationController: UINavigationController
-    var monthViewControllers: [UIViewController]
+    /// List of all 12 months view controllers
+    var monthViewControllers = [UIViewController]()
 
     #warning("Create datasource instead")
-    private var allVegetables: [Food]
-    private var allFruits: [Food]
+    /// Vegetable datasource
+    private var vegetables: [Food]
+    /// Fruits datasource
+    private var fruits: [Food]
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         #warning("SafeArea should not be transparent")
         self.navigationController.isNavigationBarHidden = true
-        monthViewControllers = [UIViewController]()
-        allVegetables = Bundle.main.decode([Food].self, from: Food.vegetablesUrl)
-        allFruits = Bundle.main.decode([Food].self, from: Food.fruitsUrl)
+        vegetables = Bundle.main.decode([Food].self, from: Food.vegetablesUrl)
+        fruits = Bundle.main.decode([Food].self, from: Food.fruitsUrl)
     }
 
     // MARK: - ViewController Instantiation
 
     /// Entry point
     func start() {
-        instantiateMonthNavigationViewControllers()
-        instantiateTodayPageViewController()
+        createPages()
+        addPages()
     }
 
-    /// Create `todayViewController` and embed in a `navigationController`
-    func instantiateTodayPageViewController() {
+    /// Create a `monthViewController` for each `month`
+    func createPages() {
+        Month.allCases.forEach { month in
+            let preparedVegetables = prepareData(for: month, from: vegetables)
+            let preparedFruits = prepareData(for: month, from: fruits)
+            let pair: CategorizedFoodPair = (vegetables: preparedVegetables, fruits: preparedFruits)
+            let viewController = MonthTableViewController(categorized: pair, for: month)
+            viewController.coordinator = self
+            monthViewControllers.append(viewController)
+        }
+    }
+
+    /// Create `todayViewController` and embed in the main `navigationController`
+    func addPages() {
         let viewController = TodayPageViewController(pages: monthViewControllers)
         viewController.coordinator = self
         navigationController.viewControllers = [viewController]
     }
 
-    /// Create a `navigationController` with `monthViewController` for each `month`
-    func instantiateMonthNavigationViewControllers() {
-        for month in Month.allCases {
-            let vegetables = prepareData(for: month, from: allVegetables)
-            let fruits = prepareData(for: month, from: allFruits)
-            let monthViewController = MonthTableViewController((vegetables: vegetables, fruits: fruits),
-                                                               for: month)
-            monthViewController.coordinator = self
-            monthViewControllers.append(monthViewController)
-        }
-    }
-
     /// Present `foodItemTableViewController` with `item` on `viewController` modally
-    func instantiateFoodItemTableViewController(for item: Food,
-                                                from section: Int,
-                                                on viewController: MonthTableViewController) {
-        let foodItemTableViewController = FoodItemTableViewController(item: item,
-                                                                      at: viewController.month,
-                                                                      from: section)
-        foodItemTableViewController.coordiantor = self
-        let navigationController = UINavigationController(rootViewController: foodItemTableViewController)
-        viewController.present(navigationController, animated: true)
+    func presentDetail(for item: Food, from section: Int, on presentingViewController: MonthTableViewController) {
+        let viewController = FoodTableViewController(item: item, at: presentingViewController.month, from: section)
+        viewController.coordinator = self
+        let navigationController = UINavigationController(rootViewController: viewController)
+        presentingViewController.present(navigationController, animated: true)
     }
 
     /// Dismisses a presented `viewController` and removes it from the view hierarchy
-    func dismissViewController(_ viewController: UIViewController) {
+    func dismiss(_ viewController: UIViewController) {
         viewController.dismiss(animated: true)
     }
 
     // MARK: - DataSource
 
-    #warning("Do this in 'MonthDataSource'")
-    #warning("Enable user sorting")
-    private func prepareData(for month: Month, from foodItems: [Food]?) -> Goods {
-        var goods = Goods()
+    /// Prepare `Food` by sorting and creating `CategorizedFood`
+    /// - Parameters:
+    ///   - month: the month for which the data should be prepared
+    ///   - foodItems: the items to be prepared
+    /// - Returns: the goods for this month
+    private func prepareData(for month: Month, from foodItems: [Food]?) -> CategorizedFood {
+        #warning("Do this in 'MonthDataSource'")
+        #warning("Enable user sorting")
+        var categorized = CategorizedFood()
         let index = Month.index(of: month)
         if let items = foodItems {
-            for item in items {
+            items.forEach { item in
                 /// Remove items without cultivation
                 if item.cultivationByMonth[index] != .none {
-                    goods.cultivated.append(item)
+                    categorized.cultivated.append(item)
                 }
                 /// Remove all items without import and cultivation
-                if item.importByMonth[index] != .none, !goods.cultivated.contains(item) {
-                    goods.imported.append(item)
+                if item.importByMonth[index] != .none, !categorized.cultivated.contains(item) {
+                    categorized.imported.append(item)
                 }
             }
         }
         /// Sort cultivated goods
-        goods.cultivated = goods.cultivated.sorted { (lhs, rhs) -> Bool in
+        categorized.cultivated = categorized.cultivated.sorted { (lhs, rhs) -> Bool in
             if lhs.cultivationByMonth[index].rawValue == rhs.cultivationByMonth[index].rawValue {
                 if lhs.ratio![index] == rhs.ratio![index] {
                     return lhs.name > rhs.name
@@ -100,12 +104,12 @@ class MainCoordinator: Coordinator {
             return lhs.cultivationByMonth[index].rawValue > rhs.cultivationByMonth[index].rawValue
         }
         /// Sort imported goods
-        goods.imported = goods.imported.sorted { (lhs, rhs) -> Bool in
+        categorized.imported = categorized.imported.sorted { (lhs, rhs) -> Bool in
             if lhs.importByMonth[index].rawValue == rhs.importByMonth[index].rawValue {
                 return lhs.name < rhs.name
             }
             return lhs.importByMonth[index].rawValue < rhs.importByMonth[index].rawValue
         }
-        return goods
+        return categorized
     }
 }

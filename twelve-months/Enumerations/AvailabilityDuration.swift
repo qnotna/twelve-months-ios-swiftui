@@ -1,5 +1,5 @@
 //
-//  DetailSection.swift
+//  AvailabilityDuration.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 25.11.20.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum DetailSection: Int, CaseIterable {
+enum AvailabilityDuration: Int, CaseIterable {
     case monthly, yearly
 }
 
-extension DetailSection: CustomStringConvertible {
+extension AvailabilityDuration: CustomStringConvertible {
     var description: String {
         switch self {
         case .monthly: return "Monthly Availability"

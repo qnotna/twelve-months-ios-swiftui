@@ -29,9 +29,9 @@ class YearlyAvailabilityCell: UITableViewCell {
 
     fileprivate func setupStackView() {
         cultivationView = YearlyView(availability: item.cultivationByMonth,
-                                     title: OverviewSection.cultivation.description)
+                                     title: AvailabilityType.cultivation.description)
         importView = YearlyView(availability: item.importByMonth,
-                                title: OverviewSection.importOnly.description)
+                                title: AvailabilityType.importOnly.description)
         stackView = UIStackView(arrangedSubviews: [cultivationView, importView])
         stackView.axis = .vertical
         stackView.frame = frame

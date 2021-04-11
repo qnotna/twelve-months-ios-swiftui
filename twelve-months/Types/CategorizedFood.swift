@@ -1,5 +1,5 @@
 //
-//  Goods.swift
+//  CategorizedFood.swift
 //  twelve-months
 //
 //  Created by Anton Quietzsch on 18.11.20.
@@ -9,14 +9,14 @@
 import Foundation
 
 /// Data source for any food in a given month
-struct Goods {
+struct CategorizedFood {
     var cultivated = [Food]()
     var imported = [Food]()
     var identifier = UUID()
 }
 
 #warning("Use this for 'UIDiffableDataSource'")
-extension Goods: Hashable {
+extension CategorizedFood: Hashable {
     /// Only represent hash from `identifier`
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)

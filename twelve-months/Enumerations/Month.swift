@@ -38,7 +38,7 @@ extension Month: CaseIterable {
     /// Create index for `month` in `allCases`
     static func index(of month: Month) -> Int {
         /// Protocol conformance guarantees this never fails
-        //swiftlint:disable:next force_unwrapping
+        // swiftlint:disable:next force_unwrapping
         return allCases.firstIndex(of: month)!
     }
 }

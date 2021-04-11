@@ -9,8 +9,6 @@
 import UIKit
 
 class PageViewToolbar: UIToolbar {
-    // MARK: - Outlets
-
     var previousButton: UIBarButtonItem!
     var titleLabel: UILabel!
     var nextButton: UIBarButtonItem!
@@ -20,9 +18,9 @@ class PageViewToolbar: UIToolbar {
     weak var navigationDelegate: PageViewToolbarDelegate?
 
     /// Total size of navigationStack
-    var navigationSize: Int!
+    var pageCount: Int!
     /// Current working index in navigationStack
-    var navigationIndex: Int!
+    var pageIndex: Int!
     /// Title for `titleLabel`
     var title: String? {
         willSet {
@@ -34,13 +32,13 @@ class PageViewToolbar: UIToolbar {
 
     // MARK: - Lifecycle
 
-    init(withSize navigationSize: Int, startingAt navigationIndex: Int) {
+    init(withSize count: Int, startingAt index: Int) {
         super.init(frame: .zero)
-        assert(navigationSize > 0, "navigationSize must be larger than 0. Found '\(navigationSize)'")
-        self.navigationSize = navigationSize
-        assert((0 ..< navigationSize).contains(navigationIndex),
-               "navigationIndex must be within 0..<\(navigationSize). Found '\(navigationSize)'")
-        self.navigationIndex = navigationIndex
+        assert(count > 0, "navigationSize must be larger than 0. Found '\(count)'")
+        self.pageCount = count
+        assert((0 ..< count).contains(index),
+               "navigationIndex must be within 0..<\(count). Found '\(count)'")
+        self.pageIndex = index
         setupBarButtonItems()
         setupTitleLabel()
     }
@@ -81,37 +79,37 @@ class PageViewToolbar: UIToolbar {
     @objc private func didTapPreviousButton(_: UIBarButtonItem) {
         decrementIndex()
         reloadTitle()
-        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex, direction: .reverse)
+        navigationDelegate?.toolbar(self, navigationIndexDidChange: pageIndex, direction: .reverse)
     }
 
     /// Delegate title change and informs about incremented `navigationIndex`
     @objc private func didTapNextButton(_: UIBarButtonItem) {
         incrementIndex()
         reloadTitle()
-        navigationDelegate?.toolbar(self, navigationIndexDidChange: navigationIndex, direction: .forward)
+        navigationDelegate?.toolbar(self, navigationIndexDidChange: pageIndex, direction: .forward)
     }
 
     // MARK: - Modifying index
 
     /// Decrements `navigationIndex` by 1, wraps around to `0` if `navigationSize` is reached
     func decrementIndex() {
-        var previousIndex = navigationIndex - 1
-        if previousIndex < 0 { previousIndex = navigationSize - 1 }
-        guard navigationSize > previousIndex else { return }
-        navigationIndex = previousIndex
+        var previousIndex = pageIndex - 1
+        if previousIndex < 0 { previousIndex = pageCount - 1 }
+        guard pageCount > previousIndex else { return }
+        pageIndex = previousIndex
     }
 
     /// Increments `navigationIndex` by 1, wraps around to `navigationSize` if `0` is reached
     func incrementIndex() {
-        var nextIndex = navigationIndex + 1
-        if navigationSize == nextIndex { nextIndex = 0 }
-        guard navigationSize > nextIndex else { return }
-        navigationIndex = nextIndex
+        var nextIndex = pageIndex + 1
+        if pageCount == nextIndex { nextIndex = 0 }
+        guard pageCount > nextIndex else { return }
+        pageIndex = nextIndex
     }
 
     // MARK: - Reload Data
 
     func reloadTitle() {
-        title = navigationDelegate?.toolbar(self, titleForNavigationIndex: navigationIndex)
+        title = navigationDelegate?.toolbar(self, titleForNavigationIndex: pageIndex)
     }
 }

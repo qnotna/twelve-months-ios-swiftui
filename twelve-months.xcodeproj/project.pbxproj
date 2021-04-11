@@ -19,7 +19,7 @@
 		BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */; };
 		BF284E46256EC94C00EBA874 /* YearlyAvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E45256EC94C00EBA874 /* YearlyAvailabilityCell.swift */; };
 		BF284E49256EC95F00EBA874 /* MonthlyAvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E48256EC95F00EBA874 /* MonthlyAvailabilityCell.swift */; };
-		BF284E4C256EC9C800EBA874 /* DetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E4B256EC9C800EBA874 /* DetailSection.swift */; };
+		BF284E4C256EC9C800EBA874 /* AvailabilityDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E4B256EC9C800EBA874 /* AvailabilityDuration.swift */; };
 		BF284E50256EE20E00EBA874 /* CultivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E4F256EE20E00EBA874 /* CultivationView.swift */; };
 		BF284E53256EEB8800EBA874 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E52256EEB8800EBA874 /* ImportView.swift */; };
 		BF284E57256F027600EBA874 /* AvailabilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E56256F027600EBA874 /* AvailabilityView.swift */; };
@@ -41,13 +41,13 @@
 		BF47CBD323A6F5BB00386A87 /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBD223A6F5BB00386A87 /* Bundle+Decodable.swift */; };
 		BF50CBCC23A7E79B00980B2B /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = BF50CBCB23A7E79B00980B2B /* regions.json */; };
 		BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50CBCD23A7E82A00980B2B /* Region.swift */; };
-		BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */; };
+		BFA1B58C23C8C63700E2A765 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1B58B23C8C63700E2A765 /* FoodTableViewController.swift */; };
 		BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A21F256D462F0069233D /* UIView+Subviews.swift */; };
 		BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */; };
 		BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */; };
-		BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* Goods.swift */; };
+		BFB7A05E25657CEF00C31B5B /* CategorizedFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7A05D25657CEE00C31B5B /* CategorizedFood.swift */; };
 		BFCA960525838109009A9457 /* DefaultStringInterpolation+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA960425838109009A9457 /* DefaultStringInterpolation+Optional.swift */; };
-		BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* OverviewSection.swift */; };
+		BFEF250D25656C5700796CE2 /* AvailabilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF250C25656C5700796CE2 /* AvailabilityType.swift */; };
 		BFEF251325656EF400796CE2 /* UIColor+Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF251225656EF400796CE2 /* UIColor+Availability.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		BF284E34256D89C700EBA874 /* CultivationFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationFoodCell.swift; sourceTree = "<group>"; };
 		BF284E45256EC94C00EBA874 /* YearlyAvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyAvailabilityCell.swift; sourceTree = "<group>"; };
 		BF284E48256EC95F00EBA874 /* MonthlyAvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAvailabilityCell.swift; sourceTree = "<group>"; };
-		BF284E4B256EC9C800EBA874 /* DetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSection.swift; sourceTree = "<group>"; };
+		BF284E4B256EC9C800EBA874 /* AvailabilityDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityDuration.swift; sourceTree = "<group>"; };
 		BF284E4F256EE20E00EBA874 /* CultivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationView.swift; sourceTree = "<group>"; };
 		BF284E52256EEB8800EBA874 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
 		BF284E56256F027600EBA874 /* AvailabilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityView.swift; sourceTree = "<group>"; };
@@ -88,13 +88,13 @@
 		BF47CBD223A6F5BB00386A87 /* Bundle+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
 		BF50CBCB23A7E79B00980B2B /* regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
 		BF50CBCD23A7E82A00980B2B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewController.swift; sourceTree = "<group>"; };
+		BFA1B58B23C8C63700E2A765 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		BFA3A21F256D462F0069233D /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTrafficLightView.swift; sourceTree = "<group>"; };
 		BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
-		BFB7A05D25657CEE00C31B5B /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
+		BFB7A05D25657CEE00C31B5B /* CategorizedFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizedFood.swift; sourceTree = "<group>"; };
 		BFCA960425838109009A9457 /* DefaultStringInterpolation+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultStringInterpolation+Optional.swift"; sourceTree = "<group>"; };
-		BFEF250C25656C5700796CE2 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
+		BFEF250C25656C5700796CE2 /* AvailabilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityType.swift; sourceTree = "<group>"; };
 		BFEF251225656EF400796CE2 /* UIColor+Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Availability.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,8 +186,8 @@
 				BF47CBC823A6EAB100386A87 /* FoodType.swift */,
 				BF47CBCA23A6EB0D00386A87 /* Month.swift */,
 				BF47CBCE23A6EC0C00386A87 /* RegionType.swift */,
-				BFEF250C25656C5700796CE2 /* OverviewSection.swift */,
-				BF284E4B256EC9C800EBA874 /* DetailSection.swift */,
+				BFEF250C25656C5700796CE2 /* AvailabilityType.swift */,
+				BF284E4B256EC9C800EBA874 /* AvailabilityDuration.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				BF47CBC623A6EA8200386A87 /* Food.swift */,
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
 				BF50CBCD23A7E82A00980B2B /* Region.swift */,
-				BFB7A05D25657CEE00C31B5B /* Goods.swift */,
+				BFB7A05D25657CEE00C31B5B /* CategorizedFood.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			children = (
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
 				BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */,
-				BFA1B58B23C8C63700E2A765 /* FoodItemTableViewController.swift */,
+				BFA1B58B23C8C63700E2A765 /* FoodTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,10 +356,10 @@
 				BF284E57256F027600EBA874 /* AvailabilityView.swift in Sources */,
 				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
 				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
-				BFEF250D25656C5700796CE2 /* OverviewSection.swift in Sources */,
+				BFEF250D25656C5700796CE2 /* AvailabilityType.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */,
-				BF284E4C256EC9C800EBA874 /* DetailSection.swift in Sources */,
+				BF284E4C256EC9C800EBA874 /* AvailabilityDuration.swift in Sources */,
 				BF47CBD123A6EC7C00386A87 /* Availability.swift in Sources */,
 				BF284E50256EE20E00EBA874 /* CultivationView.swift in Sources */,
 				BFA3A223256D4EB70069233D /* ImportTrafficLightView.swift in Sources */,
@@ -370,7 +370,7 @@
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
 				BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */,
-				BFA1B58C23C8C63700E2A765 /* FoodItemTableViewController.swift in Sources */,
+				BFA1B58C23C8C63700E2A765 /* FoodTableViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */,
 				BFCA960525838109009A9457 /* DefaultStringInterpolation+Optional.swift in Sources */,
@@ -378,7 +378,7 @@
 				BF284E49256EC95F00EBA874 /* MonthlyAvailabilityCell.swift in Sources */,
 				BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */,
 				BF284E9C257142DC00EBA874 /* PageViewToolbar.swift in Sources */,
-				BFB7A05E25657CEF00C31B5B /* Goods.swift in Sources */,
+				BFB7A05E25657CEF00C31B5B /* CategorizedFood.swift in Sources */,
 				BF284E53256EEB8800EBA874 /* ImportView.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
 				BF284E7B256FE1A100EBA874 /* UILabel+Text.swift in Sources */,

@@ -12,7 +12,7 @@ extension DefaultStringInterpolation {
     /// Force unwrap optionals in interpolated strings.
     /// Silences warning: `String interpolation produces a debug description for an optional value`
     mutating func appendInterpolation<T>(optional: T?) {
-        //swiftlint:disable:next force_unwrapping
+        // swiftlint:disable:next force_unwrapping
         appendInterpolation(optional!)
     }
 }
