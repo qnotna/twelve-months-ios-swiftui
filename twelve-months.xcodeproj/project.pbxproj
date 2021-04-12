@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A08311B2624864000E658D0 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08311A2624864000E658D0 /* RootController.swift */; };
+		7A08311F2624903200E658D0 /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08311E2624903200E658D0 /* NibInstantiatable.swift */; };
+		7A3731A026246093002E1AE4 /* PagingToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A37319F26246093002E1AE4 /* PagingToolbar.xib */; };
+		7A3731A3262460AF002E1AE4 /* PagingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */; };
+		7A3731A62624630F002E1AE4 /* PagingToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */; };
+		7A3731C326247AF5002E1AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A3731C226247AF5002E1AE4 /* Main.storyboard */; };
+		7A3731C626247B97002E1AE4 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731C526247B97002E1AE4 /* Storyboarded.swift */; };
 		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodCell.swift */; };
@@ -26,7 +33,6 @@
 		BF284E5A256F087A00EBA874 /* RatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E59256F087A00EBA874 /* RatioView.swift */; };
 		BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E5D256FC04100EBA874 /* YearlyView.swift */; };
 		BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E60256FC88D00EBA874 /* String+Substring.swift */; };
-		BF284E72256FDCAC00EBA874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF284E70256FDCAC00EBA874 /* Main.storyboard */; };
 		BF284E7B256FE1A100EBA874 /* UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */; };
 		BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E81256FF83400EBA874 /* Coordinator.swift */; };
 		BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */; };
@@ -52,6 +58,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A08311A2624864000E658D0 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
+		7A08311E2624903200E658D0 /* NibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
+		7A37319F26246093002E1AE4 /* PagingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingToolbar.xib; sourceTree = "<group>"; };
+		7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingToolbar.swift; sourceTree = "<group>"; };
+		7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingToolbarDelegate.swift; sourceTree = "<group>"; };
+		7A3731C226247AF5002E1AE4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7A3731C526247B97002E1AE4 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF0FD4C123C7C4890042EE1D /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
@@ -73,7 +86,6 @@
 		BF284E59256F087A00EBA874 /* RatioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioView.swift; sourceTree = "<group>"; };
 		BF284E5D256FC04100EBA874 /* YearlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyView.swift; sourceTree = "<group>"; };
 		BF284E60256FC88D00EBA874 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
-		BF284E71256FDCAC00EBA874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF284E7A256FE1A100EBA874 /* UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Text.swift"; sourceTree = "<group>"; };
 		BF284E81256FF83400EBA874 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -137,11 +149,11 @@
 				BF47CBC523A6E64200386A87 /* Resources */,
 				BF1CB11923A6E46100F8A5C9 /* AppDelegate.swift */,
 				BF1CB11B23A6E46100F8A5C9 /* SceneDelegate.swift */,
-				BF284E70256FDCAC00EBA874 /* Main.storyboard */,
 				BF1CB12423A6E46300F8A5C9 /* LaunchScreen.storyboard */,
 				BF1CB12223A6E46300F8A5C9 /* Assets.xcassets */,
 				BF1CB12723A6E46300F8A5C9 /* Info.plist */,
 				BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */,
+				7A3731C226247AF5002E1AE4 /* Main.storyboard */,
 			);
 			path = "twelve-months";
 			sourceTree = "<group>";
@@ -176,6 +188,8 @@
 				BF284E5D256FC04100EBA874 /* YearlyView.swift */,
 				BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */,
 				BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */,
+				7A37319F26246093002E1AE4 /* PagingToolbar.xib */,
+				7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */,
 			);
 			path = Cutom;
 			sourceTree = "<group>";
@@ -207,6 +221,9 @@
 			children = (
 				BF284E81256FF83400EBA874 /* Coordinator.swift */,
 				BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */,
+				7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */,
+				7A3731C526247B97002E1AE4 /* Storyboarded.swift */,
+				7A08311E2624903200E658D0 /* NibInstantiatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -238,6 +255,7 @@
 				BFAD619C23BD108F002E9274 /* MonthTableViewController.swift */,
 				BF1CB11D23A6E46100F8A5C9 /* TodayPageViewController.swift */,
 				BFA1B58B23C8C63700E2A765 /* FoodTableViewController.swift */,
+				7A08311A2624864000E658D0 /* RootController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,8 +334,9 @@
 			files = (
 				BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */,
 				BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */,
+				7A3731C326247AF5002E1AE4 /* Main.storyboard in Resources */,
+				7A3731A026246093002E1AE4 /* PagingToolbar.xib in Resources */,
 				BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */,
-				BF284E72256FDCAC00EBA874 /* Main.storyboard in Resources */,
 				BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */,
 				BF50CBCC23A7E79B00980B2B /* regions.json in Resources */,
 			);
@@ -357,6 +376,7 @@
 				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
 				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
 				BFEF250D25656C5700796CE2 /* AvailabilityType.swift in Sources */,
+				7A3731C626247B97002E1AE4 /* Storyboarded.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */,
 				BF284E4C256EC9C800EBA874 /* AvailabilityDuration.swift in Sources */,
@@ -366,10 +386,14 @@
 				BF1CB11E23A6E46100F8A5C9 /* TodayPageViewController.swift in Sources */,
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
 				BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */,
+				7A08311B2624864000E658D0 /* RootController.swift in Sources */,
+				7A08311F2624903200E658D0 /* NibInstantiatable.swift in Sources */,
 				BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
+				7A3731A62624630F002E1AE4 /* PagingToolbarDelegate.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
 				BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */,
+				7A3731A3262460AF002E1AE4 /* PagingToolbar.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodTableViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */,
@@ -398,14 +422,6 @@
 				BF1CB12523A6E46300F8A5C9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		BF284E70256FDCAC00EBA874 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF284E71256FDCAC00EBA874 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

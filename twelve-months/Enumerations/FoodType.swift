@@ -1,8 +1,4 @@
 //
-//  FoodType.swift
-//  twelve-months
-//
-//  Created by Anton Quietzsch on 15.12.19.
 //  Copyright © 2019 Anton Quietzsch. All rights reserved.
 //
 
@@ -13,8 +9,9 @@ enum FoodType: Decodable, CaseIterable {
 
     /// Toggles `FoodType` between `.vegetable` and `.fruit`
     mutating func toggle() {
-        guard self == .vegetable else { self = .vegetable; return }
-        guard self == .fruit else { self = .fruit; return }
+        self = (self == .vegetable)
+            ? .fruit
+            : .vegetable
     }
 }
 
@@ -25,8 +22,8 @@ extension FoodType: RawRepresentable {
     init?(rawValue: String) {
         switch rawValue {
         case "Vegetable": self = .vegetable
-        case "Fruit": self = .fruit
-        default: fatalError("Unexpectedly found illegal fruitType \(rawValue)")
+        case "Fruit":     self = .fruit
+        default:          fatalError("Unexpectedly found illegal fruitType \(rawValue)")
         }
     }
 }
@@ -35,7 +32,7 @@ extension FoodType: CustomStringConvertible {
     var description: String {
         switch self {
         case .vegetable: return "Vegetable"
-        case .fruit: return "Fruit"
+        case .fruit:     return "Fruit"
         }
     }
 }

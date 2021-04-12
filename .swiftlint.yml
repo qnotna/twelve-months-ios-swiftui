@@ -5,3 +5,9 @@ opt_in_rules:
     - force_unwrapping
     - force_cast
     - force_try
+
+trailing_whitespace:
+    ignores_empty_lines: true
+
+line_length:
+    ignores_comments: true

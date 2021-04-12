@@ -1,8 +1,4 @@
 //
-//  MainCoordinator.swift
-//  twelve-months
-//
-//  Created by Anton Quietzsch on 26.11.20.
 //  Copyright © 2020 Anton Quietzsch. All rights reserved.
 //
 
@@ -10,8 +6,8 @@ import UIKit
 
 /// Responsible for navigation and handling view controllers
 class MainCoordinator: Coordinator {
-    /// The main navigation controller that embeds `monthViewControllers`
-    var navigationController: UINavigationController
+    /// The main navigation controller
+    var navigationController: RootController
     /// List of all 12 months view controllers
     var monthViewControllers = [UIViewController]()
 
@@ -21,10 +17,9 @@ class MainCoordinator: Coordinator {
     /// Fruits datasource
     private var fruits: [Food]
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: RootController) {
         self.navigationController = navigationController
         #warning("SafeArea should not be transparent")
-        self.navigationController.isNavigationBarHidden = true
         vegetables = Bundle.main.decode([Food].self, from: Food.vegetablesUrl)
         fruits = Bundle.main.decode([Food].self, from: Food.fruitsUrl)
     }

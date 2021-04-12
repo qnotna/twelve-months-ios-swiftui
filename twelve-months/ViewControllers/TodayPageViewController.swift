@@ -1,8 +1,4 @@
 //
-//  TodayPageViewController.swift
-//  twelve-months
-//
-//  Created by Anton Quietzsch on 15.12.19.
 //  Copyright © 2019 Anton Quietzsch. All rights reserved.
 //
 
@@ -10,7 +6,6 @@ import UIKit
 
 class TodayPageViewController: UIPageViewController {
     weak var coordinator: MainCoordinator?
-    var toolbar: PageViewToolbar!
     var foodTypeControl: RoundedSegmentedControl!
     var pages: [UIViewController]!
 
@@ -21,31 +16,28 @@ class TodayPageViewController: UIPageViewController {
         self.pages = pages
     }
 
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         setupToolbar()
         setupSegmentedControl()
         setupSwipeGestureRecognizers()
     }
-
-    fileprivate func setupToolbar() {
-        guard let index = Month.allCases.firstIndex(of: Month.current) else { return }
-        toolbar = PageViewToolbar(withSize: pages.count, startingAt: index)
-        if let title = pages[index].title {
-            toolbar.title = title
+    
+    private func setupToolbar() {
+        if let navigationController = navigationController as? RootController,
+           let index = Month.allCases.firstIndex(of: .current) {
+            // Set delegate
+            navigationController.addToolbar(pages.count, index, delegate: self)
+            let currentMonthController = pages[index]
+            // Set initial title and controller
+            navigationController.title = currentMonthController.title
+            setViewControllers([currentMonthController], direction: .forward, animated: true)
         }
-        toolbar.navigationDelegate = self
-        view.addSubview(toolbar)
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        ])
-        setViewControllers([pages[index]], direction: .forward, animated: true)
     }
 
     fileprivate func setupSegmentedControl() {
@@ -55,19 +47,23 @@ class TodayPageViewController: UIPageViewController {
         foodTypeControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             foodTypeControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            foodTypeControl.bottomAnchor.constraint(equalTo: toolbar.topAnchor, constant: -15)
+            foodTypeControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -65)
         ])
     }
 
-    fileprivate func setupSwipeGestureRecognizers() {
-        /// Previous page recognizer
-        let swipePrevious = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeToPresentPreviousPage(_:)))
-        swipePrevious.direction = .right
-        view.addGestureRecognizer(swipePrevious)
-        /// Next page recognizer
-        let swipeNext = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeToPresentNextPage(_:)))
-        swipeNext.direction = .left
-        view.addGestureRecognizer(swipeNext)
+    private func setupSwipeGestureRecognizers() {
+        if let target = navigationController as? RootController {
+            /// Previous page recognizer
+            let swipePrevious = UISwipeGestureRecognizer(target: target,
+                                                         action: #selector(target.didSwipeToPresentPreviousPage))
+            swipePrevious.direction = .right
+            view.addGestureRecognizer(swipePrevious)
+            /// Next page recognizer
+            let swipeNext = UISwipeGestureRecognizer(target: target,
+                                                     action: #selector(target.didSwipeToPresentNextPage))
+            swipeNext.direction = .left
+            view.addGestureRecognizer(swipeNext)
+        }
     }
 
     // MARK: - Actions
@@ -80,41 +76,17 @@ class TodayPageViewController: UIPageViewController {
             }
         }
     }
-
-    /// Detected swipe to `.right`, decrements navigationIndex and calls to present new page
-    @objc func didSwipeToPresentPreviousPage(_: UISwipeGestureRecognizer) {
-        toolbar.decrementIndex()
-        didSwipeToPresentPage(in: .reverse)
-    }
-
-    /// Detected swipe to `.left`, increments navigationIndex and calls to present new page
-    @objc func didSwipeToPresentNextPage(_: UISwipeGestureRecognizer) {
-        toolbar.incrementIndex()
-        didSwipeToPresentPage(in: .forward)
-    }
-
-    #warning("Selected cells stay selected when new page is presented")
-    #warning("Scrollbar blinks after transition")
-    /// Presents the next page animated depending on the `direction`
-    private func didSwipeToPresentPage(in direction: UIPageViewController.NavigationDirection) {
-        let viewController = pages[toolbar.pageIndex]
-        setViewControllers([viewController], direction: direction, animated: true)
-        toolbar.reloadTitle()
-    }
 }
 
-// MARK: - PageViewToolbar Delegate Methods
+// MARK: - `PagingToolbar` Delegate Methods
 
-extension TodayPageViewController: PageViewToolbarDelegate {
-    /// Set the next page to be presented
-    func toolbar(_: PageViewToolbar,
-                 navigationIndexDidChange index: Int,
-                 direction: UIPageViewController.NavigationDirection) {
+extension TodayPageViewController: PagingToolbarDelegate {
+    func toolbar(_ toolbar: PagingToolbar, navigationIndexDidChange index: Int, direction: PagingDirection) {
         setViewControllers([pages[index]], direction: direction, animated: true)
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
-
-    /// Title of the current page
-    func toolbar(_: PageViewToolbar, titleForNavigationIndex index: Int) -> String {
+    
+    func toolbar(_ toolbar: PagingToolbar, titleForNavigationIndex index: Int) -> String {
         guard let title = pages[index].title else {
             fatalError("Unexpectedly found page at index \(index) without title")
         }

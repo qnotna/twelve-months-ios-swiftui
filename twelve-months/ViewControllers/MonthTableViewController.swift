@@ -16,9 +16,13 @@ class MonthTableViewController: UITableViewController {
     var fruits: CategorizedFood!
     var vegetables: CategorizedFood!
     var month: Month!
+    
     #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
-        didSet { tableView.reloadData() }
+        didSet {
+            tableView.reloadData()
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        }
     }
 
     // MARK: - Lifecycle
