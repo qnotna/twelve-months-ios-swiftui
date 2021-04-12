@@ -1,8 +1,4 @@
 //
-//  MonthTableViewController.swift
-//  twelve-months
-//
-//  Created by Anton Quietzsch on 01.01.20.
 //  Copyright © 2020 Anton Quietzsch. All rights reserved.
 //
 
@@ -16,7 +12,7 @@ class MonthTableViewController: UITableViewController {
     var fruits: CategorizedFood!
     var vegetables: CategorizedFood!
     var month: Month!
-    
+
     #warning("Save default in 'UserDefaults' instead")
     var foodType: FoodType = .vegetable {
         didSet {
@@ -42,19 +38,18 @@ class MonthTableViewController: UITableViewController {
     required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
-// MARK: - Delegate+DataSource
+// MARK: - Delegate & DataSource
 
 #warning("Move to 'MonthDataSource'")
 extension MonthTableViewController {
     func goods(in section: Int) -> [Food] {
-        let cultivatedVegetables = vegetables.cultivated,
-            importedVegetables = vegetables.imported,
-            cultivatedFruits = fruits.cultivated,
-            importedFruits = fruits.imported
-        switch AvailabilityType(rawValue: section) {
-        case .cultivation: return (foodType == .vegetable) ? cultivatedVegetables : cultivatedFruits
-        case .importOnly: return (foodType == .vegetable) ? importedVegetables : importedFruits
-        default: fatalError("Unexpectedly found illegal section \(section)")
+        let availabilityType = AvailabilityType(rawValue: section)
+        switch (availabilityType, foodType) {
+        case (.cultivation, .vegetable): return vegetables.cultivated
+        case (.cultivation, .fruit):     return fruits.cultivated
+        case (.importOnly, .vegetable):  return vegetables.imported
+        case (.importOnly, .fruit):      return fruits.imported
+        default:                         fatalError("Unexpectedly found illegal section \(section)")
         }
     }
 
@@ -80,8 +75,8 @@ extension MonthTableViewController {
         let item = goods(in: section)[row]
         switch AvailabilityType(rawValue: section) {
         case .cultivation: return CultivationFoodCell(item, in: month)
-        case .importOnly: return ImportFoodCell(item, in: month)
-        default: fatalError("Failed initializing FoodCell for section \(section)")
+        case .importOnly:  return ImportFoodCell(item, in: month)
+        default:           fatalError("Failed initializing FoodCell for section \(section)")
         }
     }
 

@@ -7,11 +7,11 @@ import UIKit
 class TodayPageViewController: UIPageViewController {
     weak var coordinator: MainCoordinator?
     var foodTypeControl: RoundedSegmentedControl!
-    var pages: [UIViewController]!
+    var pages: [MonthTableViewController]!
 
     // MARK: - Lifecycle
 
-    init(pages: [UIViewController]) {
+    init(pages: [MonthTableViewController]) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pages = pages
     }
@@ -27,12 +27,12 @@ class TodayPageViewController: UIPageViewController {
         setupSegmentedControl()
         setupSwipeGestureRecognizers()
     }
-    
+
     private func setupToolbar() {
-        if let navigationController = navigationController as? RootController,
-           let index = Month.allCases.firstIndex(of: .current) {
+        if let navigationController = navigationController as? RootController {
+            let index = Month.index(of: .current)
             // Set delegate
-            navigationController.addToolbar(pages.count, index, delegate: self)
+            navigationController.addToolbar(index, delegate: self)
             let currentMonthController = pages[index]
             // Set initial title and controller
             navigationController.title = currentMonthController.title
@@ -41,7 +41,7 @@ class TodayPageViewController: UIPageViewController {
     }
 
     fileprivate func setupSegmentedControl() {
-        foodTypeControl = RoundedSegmentedControl(items: FoodType.allCases.map { "\($0)" })
+        foodTypeControl = RoundedSegmentedControl(items: FoodType.allCases.map { $0.rawValue })
         foodTypeControl.addTarget(self, action: #selector(foodTypeDidChange(_:)), for: .valueChanged)
         view.addSubview(foodTypeControl)
         foodTypeControl.translatesAutoresizingMaskIntoConstraints = false
@@ -70,23 +70,19 @@ class TodayPageViewController: UIPageViewController {
 
     /// Called by `foodTypeControl` when the value for `selectedSegmentIndex` changes
     @objc func foodTypeDidChange(_: UISegmentedControl) {
-        for page in pages {
-            if let viewController = page as? MonthTableViewController {
-                viewController.foodType.toggle()
-            }
-        }
+        pages.forEach { $0.foodType.toggle() }
     }
 }
 
-// MARK: - `PagingToolbar` Delegate Methods
+// MARK: - `PageControlToolbar` Delegate Methods
 
-extension TodayPageViewController: PagingToolbarDelegate {
-    func toolbar(_ toolbar: PagingToolbar, navigationIndexDidChange index: Int, direction: PagingDirection) {
+extension TodayPageViewController: PageControlToolbarDelegate {
+    func toolbar(_ toolbar: PageControlToolbar, navigationIndexDidChange index: Int, direction: PagingDirection) {
         setViewControllers([pages[index]], direction: direction, animated: true)
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
-    
-    func toolbar(_ toolbar: PagingToolbar, titleForNavigationIndex index: Int) -> String {
+
+    func toolbar(_ toolbar: PageControlToolbar, titleForNavigationIndex index: Int) -> String {
         guard let title = pages[index].title else {
             fatalError("Unexpectedly found page at index \(index) without title")
         }

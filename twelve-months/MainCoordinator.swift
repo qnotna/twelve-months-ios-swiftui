@@ -9,7 +9,7 @@ class MainCoordinator: Coordinator {
     /// The main navigation controller
     var navigationController: RootController
     /// List of all 12 months view controllers
-    var monthViewControllers = [UIViewController]()
+    var monthViewControllers = [MonthTableViewController]()
 
     #warning("Create datasource instead")
     /// Vegetable datasource

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7A08311B2624864000E658D0 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08311A2624864000E658D0 /* RootController.swift */; };
-		7A08311F2624903200E658D0 /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08311E2624903200E658D0 /* NibInstantiatable.swift */; };
-		7A3731A026246093002E1AE4 /* PagingToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A37319F26246093002E1AE4 /* PagingToolbar.xib */; };
-		7A3731A3262460AF002E1AE4 /* PagingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */; };
-		7A3731A62624630F002E1AE4 /* PagingToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */; };
+		7A0831222624CD4400E658D0 /* RollingIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0831212624CD4400E658D0 /* RollingIndex.swift */; };
+		7A0831262624E17C00E658D0 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0831252624E17C00E658D0 /* Instantiatable.swift */; };
+		7A3731A026246093002E1AE4 /* PageControlToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A37319F26246093002E1AE4 /* PageControlToolbar.xib */; };
+		7A3731A3262460AF002E1AE4 /* PageControlToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A2262460AF002E1AE4 /* PageControlToolbar.swift */; };
+		7A3731A62624630F002E1AE4 /* PageControlToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731A52624630F002E1AE4 /* PageControlToolbarDelegate.swift */; };
 		7A3731C326247AF5002E1AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A3731C226247AF5002E1AE4 /* Main.storyboard */; };
-		7A3731C626247B97002E1AE4 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3731C526247B97002E1AE4 /* Storyboarded.swift */; };
 		BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08323C0F62500AEAEA7 /* vegetables.json */; };
 		BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF7F08523C0F63700AEAEA7 /* fruits.json */; };
 		BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FD4C123C7C4890042EE1D /* FoodCell.swift */; };
@@ -37,8 +37,6 @@
 		BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E81256FF83400EBA874 /* Coordinator.swift */; };
 		BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */; };
 		BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */; };
-		BF284E9C257142DC00EBA874 /* PageViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */; };
-		BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */; };
 		BF47CBC723A6EA8200386A87 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC623A6EA8200386A87 /* Food.swift */; };
 		BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBC823A6EAB100386A87 /* FoodType.swift */; };
 		BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF47CBCA23A6EB0D00386A87 /* Month.swift */; };
@@ -59,12 +57,12 @@
 
 /* Begin PBXFileReference section */
 		7A08311A2624864000E658D0 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
-		7A08311E2624903200E658D0 /* NibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
-		7A37319F26246093002E1AE4 /* PagingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingToolbar.xib; sourceTree = "<group>"; };
-		7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingToolbar.swift; sourceTree = "<group>"; };
-		7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingToolbarDelegate.swift; sourceTree = "<group>"; };
+		7A0831212624CD4400E658D0 /* RollingIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingIndex.swift; sourceTree = "<group>"; };
+		7A0831252624E17C00E658D0 /* Instantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
+		7A37319F26246093002E1AE4 /* PageControlToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageControlToolbar.xib; sourceTree = "<group>"; };
+		7A3731A2262460AF002E1AE4 /* PageControlToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlToolbar.swift; sourceTree = "<group>"; };
+		7A3731A52624630F002E1AE4 /* PageControlToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlToolbarDelegate.swift; sourceTree = "<group>"; };
 		7A3731C226247AF5002E1AE4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7A3731C526247B97002E1AE4 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BAF7F08323C0F62500AEAEA7 /* vegetables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
 		BAF7F08523C0F63700AEAEA7 /* fruits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 		BF0FD4C123C7C4890042EE1D /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
@@ -90,8 +88,6 @@
 		BF284E81256FF83400EBA874 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF284E84256FF8EA00EBA874 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentedControl.swift; sourceTree = "<group>"; };
-		BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewToolbar.swift; sourceTree = "<group>"; };
-		BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewToolbarDelegate.swift; sourceTree = "<group>"; };
 		BF47CBC623A6EA8200386A87 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BF47CBC823A6EAB100386A87 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		BF47CBCA23A6EB0D00386A87 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
@@ -187,9 +183,8 @@
 				BFA3A222256D4EB70069233D /* ImportTrafficLightView.swift */,
 				BF284E5D256FC04100EBA874 /* YearlyView.swift */,
 				BF284E982571408700EBA874 /* RoundedSegmentedControl.swift */,
-				BF284E9B257142DC00EBA874 /* PageViewToolbar.swift */,
-				7A37319F26246093002E1AE4 /* PagingToolbar.xib */,
-				7A3731A2262460AF002E1AE4 /* PagingToolbar.swift */,
+				7A37319F26246093002E1AE4 /* PageControlToolbar.xib */,
+				7A3731A2262460AF002E1AE4 /* PageControlToolbar.swift */,
 			);
 			path = Cutom;
 			sourceTree = "<group>";
@@ -220,10 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				BF284E81256FF83400EBA874 /* Coordinator.swift */,
-				BF284E9E257144A800EBA874 /* PageViewToolbarDelegate.swift */,
-				7A3731A52624630F002E1AE4 /* PagingToolbarDelegate.swift */,
-				7A3731C526247B97002E1AE4 /* Storyboarded.swift */,
-				7A08311E2624903200E658D0 /* NibInstantiatable.swift */,
+				7A3731A52624630F002E1AE4 /* PageControlToolbarDelegate.swift */,
+				7A0831252624E17C00E658D0 /* Instantiatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -245,6 +238,7 @@
 				BF47CBD023A6EC7C00386A87 /* Availability.swift */,
 				BF50CBCD23A7E82A00980B2B /* Region.swift */,
 				BFB7A05D25657CEE00C31B5B /* CategorizedFood.swift */,
+				7A0831212624CD4400E658D0 /* RollingIndex.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -335,7 +329,7 @@
 				BF1CB12623A6E46300F8A5C9 /* LaunchScreen.storyboard in Resources */,
 				BAF7F08423C0F62500AEAEA7 /* vegetables.json in Resources */,
 				7A3731C326247AF5002E1AE4 /* Main.storyboard in Resources */,
-				7A3731A026246093002E1AE4 /* PagingToolbar.xib in Resources */,
+				7A3731A026246093002E1AE4 /* PageControlToolbar.xib in Resources */,
 				BAF7F08623C0F63700AEAEA7 /* fruits.json in Resources */,
 				BF1CB12323A6E46300F8A5C9 /* Assets.xcassets in Resources */,
 				BF50CBCC23A7E79B00980B2B /* regions.json in Resources */,
@@ -376,7 +370,6 @@
 				BF0FD4C323C7C4890042EE1D /* FoodCell.swift in Sources */,
 				BF284E35256D89C700EBA874 /* CultivationFoodCell.swift in Sources */,
 				BFEF250D25656C5700796CE2 /* AvailabilityType.swift in Sources */,
-				7A3731C626247B97002E1AE4 /* Storyboarded.swift in Sources */,
 				BFAD619D23BD108F002E9274 /* MonthTableViewController.swift in Sources */,
 				BF284E5E256FC04100EBA874 /* YearlyView.swift in Sources */,
 				BF284E4C256EC9C800EBA874 /* AvailabilityDuration.swift in Sources */,
@@ -387,21 +380,19 @@
 				BF50CBCE23A7E82A00980B2B /* Region.swift in Sources */,
 				BF284E85256FF8EA00EBA874 /* MainCoordinator.swift in Sources */,
 				7A08311B2624864000E658D0 /* RootController.swift in Sources */,
-				7A08311F2624903200E658D0 /* NibInstantiatable.swift in Sources */,
 				BF284E82256FF83400EBA874 /* Coordinator.swift in Sources */,
 				BF47CBC723A6EA8200386A87 /* Food.swift in Sources */,
-				7A3731A62624630F002E1AE4 /* PagingToolbarDelegate.swift in Sources */,
+				7A3731A62624630F002E1AE4 /* PageControlToolbarDelegate.swift in Sources */,
 				BFA3A220256D462F0069233D /* UIView+Subviews.swift in Sources */,
-				BF284E9F257144A800EBA874 /* PageViewToolbarDelegate.swift in Sources */,
-				7A3731A3262460AF002E1AE4 /* PagingToolbar.swift in Sources */,
+				7A3731A3262460AF002E1AE4 /* PageControlToolbar.swift in Sources */,
 				BFA1B58C23C8C63700E2A765 /* FoodTableViewController.swift in Sources */,
 				BF1CB11A23A6E46100F8A5C9 /* AppDelegate.swift in Sources */,
 				BF284E992571408700EBA874 /* RoundedSegmentedControl.swift in Sources */,
 				BFCA960525838109009A9457 /* DefaultStringInterpolation+Optional.swift in Sources */,
 				BF284E46256EC94C00EBA874 /* YearlyAvailabilityCell.swift in Sources */,
 				BF284E49256EC95F00EBA874 /* MonthlyAvailabilityCell.swift in Sources */,
+				7A0831262624E17C00E658D0 /* Instantiatable.swift in Sources */,
 				BF284E61256FC88D00EBA874 /* String+Substring.swift in Sources */,
-				BF284E9C257142DC00EBA874 /* PageViewToolbar.swift in Sources */,
 				BFB7A05E25657CEF00C31B5B /* CategorizedFood.swift in Sources */,
 				BF284E53256EEB8800EBA874 /* ImportView.swift in Sources */,
 				BF1CB11C23A6E46100F8A5C9 /* SceneDelegate.swift in Sources */,
@@ -409,6 +400,7 @@
 				BF47CBCF23A6EC0C00386A87 /* RegionType.swift in Sources */,
 				BF284E32256D89B800EBA874 /* ImportFoodCell.swift in Sources */,
 				BF47CBCB23A6EB0D00386A87 /* Month.swift in Sources */,
+				7A0831222624CD4400E658D0 /* RollingIndex.swift in Sources */,
 				BF47CBC923A6EAB100386A87 /* FoodType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

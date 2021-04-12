@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 /// Represents the availability of `Food`
-enum Availability: Int, Decodable, CustomStringConvertible {
+enum Availability: Int, Decodable {
     case none, lowest, low, high, highest
+}
 
+extension Availability: CustomStringConvertible {
     var description: String {
         switch self {
         case .lowest: return "Small"

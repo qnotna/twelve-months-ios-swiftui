@@ -10,7 +10,6 @@ import Foundation
 
 struct Food: Decodable, Equatable {
     var name: String
-    var localizedName: String
     var type: FoodType
     var importByMonth: [Availability]
     var cultivationByMonth: [Availability]

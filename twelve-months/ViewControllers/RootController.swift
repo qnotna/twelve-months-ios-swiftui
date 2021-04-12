@@ -5,10 +5,10 @@
 import UIKit
 
 class RootController: UINavigationController {
-    
+
     /// A toolbar replacement.
-    private var customToolbar = PagingToolbar.fromNib()
-    
+    private var customToolbar = PageControlToolbar.loadFromNib()
+
     /// Use the navigation controller's title for the toolbar.
     override var title: String? {
         didSet {
@@ -29,24 +29,23 @@ class RootController: UINavigationController {
     ///     - The correct toolbar size can only be inferred from the default `toolbar` that has to be hidden afterwards.
     /// - Parameter delegate: The delegate that should be informed about toolbar updates.
     #warning("Refactor toolbar initialization")
-    func addToolbar<Delegate: PagingToolbarDelegate>(_ count: Int, _ index: Int, delegate: Delegate) {
-        customToolbar.pageCount = count
+    func addToolbar<Delegate: PageControlToolbarDelegate>(_ index: Int, delegate: Delegate) {
         customToolbar.pageIndex = index
         view.addSubview(customToolbar)
         customToolbar.frame = toolbar.frame
         isToolbarHidden = true
-        customToolbar.navigationDelegate = delegate
+        customToolbar.pageControlDelegate = delegate
     }
-    
+
     /// Detected swipe to `.right`, decrements navigationIndex and calls to present new page
     @objc func didSwipeToPresentPreviousPage(_: UISwipeGestureRecognizer) {
-        customToolbar.decrementIndex()
+        customToolbar.pageIndex -= 1
         didSwipeToPresentPage(in: .reverse)
     }
 
     /// Detected swipe to `.left`, increments navigationIndex and calls to present new page
     @objc func didSwipeToPresentNextPage(_: UISwipeGestureRecognizer) {
-        customToolbar.incrementIndex()
+        customToolbar.pageIndex += 1
         didSwipeToPresentPage(in: .forward)
     }
 
@@ -54,9 +53,8 @@ class RootController: UINavigationController {
     #warning("Scrollbar blinks after transition")
     /// Presents the next page animated depending on the `direction`
     private func didSwipeToPresentPage(in direction: UIPageViewController.NavigationDirection) {
-        customToolbar.navigationDelegate?.toolbar(customToolbar,
+        customToolbar.pageControlDelegate?.toolbar(customToolbar,
                                                   navigationIndexDidChange: customToolbar.pageIndex,
                                                   direction: direction)
-        customToolbar.reloadTitle()
     }
 }

@@ -1,6 +1,3 @@
-line_length:
-    ignores_interpolated_strings: true
-
 opt_in_rules:
     - force_unwrapping
     - force_cast
@@ -11,3 +8,4 @@ trailing_whitespace:
 
 line_length:
     ignores_comments: true
+    ignores_interpolated_strings: true
